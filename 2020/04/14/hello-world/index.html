@@ -5,13 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="get到的知识点也可以post">
+    <meta name="description" content="WEB前端,个人记录,学习感悟">
     <meta name="keyword"  content="">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
     <title>
         
-        Hello World - undefined
+        Hello World - 一个不成熟的前端博客
         
     </title>
 
@@ -39,7 +39,7 @@
 </div>
 
 <div class="index-about">
-    <i> WEB,前端,个人记录,学习感悟 </i>
+    <i> get到的知识点也可以post </i>
 </div>
 
 <div class="index-container">
@@ -48,8 +48,8 @@
         
 <div class="nav" id="nav">
     <div class="avatar-name">
-        <div class="avatar ">
-            <img src="/" />
+        <div class="avatar radius">
+            <img src="/img/avatar.jpg" />
         </div>
         <div class="name">
             <i>金依妮</i>
@@ -60,25 +60,32 @@
             <li >
                 <a href="/">
                     <i class="iconfont icon-shouye1"></i>
-                    <span>HOME</span>
+                    <span>主页</span>
                 </a>
             </li>
             <li >
                 <a href="/tags">
                     <i class="iconfont icon-biaoqian1"></i>
-                    <span>TAGS</span>
+                    <span>标签</span>
                 </a>
             </li>
             <li >
                 <a href="/archives">
                     <i class="iconfont icon-guidang2"></i>
-                    <span>ARCHIVES</span>
+                    <span>存档</span>
                 </a>
             </li>
             <li >
                 <a href="/about/">
                     <i class="iconfont icon-guanyu2"></i>
-                    <span>ABOUT</span>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
                 </a>
             </li>
             
@@ -97,7 +104,7 @@
         <div class="search-input">
             <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
             <input id="search-input"/>
-            <span id="begin-search">search</span>
+            <span id="begin-search">搜索</span>
         </div>
         <div class="search-result-container" id="search-result-container">
 
@@ -106,7 +113,7 @@
 </div>
 
         <div class="index-about-mobile">
-            <i> WEB,前端,个人记录,学习感悟 </i>
+            <i> get到的知识点也可以post </i>
         </div>
     </div>
     
@@ -121,10 +128,10 @@
     </div>
 
     <div class="post-meta">
-        <span class="attr">Post：<span>2020-04-14 20:24:53</span></span>
+        <span class="attr">发布于：<span>2020-04-14 20:24:53</span></span>
         
         </span>
-        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
 </span>
 </span>
     </div>
@@ -143,6 +150,16 @@
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">赞赏</button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
+    </div>
+</div>
         
         <br />
         <div id="comment-container">
@@ -169,6 +186,14 @@
         
 
         
+        <li>
+            <a target="_blank"  href="https://github.com/Appleking10">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
 
         
 
@@ -191,7 +216,7 @@
 
 <script>
     // We expose some of the variables needed by the front end
-    window.hexo_search_path = ""
+    window.hexo_search_path = "search.json"
     window.hexo_root = "/"
     window.isPost = true
 </script>
