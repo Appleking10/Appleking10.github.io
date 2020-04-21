@@ -127,7 +127,7 @@ export default Toast
   **3.main.js** //项目的全局文件引用
 ```javascript
 import Alert from './main/alert1'
-Vue.use(Vuex)
+Vue.use(Alert)
 ```
 
    4.然后就可以在项目里面使用了，`this.$alert.alertMsg({msg:"something"})`
