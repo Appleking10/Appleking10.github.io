@@ -1,6 +1,6 @@
 ---
 title: vue项目开发中遇到的坑和心得（持续更新）
-date: 2020-04-17
+date: 2020-04-21
 tags: [VUE,实战心得,持续更新]
 ---
 
@@ -29,10 +29,10 @@ create(){
   * 描述： **Vue.extend**返回的是一个“扩展实例构造器”，也就是预设了部分选项的Vue的实例构造器，它常常服务于Vue.component用来生成组件，可以简单理解为当在模板中遇到该组件作为标签的自定义元素时，会自动调用“扩展实例构造器”来生产组件实例，并挂在到自定义元素上。
   * 参数类型：Object
 * 用法
-  * 原理：运用Vue.extend()方法，注册挂载自定义模板，并将模板显示方法挂载到Vue原型上，方便全局调用
+  * 原理：运用Vue.extend()方法，注册挂载自定义模板，并将模板显示方法挂载到Vue原型上，方便全局调用。Vue.extend 的显示与否是手动的去做组件的挂载和销毁。
   * 实战
    **1.alert.vue** //弹窗模板
-   
+
 ```javascript
 <template>
     <div id="alert" v-if="msg">
@@ -85,6 +85,7 @@ export default {
 ```
 
   **2.alert.js** //将创建构造器和挂载到目标元素上的逻辑抽离出来，多处可以复用
+  实例化时可以向这个实例传入参数，但是需要注意的是 props 的值需要通过 propsData 属性来传递
 ```javascript
 import Alert from './alert.vue'
 import Vue from 'vue'
