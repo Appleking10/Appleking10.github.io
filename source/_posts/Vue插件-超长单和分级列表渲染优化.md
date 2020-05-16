@@ -210,18 +210,15 @@ created(){
         ></slot>
         <!-- 否则：多级列表的兼容-->
         <div class="main-list"  v-else>
-            <!-- 展开按钮，点击事件传入一级列表id和二级项 -->
-            <span @click="toggleFold(index,item)">></span>
-            <!-- 一级列表 -->
-            {{item[0]}}
+            <span class="el-icon-arrow-down"></span>
+            <slot name="main" :main="item[0]">{{item[0]}}</slot>
         </div>
         <!-- 二级列表，每一个一级列表会跟着一个二级列表 -->
         <ul class="fold_tree" v-if="foldFlag[index]">
         <!-- 取虚拟列表里面的二级列表 -->
-            <li
-                v-for="(road,idx) in item[1].slice()"
-                :key="idx"
-            >{{road.label}}</li>
+            <li v-for="(road,idx) in item[1].slice()" :key="idx">
+                <slot name="sub" :sub="road"></slot>
+            </li>
         </ul>
     </div>
 </div>
@@ -330,16 +327,14 @@ handleScroll() {
     if (this.isArray) {
         //若是单列表。。。
     } else {
-        //如果有展开，才会去改变展示数据
+        
+    //如果有展开，才会去改变展示数据
         if (this.unFoldIndex != null) {
             //如果滑动距离超过展开上面一级菜单的长度
-            if (scrollTop >= (this.unFoldIndex + 1) * this.itemH) {
-            //    实际滑过多少个了：滑过距离-上面一级菜单高度 
+            if (scrollTop > (this.unFoldIndex + 1) * this.itemH) {
                 this.start = Math.floor(
-                    (scrollTop - (this.unFoldIndex + 1) * this.itemH) /
-                        this.itemH
+                    (scrollTop - (this.unFoldIndex + 1) * this.itemH) / this.itemH
                 );
-                //虚拟列表偏移量
                 this.offset =
                     this.start * this.itemH -
                     this.prevCount * this.itemH;
@@ -351,4 +346,37 @@ handleScroll() {
         }
     }
 },
+```
+
+7. **勾选功能的设计**
+
+引入勾选功能，可以在加上一个是否开启可以勾选的变量。思路是：如果是单列表的话，每项的选项框`v-model`用一个数组（`checked:[]`）来保存,如果选中的时候，用一个`checkRecord:new Set()`来记录被选中项；如果是多级列表，一级选项的`v-model`用`checked:[]`来保存，二级选项用`checkObj:{一级：[]}`来保存，并且`checkRecord:{一级:new Set()}`来记录所选的的。
+
+```javascript
+if (是单列表) {
+    if (this.checked[key]) {
+        this.checkRecord.add(key);
+    } else {
+        this.checkRecord.delete(key);
+    }
+} else {
+    if (
+        this.checked[mianIdx] && !this.checkObj[key]["check"][subIdx]
+    ) {
+        //如果二级选项全选,但不勾选其中一项
+        this.$set(this.checked, mianIdx, false);
+    }
+    if (!this.checkObj[key]["check"][subIdx]) {
+        //如果当前二级选中状态
+        this.checkRecord[key].delete(subIdx);
+    } else {
+        this.checkRecord[key].add(subIdx);
+    }
+
+    if (this.checkRecord[key].size == this.datas.get(key).length) {
+    //如果二级选项全部选中，勾选一级菜单
+        this.$set(this.checked, mianIdx, true);
+    }
+}
+
 ```
