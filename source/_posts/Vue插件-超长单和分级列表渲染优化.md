@@ -12,7 +12,7 @@ tags: [Vue实战,技能篇]
 2. 超长单列表的渲染以及优化
 3. 再1的基础上，兼容分级列表
 4. 选择器transfer的构造
-5. 封装成插件，发布到npm上
+5. 封装成插件，发布到npm上(to-do-list)
 
 ### 1. 前提基础学习
 
@@ -104,16 +104,17 @@ function load(){
 
 1. **列表结构设计**: 
    1. 主容器：可滚动的盒子，监听滚动事件。设置相对定位和`overflow:scroll`
-   2. 内层滚动条：用于生成滚动条，是真实列表的高度
-   3. 内层虚拟列表：设置绝对定位，漂浮在主容器里面，用于展示数据
+   2. 内层虚拟列表：设置相对定位，用于撑开主容器，用于展示数据
 
 ```html
 <!-- 主容器 -->
 <div class="viewport" ref="view" @scroll="handleScroll">
-    <!-- 滚动条：真实列表的高度 -->
-    <div class="scroll-bar" ref="scrollBar"></div>
-    <!-- 虚拟列表，用transform来做偏移量 -->
-    <div class="virtual-list" :style="{transform:`translate(0,${offset}px)`}">
+    <!-- 虚拟列表，用padding-top来做偏移量 -->
+    <div 
+        class="virtual-list"  
+        ref="virtualList" 
+        :style="{paddingTop:`${offset}px`,lineHeight:`${itemH}px`}"
+    >
         <div v-for="(item,index) in virtualList" class="item" :key="item.key" ref="item">
         <!-- 插槽：组件通过slot-scope="{item}"接收 -->
             <slot :item="item"></slot>
@@ -126,7 +127,7 @@ function load(){
     position relative
     overflow-y scroll
     .virtual-list
-        position absolute
+        position relative
         top 0
         left 0
         .item
@@ -135,9 +136,10 @@ function load(){
 ```
 2. **初始化:`mouted阶段`**
    1. 主容器的高度 = itemH * showNum
-   2. 滚动条高度 = itemH * datas.length
+   2. 虚拟列表的真实高度 = itemH * datas.length
    3. end = start + showNum
    4. 虚拟列表数据：`virtualList = datas.slice(start,end)`,切割真实列表来形成
+   
 3. **滚动条监听**
 
 ```javascript
@@ -169,9 +171,8 @@ nextCount() {
 
 virtutalList =  this.datas.slice(
                     this.start - this.prevCount, //向前一品
-                    this.end + this.nextCount //向后一品
-                )
-
+                    this.end + this.nextCount) //向后一品
+                
 //如果有预留渲染，向上移动,可以借助上图理解
 offset = start * itemH - prevCount * itemH;
 
@@ -201,25 +202,46 @@ created(){
 通过`v-if`和`v-else`来决定显示哪种列表
 
 ```html
-<div class="virtual-list" :style="{transform:`translate(0,${offset}px)`}">
-    <div v-for="(item,index) in virtualList" class="item" :key="item.key" ref="item">
-        <!-- 若传进来的数据数组，显示单列表 -->
-        <slot 
-            :item="item"  
-            v-if="Array.isArray(datas)"
-        ></slot>
-        <!-- 否则：多级列表的兼容-->
-        <div class="main-list"  v-else>
-            <span class="el-icon-arrow-down"></span>
-            <slot name="main" :main="item[0]">{{item[0]}}</slot>
+<div class="viewport" ref="view" @scroll="scrolFn" :style="{maxWidth:setMaxWidth}">
+    <!-- 虚拟列表，用paddingTop来做偏移量 -->
+    <div class="virtual-list" ref="virtualList"
+        :style="{paddingTop:`${offset}px`,lineHeight:`${itemH}px`}" >
+        <div class="item"
+            v-for="(item,index) in virtualList"
+            :key="item[0]+'-'+index">
+            <!-- 如果传的是数组，那就是单级列表 -->
+            <div class="single-list" v-if="Array.isArray(datas)" :style="{height:`${itemH}px`}">
+                <!-- 插槽：放置每一项列表，组件通过slot-scope="{item}"接收 -->
+                <slot name="singleList" :item="item"></slot>
+            </div>
+            <!-- 传的是Map，多级列表 -->
+            <div class="main-list" :style="{height:`${itemH}px`}" @click="toggleFold(index,item)"
+                v-else >
+                <!-- 下拉icon -->
+                <span style="display:inline-block;width:12px">
+                    <span
+                        class="el-icon-caret-right"
+                        :style="{transform: foldFlag[index]?'rotate(90deg)':'rotate(0deg)'}"
+                        v-show="datas && datas.get(item[0])['children'].length>0"
+                    ></span>
+                </span>
+                <!-- 放置一级菜单的slot -->
+                <slot name="main" :main="item[0]">{{item[0]}}</slot>
+            </div>
+            <!-- 展示的虚拟数据，若没有二级子级，便不显示 -->
+            <ul class="fold_tree"
+                style="padding-left:30px;list-style: none;margin:0;"
+                v-if="!Array.isArray(datas)&&foldFlag[index]&&item[1]['children'].length>0"
+            >
+                <li style="white-space: nowrap;"
+                    v-for="(child,idx) in item[1]['children'].slice()"
+                    :key="road[label]+'-'+road[nodekey]"
+                >
+                    <slot name="sub" :sub="child"></slot>
+                </li>
+            </ul>
         </div>
-        <!-- 二级列表，每一个一级列表会跟着一个二级列表 -->
-        <ul class="fold_tree" v-if="foldFlag[index]">
-        <!-- 取虚拟列表里面的二级列表 -->
-            <li v-for="(road,idx) in item[1].slice()" :key="idx">
-                <slot name="sub" :sub="road"></slot>
-            </li>
-        </ul>
+        <div v-if="datas.length == 0||datas.size==0">暂无数据</div>
     </div>
 </div>
 ```
@@ -238,31 +260,31 @@ created(){
 ```javascript
 toggleFold(index, item) {
     let scrollH;
-
     if (this.unFoldIndex === index) {
-    //若当前点击等于自己，则收起
+        //若当前点击等于自己，则收起
         this.$set(this.foldFlag, index, !this.foldFlag[index]);
         this.unFoldIndex = null;
-        scrollH = this.itemH * this.datas.size;
+        scrollH = this.itemH * (this.datas.size + 1);
+
     } else if (this.unFoldIndex == null) {
-    //若是当前没有展开，则展开当前点击
+        //若是当前没有展开，则展开当前点击
         this.$set(this.foldFlag, index, true);
-        scrollH = this.itemH * (index + 1) +
-            this.itemH * this.datas.get(item[0]).length;
+        //算上当前页面已有的一级列表高度
+        scrollH = this.itemH * (this.datas.size +  1 +
+                  this.datas.get(item[0])["children"].length);
         this.unFoldIndex = index;
     } else {
-    //若点击时已有别的列表展开，便收起其它列表，展开当前列表
+        //若点击时已有别的列表展开，便收起其它列表，展开当前列表
         this.$set(this.foldFlag, this.unFoldIndex, false);
         this.$set(this.foldFlag, index, true);
-        scrollH = this.itemH * (this.unFoldIndex + 1) +
-            this.itemH * this.datas.get(item[0]).length;
+        scrollH = this.itemH *  (this.datas.size + 1 +
+                  this.datas.get(item[0])["children"].length);
         this.unFoldIndex = index;
     }
     //不管展开或者收起，都将指针初始化
     this.start = 0; //控制当前列表的指针
     this.end = this.start + this.showNum;
-    //计算展开后真实高度
-    this.$refs.scrollBar.style.height = scrollH + "px";
+    this.$refs.virtualList.style.height = scrollH + "px";
 }
 ```
 5. **虚拟列表的截取**
@@ -283,18 +305,26 @@ virtualList() {
                 return this.datas;
             } else {
                 //若当前展开了，找到展开的一级菜单，切割当前列表
-                // 深拷贝
-                let data = _.cloneDeep(this.datas);
-                //获取当前点击的一级列表
+                //深拷贝对性能不太好
+                // let data = _.cloneDeep(this.datas);
+                let data = new Map();
+                //优化后写法,截取当前展开的二级菜单数组
+                this.datas.forEach((road, name) => {
+                    let obj = { children: [], id: road.id };
+                    obj[this.label] = road[this.label];
+                    obj[this.nodekey] = road[this.nodekey];
+                    data.set(name, obj);
+                });
+                // 返回截取后的Map
                 let key = [...this.datas][this.unFoldIndex][0];
-                let roadArr = [...this.datas][
-                    this.unFoldIndex
-                ][1].slice(
+                let roadArr = [...this.datas][this.unFoldIndex][1]["children"].slice(
                     this.start - this.prevCount,
                     this.end + this.nextCount
                 );
-                // 返回截取后的Map
-                data.set(key, roadArr);
+                //替换展现的二级数组
+                let newObj = data.get(key);
+                newObj["children"] = roadArr;
+                data.set(key, newObj);
                 return data;
             }
         }
@@ -324,20 +354,22 @@ nextCount() {
 ```javascript
 handleScroll() {
     let scrollTop = this.$refs.view.scrollTop;
-    if (this.isArray) {
-        //若是单列表。。。
+    if (Array.isArray(this.datas)) {
+        this.start = Math.floor(scrollTop / this.itemH); //向下取整,滑过多少个了
+        this.end = this.start + this.showNum;
+        //如果有预留渲染，向上移动
+        this.offset = this.start * this.itemH - this.prevCount * this.itemH;
     } else {
-        
-    //如果有展开，才会去改变展示数据
+        //如果有展开，才会去改变展示数据
         if (this.unFoldIndex != null) {
             //如果滑动距离超过展开上面一级菜单的长度
-            if (scrollTop > (this.unFoldIndex + 1) * this.itemH) {
+            if (scrollTop > (this.unFoldIndex + 2) * this.itemH) {
+                //截取的开始指针= 滑过多少个
                 this.start = Math.floor(
                     (scrollTop - (this.unFoldIndex + 1) * this.itemH) / this.itemH
                 );
-                this.offset =
-                    this.start * this.itemH -
-                    this.prevCount * this.itemH;
+                //虚拟列表的偏移量，应该向下顶多少
+                this.offset = this.start * this.itemH - this.prevCount * this.itemH;
             } else {
                 this.start = 0;
                 this.offset = 0;
@@ -350,33 +382,85 @@ handleScroll() {
 
 7. **勾选功能的设计**
 
-引入勾选功能，可以在加上一个是否开启可以勾选的变量。思路是：如果是单列表的话，每项的选项框`v-model`用一个数组（`checked:[]`）来保存,如果选中的时候，用一个`checkRecord:new Set()`来记录被选中项；如果是多级列表，一级选项的`v-model`用`checked:[]`来保存，二级选项用`checkObj:{一级：[]}`来保存，并且`checkRecord:{一级:new Set()}`来记录所选的的。
+引入勾选功能，可以在加上一个是否开启可以勾选的变量。思路是：用一个集合`new Set()`来保存已选中的item,每条的勾选框的`v-model`用是否存在勾选集合中来显示。
+勾选分为三种情况：全选，一级全选，二级单条勾选，因此在勾选的时候要分情况考虑
+
+* 全选：判断当前是否勾选了->若勾选了，取消勾选，并`set.clear()`,清空集合；->若没有勾选，全选，并把所有一级菜单和二级菜单全部`add`
+* 一级全选：判断当前是否勾选了-> 若勾选了，取消当前一级勾选和全选和当前子集 -> 若没有勾选，勾选一级菜单和当前子集，判断当前一级菜单是否全部勾选了（`arr.every(()=>{})`）
+* 二级单条勾选：判断当前是否勾选了 -> 若勾选了，取消勾选自己和当前所在一级勾选和全选 -> 若没有勾选，勾选自己，并且判断当前所在一级菜单是否全选了和是否全选了
+
+8. **过滤搜索功能的设计**
+
+思路是先给数据打上拼音标识，比如网格001（wangge001），国道s108（guodaos108），然后再输入的时候，将输入值转成拼音，在所有数据的拼音标识遍历，若包含在里面便返回
 
 ```javascript
-if (是单列表) {
-    if (this.checked[key]) {
-        this.checkRecord.add(key);
+//给标签加拼音标识
+addPYtag() {
+    //单极列表的情况
+    if (Array.isArray(this.datas)) {
+        //先加载再去执行
+        setTimeout(() => {
+            this.datas = this.datas.map(
+                e => {
+                    e["py"] = this.setPinyinConvert(e[this.label]);
+                    return e;
+                }
+            );
+        }, 0);
     } else {
-        this.checkRecord.delete(key);
-    }
-} else {
-    if (
-        this.checked[mianIdx] && !this.checkObj[key]["check"][subIdx]
-    ) {
-        //如果二级选项全选,但不勾选其中一项
-        this.$set(this.checked, mianIdx, false);
-    }
-    if (!this.checkObj[key]["check"][subIdx]) {
-        //如果当前二级选中状态
-        this.checkRecord[key].delete(subIdx);
-    } else {
-        this.checkRecord[key].add(subIdx);
-    }
-
-    if (this.checkRecord[key].size == this.datas.get(key).length) {
-    //如果二级选项全部选中，勾选一级菜单
-        this.$set(this.checked, mianIdx, true);
+        setTimeout(() => {
+            //遍历所有数据
+            this.datas.forEach((val, key) => {
+                if (val["children"].length > 0) {
+                    //若有子集
+                    val["children"] = val["children"].map(e => {
+                        e["py"] = this.Pinyin.convertPinyin(e[this.label]);
+                        return e;
+                    });
+                    this.datas.set(key, val);
+                } else {
+                    val["py"] = this.Pinyin.convertPinyin(val[this.label]);
+                    this.datas.set(key, val);
+                }
+            });
+        }, 0);
     }
 }
 
+//模糊搜索:
+// @searchVal：搜索值
+// @resultMapName：要保存的返回结果的变量名
+// @dataName：已有拼音标识的原始数据变量名
+querySearch(searchVal, resultMapName, dataName) {
+    let results = [];
+    //如果有搜索词
+    if (searchVal) {
+        // 将搜索词转成拼音
+        let py = this.Pinyin.convertPinyin(searchVal.toLowerCase());
+        if (!Array.isArray(this[dataName])) {
+            //在py字段搜索这个拼音，符合返回
+            this[dataName].forEach((val, key) => {
+                if (val["children"].length > 0) {
+                    results = results.concat(val["children"].filter(e => {
+                        e["parentKey"] = key;
+                        return (e["py"].toLowerCase().indexOf(py) > -1);
+                    }));
+                } else {
+                    if (val["py"].toLowerCase().indexOf(py) > -1) {
+                        results.push(val);
+                    }
+                }
+            });
+        } else {
+            this[dataName].forEach(item => {
+                if (item["py"].toLowerCase().indexOf(py) > -1) {
+                    results.push(item);
+                }
+            });
+        }
+    } else {
+        results = this[dataName];
+    }
+    this[resultMapName] = results;
+}
 ```
