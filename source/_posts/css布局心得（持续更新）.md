@@ -45,3 +45,30 @@ tags: [CSS,实战心得,持续更新]
 
 实例网站：
 ![三列布局](https://wx1.sbimg.cn/2020/06/10/github.png)
+
+
+### 如何避免样式冲突
+
+#### 1. 手动命名
+最简单有效的命名管理方式就是制定一些命名规则，比如`BEM`
+`BEM`: BEM 是 Block、Element、Modifier 三个单词的缩写，Block 代表独立的功能组件，Element 代表功能组件的一个组成部分，Modifier 对应状态信息。
+```html
+<button class="button"></button>
+<button class="button button-state-success"></button> 
+<button class="button button-state-danger"></button> 
+```
+#### 2. 工具命名
+通过插件将原命名转化成不重复的随机命名，从根本上避免命名冲突。比较著名的解决方案就是 CSS Modules。
+
+```css
+.className {
+  color: green;
+}
+```
+借助 css Modules 插件，可以将 css 以 JSON 对象的形式引用和使用。
+```javascript
+import styles from "./style.css";
+// import { className } from "./style.css";
+element.innerHTML = '<div class="' + styles.className + '">';
+```
+编译之后的代码，样式类名被转化成了随机名称。但这种命名方式带来了一个问题，那就是如果想在引用组件的同时，覆盖它的样式会变得困难，因为编译后的样式名是随机。
