@@ -2,6 +2,9 @@
 title: 每日一句———to Lynne
 date: 2020-10-16 13:51:29
 tags: 日常
+password: 20200819
+abstract: 私人记录文章
+message:  输入密码，查看文章
 ---
 
 > *答应了你一天给你写一句代码，那这篇blog，就是写给你的哦！*

@@ -118,6 +118,3 @@ github_username: Appleking10
 donate:
   img: img/donate.jpg
   content: 感谢鼓励
-# 开启加密
-encrypt:
-    enable: true
