@@ -291,5 +291,71 @@ module.exports = {
 ### webpack进阶部分
 
 #### Tree Shaking
+摇到未引用和冗余的代码，使用 Webpack 生产模式打包的优化过程中，就使用自动开启这个功能。
+Tree-shaking 的本身没有太多需要你理解和思考的地方，你只需要了解它的效果，以及相关的配置即可。
 #### sideEffects
+Webpack 4 中新增了一个 sideEffects 特性，它允许我们通过配置标识我们的代码是否有副作用，从而提供更大的压缩空间。
+> TIPS：模块的副作用指的就是模块执行的时候除了导出成员，是否还做了其他的事情
+Tree-shaking 只能移除没有用到的代码成员，而想要完整移除没有用到的模块，那就需要开启 sideEffects 特性了。
+> TIPS：注意这个特性在 production 模式下同样会自动开启。
+```javascript
+module.exports = {
+  mode: 'none',
+  entry: './src/main.js',
+  output: {
+    filename: 'bundle.js'
+  },
+  optimization: {
+    sideEffects: true
+  }
+}
+```
+sideEffects 可能需要花点时间去理解一下，重点就是想明白哪些副作用代码是可以随着模块的移除而移除，哪些又是不可以移除的。总结下来其实也很简单：对全局有影响的副作用代码不能移除，而只是对模块有影响的副作用代码就可以移除。
+所以，**尽可能不要写影响全局的副作用代码**。
 #### Code Splitting（代码分割）
+为了解决打包结果过大导致的问题，webpack提供了一种分包功能————代码分割
++ 多入口打包
+划分规则就是一个页面对应一个打包入口，对于不同页面间公用的部分，再提取到公共的结果中
+```javascript
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+module.exports = {
+  entry: {
+    index: './src/index.js',
+    album: './src/album.js'
+  },
+  output: {
+    filename: '[name].bundle.js' // [name] 是入口名称
+  },
+  // ... 其他配置
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'Multi Entry',
+      template: './src/index.html',
+      filename: 'index.html',
+      chunks: ['index'] // 指定使用 index.bundle.js
+    }),
+    new HtmlWebpackPlugin({
+      title: 'Multi Entry',
+      template: './src/album.html',
+      filename: 'album.html',
+      chunks: ['album'] // 指定使用 album.bundle.js
+    })
+  ]
+}
+```
+一般 entry 属性中只会配置一个打包入口，如果我们需要配置多个入口，可以把 entry 定义成一个对象。一旦我们的入口配置为多入口形式，那输出文件名也需要修改，因为两个入口就有两个打包结果，不能都叫 bundle.js。我们可以在这里使用 [name] 这种占位符来输出动态的文件名，[name] 最终会被替换为入口的名称。
+
++ 抽取公共模块
+```javascript
+module.exports = {
+  entry: {},
+  output: {},
+  optimization: {
+    splitChunks: {
+      // 自动提取所有公共模块到单独 bundle
+      chunks: 'all'
+    }
+  }
+}
+```
+
