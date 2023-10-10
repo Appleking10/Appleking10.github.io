@@ -11,7 +11,7 @@
 
     <title>
         
-        一个不成熟的前端博客
+        在前端实践DDD的沉淀 - 一个不成熟的前端博客
         
     </title>
 
@@ -57,7 +57,7 @@
     </div>
     <div class="contents" id="nav-content">
         <ul>
-            <li  class=active >
+            <li >
                 <a href="/">
                     <i class="iconfont icon-shouye1"></i>
                     <span>主页</span>
@@ -92,6 +92,10 @@
         </ul>
     </div>
     
+        <div id="toc" class="toc-article">
+    
+</div>
+    
 </div>
 
 
@@ -116,80 +120,50 @@
     <div class="index-middle">
         <!-- Main Content -->
         
-<div class="post-preview-container" style="min-height: 720px">
-    
-    <div class="post-preview">
-        <div class="post-time">2020-04-20</div>
-        <div class="post-info">
-            <a href="/2020/04/20/关于正则这件小事/">
-                <h3>
-                    关于正则这件小事
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#实战" title="实战">实战</a>
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#JavaScript" title="JavaScript">JavaScript</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
+
+
+<div class="post-container">
+    <div class="post-title">
+        在前端实践DDD的沉淀
     </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2020-04-17</div>
-        <div class="post-info">
-            <a href="/2020/04/17/to九爪小蟹网站的一砖一瓦/">
-                <h3>
-                    关于to九爪小蟹网站的一砖一瓦
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#技能篇" title="技能篇">技能篇</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2023-10-10</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#DDD" title="DDD">DDD</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
     </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2020-04-15</div>
-        <div class="post-info">
-            <a href="/2020/04/15/小白建站全过程（服务器部署-域名解析-静态文件部署）/">
-                <h3>
-                    小白建站全过程（服务器部署+域名解析+静态文件部署）
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#技能篇" title="技能篇">技能篇</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
+    <div class="post-content ">
+        
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">赞赏</button>
     </div>
-    
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
+    </div>
 </div>
-<ul class="pager">
-    
-    <li class="previous">
-        <a href="/">&larr; Newer Posts</a>
-    </li>
-    
-    
-</ul>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
 
     </div>
 </div>
@@ -237,7 +211,7 @@
     // We expose some of the variables needed by the front end
     window.hexo_search_path = "search.json"
     window.hexo_root = "/"
-    window.isPost = false
+    window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 
