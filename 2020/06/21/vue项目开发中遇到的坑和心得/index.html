@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="WEB前端,个人记录,学习感悟">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        vue项目开发中遇到的坑和心得（持续更新） - 一个不成熟的前端博客
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 一个专业的API调用工程师 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar radius">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>金依妮</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#怎么处理数据量大的变量？"><span class="toc-text">怎么处理数据量大的变量？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Vue自定义插件的构造"><span class="toc-text">Vue自定义插件的构造</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#避免滥用this去读取data中数据"><span class="toc-text">避免滥用this去读取data中数据</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> 一个专业的API调用工程师 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        vue项目开发中遇到的坑和心得（持续更新）
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-06-21</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#实战心得" title="实战心得">实战心得</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#持续更新" title="持续更新">持续更新</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#VUE" title="VUE">VUE</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>从学vue到工作中用到vue也有半年多，感觉很有必要来总结一下具体工作场景中遇到的一些坑已经填坑的过程。</p>
+<hr>
+<h4 id="怎么处理数据量大的变量？"><a href="#怎么处理数据量大的变量？" class="headerlink" title="怎么处理数据量大的变量？"></a>怎么处理数据量大的变量？</h4><ul>
+<li>场景： 在应用场景中，有时候需要将一整个数据或者对象保存下来，给其它函数使用，一般来说只是展示使用。但如果放在<code>data()</code>中，其实对整个页面和浏览器不太友好。</li>
+<li>原因： 众所周知，存放在<code>data()</code>中的变量，在vue的生命周期中会被实时监听而且是每一项都会被监听到，所以一个存储数据量很大且其实不需要被监听的变量就会给页面造成负担。</li>
+<li>方法： 研究vue的生命周期可以知道，<code>data()</code>是在<code>created()</code>中初始化完成的，在<code>create()</code>声明一个变量，也能全局使用，但不会被实时监听到，减小性能损耗</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">create()&#123;</span><br><span class="line">    <span class="keyword">this</span>.arr = <span class="literal">null</span>;<span class="comment">//也能全局使用</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Vue自定义插件的构造"><a href="#Vue自定义插件的构造" class="headerlink" title="Vue自定义插件的构造"></a>Vue自定义插件的构造</h4><ul>
+<li>场景： 日常中我们要使用一个组件（比如弹窗组件）的方式通常是先通过Vue.component 全局或是 component 局部注册后，然后在模版中使用。但操作流程还是不够简洁方便。于是借鉴了element-ui的写法，去研究如何挂载自定义模板</li>
+<li>Vue.extend(options)<ul>
+<li>描述： <strong>Vue.extend</strong>返回的是一个“扩展实例构造器”，也就是预设了部分选项的Vue的实例构造器，它常常服务于Vue.component用来生成组件，可以简单理解为当在模板中遇到该组件作为标签的自定义元素时，会自动调用“扩展实例构造器”来生产组件实例，并挂在到自定义元素上。</li>
+<li>参数类型：Object</li>
+</ul>
+</li>
+<li>用法<ul>
+<li>原理：运用Vue.extend()方法，注册挂载自定义模板，并将模板显示方法挂载到Vue原型上，方便全局调用。Vue.extend 的显示与否是手动的去做组件的挂载和销毁。</li>
+<li>实战<br><strong>1.alert.vue</strong> //弹窗模板</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div id=<span class="string">"alert"</span> v-<span class="keyword">if</span>=<span class="string">"msg"</span>&gt;</span><br><span class="line">        &lt;span <span class="class"><span class="keyword">class</span></span>=<span class="string">"icon"</span>&gt;❕&lt;<span class="regexp">/span&gt;</span></span><br><span class="line"><span class="regexp">        &lt;span&gt;&#123;&#123;msg&#125;&#125;&lt;/</span>span&gt;</span><br><span class="line">    &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    props: &#123;</span><br><span class="line">        msg: <span class="literal">null</span> <span class="comment">//显示信息</span></span><br><span class="line">    &#125;,</span><br><span class="line">    watch: &#123;</span><br><span class="line">        msg: <span class="function"><span class="keyword">function</span>(<span class="params">val</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (val) &#123;</span><br><span class="line">                <span class="keyword">let</span> _self = <span class="keyword">this</span>;</span><br><span class="line">                setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">                    $(<span class="string">'#alert).css(&#123;transform: "translate(-50%,0)",opacity:1&#125;)</span></span><br><span class="line"><span class="string">                &#125;, 0);</span></span><br><span class="line"><span class="string">                setTimeout(function() &#123;</span></span><br><span class="line">                    $('#alert).css("opacity",0)</span><br><span class="line">                &#125;, <span class="number">2000</span>);</span><br><span class="line">                setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">                    _self.msg = <span class="literal">null</span>;</span><br><span class="line">                    $(<span class="string">'#alert).css("display","none").remove() //移除dom元素</span></span><br><span class="line"><span class="string">                    // _self.$destroy(); //若允许生成多个实例便在用完的时候需要销毁</span></span><br><span class="line"><span class="string">                &#125;, 3000);</span></span><br><span class="line"><span class="string">            &#125;</span></span><br><span class="line"><span class="string">        &#125;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">&#125;;</span></span><br><span class="line"><span class="string">&lt;/script&gt;</span></span><br><span class="line"><span class="string">&lt;style scoped&gt;</span></span><br><span class="line"><span class="string">#alert&#123;</span></span><br><span class="line"><span class="string">    min-width: 200px;</span></span><br><span class="line"><span class="string">    min-height: 30px;</span></span><br><span class="line"><span class="string">    color: slategray;</span></span><br><span class="line"><span class="string">    line-height: 30px;</span></span><br><span class="line"><span class="string">    padding: 10px;</span></span><br><span class="line"><span class="string">    font-size: 14px;</span></span><br><span class="line"><span class="string">    position: fixed;</span></span><br><span class="line"><span class="string">    top:20px;</span></span><br><span class="line"><span class="string">    left:50%;</span></span><br><span class="line"><span class="string">    opacity: 0;</span></span><br><span class="line"><span class="string">    transform: translate(-50%,-40px);</span></span><br><span class="line"><span class="string">    background: rgb(237,242,252);</span></span><br><span class="line"><span class="string">    transition: all 1s ease; </span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">&lt;/style&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>  <strong>2.alert.js</strong> //将创建构造器和挂载到目标元素上的逻辑抽离出来，多处可以复用<br>  实例化时可以向这个实例传入参数，但是需要注意的是 props 的值需要通过 propsData 属性来传递</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Alert <span class="keyword">from</span> <span class="string">'./alert.vue'</span></span><br><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> Toast = &#123;&#125;; <span class="comment">//定义插件对象</span></span><br><span class="line">Toast.install = <span class="function"><span class="keyword">function</span> (<span class="params">Vue, options</span>) </span>&#123; <span class="comment">//vue的install方法，用于定义vue插件</span></span><br><span class="line">  <span class="keyword">let</span> AlertConstructor = Vue.extend(Alert) <span class="comment">//创建vue构造器</span></span><br><span class="line">  <span class="keyword">let</span> instance <span class="comment">//保存vue实例</span></span><br><span class="line">  <span class="keyword">let</span> seed = <span class="number">1</span>; <span class="comment">//实例id</span></span><br><span class="line">  <span class="keyword">let</span> index = <span class="number">999</span>; <span class="comment">//模板的z-index</span></span><br><span class="line">  <span class="keyword">let</span> alertObj = &#123;&#125; <span class="comment">//保存$alert对象</span></span><br><span class="line">  instance = <span class="keyword">new</span> AlertConstructor() <span class="comment">//实例化vue实例</span></span><br><span class="line">  instance.vm = instance.$mount() <span class="comment">//拿到实例</span></span><br><span class="line">  <span class="built_in">Object</span>.defineProperty(Vue.prototype, <span class="string">"$alert"</span>, &#123; <span class="comment">//挂载到vue原型上，方便全局调用</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">get</span>() &#123; <span class="comment">//当访问该属性时，会调用get函数</span></span><br><span class="line">      alertObj.alertMsg = <span class="function"><span class="params">options</span> =&gt;</span> &#123; <span class="comment">//调用$alert.alertMsg时</span></span><br><span class="line">        <span class="keyword">let</span> id = <span class="string">'message_'</span> + seed++</span><br><span class="line">        instance.id = id <span class="comment">//绑上实例id</span></span><br><span class="line">        <span class="comment">//实例传入参数，对应的是props里面的数据</span></span><br><span class="line">        <span class="built_in">Object</span>.assign(instance, options)</span><br><span class="line">        index++</span><br><span class="line">        <span class="built_in">document</span>.body.appendChild(instance.vm.$el) <span class="comment">//将实例的html模板append到html</span></span><br><span class="line">        instance.vm.$nextTick(<span class="function"><span class="params">()</span> =&gt;</span> &#123; <span class="comment">//等dom视图刷新完毕</span></span><br><span class="line">          instance.vm.$el.style.zIndex = index</span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="keyword">return</span> instance.vm.$alert</span><br><span class="line">      &#125;</span><br><span class="line">      alertObj.sh = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"something"</span>) <span class="comment">//自定义方法</span></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> alertObj <span class="comment">//返回vue实例</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Toast</span><br></pre></td></tr></table></figure>
+
+<p>  <strong>3.main.js</strong> //项目的全局文件引用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Alert <span class="keyword">from</span> <span class="string">'./main/alert1'</span></span><br><span class="line">Vue.use(Alert)</span><br></pre></td></tr></table></figure>
+
+<p>   4.然后就可以在项目里面使用了，<code>this.$alert.alertMsg({msg:&quot;something&quot;})</code></p>
+<h4 id="避免滥用this去读取data中数据"><a href="#避免滥用this去读取data中数据" class="headerlink" title="避免滥用this去读取data中数据"></a>避免滥用this去读取data中数据</h4>
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">赞赏</button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
+    </div>
+</div>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/Appleking10">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

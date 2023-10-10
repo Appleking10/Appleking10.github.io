@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="WEB前端,个人记录,学习感悟">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        可以看懂的webpack教程 - 一个不成熟的前端博客
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 一个专业的API调用工程师 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar radius">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>金依妮</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#首先，当然是需要安装webpack工具"><span class="toc-text">首先，当然是需要安装webpack工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#可以开始自定义配置webpack了"><span class="toc-text">可以开始自定义配置webpack了</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#自定义入口文件-entry-和输出结果-output"><span class="toc-text">自定义入口文件(entry)和输出结果(output)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#理想开发模式"><span class="toc-text">理想开发模式</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#曲线救国方案："><span class="toc-text">曲线救国方案：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#配置开发服务器"><span class="toc-text">配置开发服务器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#这样的配置代码才能调试"><span class="toc-text">这样的配置代码才能调试</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#这样的配置调试起来更方便"><span class="toc-text">这样的配置调试起来更方便</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置不同环境的打包命令"><span class="toc-text">配置不同环境的打包命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#支持各种框架和预编译语言"><span class="toc-text">支持各种框架和预编译语言</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#常见的加分配置"><span class="toc-text">常见的加分配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#webpack进阶部分"><span class="toc-text">webpack进阶部分</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Tree-Shaking"><span class="toc-text">Tree Shaking</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sideEffects"><span class="toc-text">sideEffects</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Code-Splitting（代码分割）"><span class="toc-text">Code Splitting（代码分割）</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> 一个专业的API调用工程师 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        可以看懂的webpack教程
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-10-26</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#技能篇" title="技能篇">技能篇</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>关于webpack，真是让人又爱又恨。作为前台端水的一员，搞懂webpack是必不可少的！<br>Webpack可以看做是模块打包机：它做的事情是，分析你的项目结构，找到JavaScript模块以及其它的一些浏览器不能直接运行的预编译语言（scss，TypeScript等），并将其打包为合适的格式以供浏览器使用。</p>
+<p>一份webpack配置（<code>webpack.config.js</code>）包含以下内容:</p>
+<ul>
+<li>Entry：<strong>入口</strong>，Webpack 执行构建的第一步将从 Entry 开始，可抽象成输入。</li>
+<li>Module：<strong>模块</strong>，在 Webpack 里一切皆模块，一个模块对应着一个文件。Webpack 会从配置的 Entry 开始递归找出所有依赖的模块。</li>
+<li>Chunk：<strong>代码块</strong>，一个 Chunk 由多个模块组合而成，用于代码合并与分割。</li>
+<li>Loader：<strong>模块转换器</strong>，用于把模块原内容按照需求转换成新内容。</li>
+<li>Plugin：<strong>扩展插件</strong>，在 Webpack 构建流程中的特定时机注入扩展逻辑来改变构建结果或做你想要的事情。</li>
+<li>Output：<strong>输出结果</strong>，在 Webpack 经过一系列处理并得出最终想要的代码后输出结果。</li>
+</ul>
+<p><strong>从零开始配置</strong></p>
+<h3 id="首先，当然是需要安装webpack工具"><a href="#首先，当然是需要安装webpack工具" class="headerlink" title="首先，当然是需要安装webpack工具"></a>首先，当然是需要安装webpack工具</h3><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm init <span class="params">--yes</span> <span class="string">//</span> 生成一份package.json文件，方便管理版本</span><br><span class="line">npm i webpack webpack-cli <span class="params">--save-dev</span> <span class="string">//</span> 安装webpack</span><br></pre></td></tr></table></figure>
+
+<p>有了 Webpack 后，就可以直接运行 webpack 命令来打包 JS 模块代码</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">npx webpack</span></span><br></pre></td></tr></table></figure>
+<p>这个命令在执行的过程中，Webpack 会自动从 <code>src/index.js</code> 文件开始打包，然后根据代码中的模块导入操作，自动将所有用到的模块代码打包到一起。完成之后，打包后的文件会出现在<code>dist</code>文件夹里的<code>main.js</code>文件</p>
+<ul>
+<li><strong>一个小tips：让vs code支持webpack智能提示</strong><br>我们通过 import 的方式导入 Webpack 模块中的 Configuration 类型，然后根据类型注释的方式将变量标注为这个类型，这样我们在编写这个对象的内部结构时就可以有正确的智能提示了<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Configuration &#125; <span class="keyword">from</span> <span class="string">'webpack'</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@type <span class="type">&#123;Configuration&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 或者是这种写法</span></span><br><span class="line"><span class="comment">/** <span class="doctag">@type <span class="type">&#123;import('webpack').Configuration&#125;</span> </span>*/</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    <span class="comment">// some config</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>注意：在配置完成后记得注释掉这段import代码，否则编译会出错。因为node环境还不支持import语句</strong></p>
+<h3 id="可以开始自定义配置webpack了"><a href="#可以开始自定义配置webpack了" class="headerlink" title="可以开始自定义配置webpack了"></a>可以开始自定义配置webpack了</h3><p>大多数情况下，我们都会有一些自定义的需求，因此，可以新建一个<code>webpack.config.js</code>文件来自定义配置webpack。<br>webpack.config.js 是一个运行在 Node.js 环境中的 JS 文件，也就是说我们需要按照 CommonJS 的方式编写代码，这个文件可以导出一个对象，我们可以通过所导出对象的属性完成相应的配置选项。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    <span class="comment">// some config</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="自定义入口文件-entry-和输出结果-output"><a href="#自定义入口文件-entry-和输出结果-output" class="headerlink" title="自定义入口文件(entry)和输出结果(output)"></a>自定义入口文件(<code>entry</code>)和输出结果(<code>output</code>)</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">   entry: <span class="string">'./src/main.js'</span>, <span class="comment">// @入口文件 string | object | array</span></span><br><span class="line">   output:&#123;                <span class="comment">// @输出选项：</span></span><br><span class="line">        filename: <span class="string">'[name].[hash].js'</span>, <span class="comment">// 文件名： string</span></span><br><span class="line">        path: path.join(__dirname, <span class="string">'output'</span>), <span class="comment">// 所有输出文件的出口目录</span></span><br><span class="line">        publicPath: <span class="string">"/assets/"</span>, <span class="comment">// 构建文件的输出目录</span></span><br><span class="line">   &#125;,</span><br><span class="line">   <span class="built_in">module</span>:&#123;&#125;,</span><br><span class="line">   plugins:[],</span><br><span class="line">   devServer:&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="理想开发模式"><a href="#理想开发模式" class="headerlink" title="理想开发模式"></a>理想开发模式</h4><p>如果我们每次修改完代码，都是通过命令行手动重复运行 Webpack 命令，从而得到最新的打包结果，那么这样的操作过程根本没有任何开发体验可言。<br>理想的开发模式应该是：修改代码 → Webpack 自动打包 → 自动刷新浏览器 → 预览运行结果</p>
+<h5 id="曲线救国方案："><a href="#曲线救国方案：" class="headerlink" title="曲线救国方案："></a>曲线救国方案：</h5><ul>
+<li>Webpack 自动打包：在启动 Webpack 时，添加一个 –watch 的 CLI 参数</li>
+<li>自动刷新浏览器： BrowserSync 就可以帮我们实现文件变化过后浏览器自动刷新的功能。<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 可以先通过 npm 全局安装 browser-sync 模块，然后再使用这个模块</span></span><br><span class="line">npm <span class="keyword">install</span> browser-<span class="keyword">sync</span> <span class="comment">--global</span></span><br><span class="line">browser-<span class="keyword">sync</span> dist <span class="comment">--watch</span></span><br></pre></td></tr></table></figure>
+它的原理就是 Webpack 监视源代码变化，自动打包源代码到 dist 中，而 dist 中文件的变化又被 BrowserSync 监听了，从而实现自动编译并且自动刷新浏览器的功能，整个过程由两个工具分别监视不同的内容。</li>
+</ul>
+<h5 id="配置开发服务器"><a href="#配置开发服务器" class="headerlink" title="配置开发服务器"></a>配置开发服务器</h5><p>webpack-dev-server 是 Webpack 官方推出的一款开发工具，它提供了一个开发服务器，并且将自动编译和自动刷新浏览器等一系列对开发友好的功能全部集成在了一起。</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 安装 webpack-dev-<span class="keyword">server</span></span><br><span class="line"> npm install webpack-dev-<span class="keyword">server</span> <span class="comment">--save-dev</span></span><br><span class="line"># 运行 webpack-dev-<span class="keyword">server</span>, <span class="comment">--open参数，用于自动唤起浏览器打开我们的应用</span></span><br><span class="line"> npx webpack-dev-<span class="keyword">server</span> <span class="comment">--open</span></span><br></pre></td></tr></table></figure>
+<p>配置选项：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">devServer: &#123;</span><br><span class="line">    contentBase: path.resolve(__dirname,<span class="string">"dist"</span>), <span class="comment">// 静态文件目录</span></span><br><span class="line">    port: <span class="number">5000</span>, <span class="comment">// 端口号</span></span><br><span class="line">    host: <span class="string">'localhost'</span>,</span><br><span class="line">    contentBase: <span class="string">'public'</span>, <span class="comment">// 静态资源路径访问</span></span><br><span class="line">    overlay: <span class="literal">true</span>,</span><br><span class="line">    compress: <span class="literal">true</span> <span class="comment">// 服务器返回浏览器的时候是否启动gzip压缩</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>由于 webpack-dev-server 是一个本地开发服务器，所以我们的应用在开发阶段是独立运行在 localhost 的一个端口上，而后端服务又是运行在另外一个地址上。但是最终上线过后，我们的应用一般又会和后端服务部署到同源地址下。<br>那这样就会出现一个非常常见的问题：在实际生产环境中能够直接访问的 API，回到我们的开发环境后，再次访问这些 API 就会产生<strong>跨域</strong>请求问题。<br>webpack-dev-server 就支持直接通过配置的方式，添加代理服务，解决这个问题</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">devServer: &#123;</span><br><span class="line">    proxy: &#123;</span><br><span class="line">      <span class="string">'/api'</span>: &#123; <span class="comment">// </span></span><br><span class="line">        target: <span class="string">'https://www.xxx.com'</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>此时请求 <a href="http://localhost:8080/api/users" target="_blank" rel="noopener">http://localhost:8080/api/users</a> –&gt; <a href="https://www.xxx.com/api/users。" target="_blank" rel="noopener">https://www.xxx.com/api/users。</a><br>如果希望请求的地址是 <a href="https://www.xxx.com/users" target="_blank" rel="noopener">https://www.xxx.com/users</a> ，所以对于代理路径开头的 /api 要重写掉。我们可以添加一个 <code>pathRewrite</code> 属性来实现代理路径重写</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">devServer: &#123;</span><br><span class="line">    proxy: &#123;</span><br><span class="line">      <span class="string">'/api'</span>: &#123; <span class="comment">// </span></span><br><span class="line">        target: <span class="string">'https://www.xxx.com'</span>,</span><br><span class="line">        pathRewrite: &#123;</span><br><span class="line">          <span class="string">'^/api'</span>: <span class="string">''</span> <span class="comment">// 替换掉代理地址中的 /api</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="comment">// 会以实际代理请求地址中的主机名去请求，也就是正常请求这个地址的主机名是什么，实际请求 xxx 时就会设置成什么。</span></span><br><span class="line">         changeOrigin: <span class="literal">true</span>,</span><br><span class="line">         </span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>此时请求 <a href="http://localhost:8080/api/users" target="_blank" rel="noopener">http://localhost:8080/api/users</a> –&gt; <a href="https://wwww.xxx.com/users。" target="_blank" rel="noopener">https://wwww.xxx.com/users。</a></p>
+<h5 id="这样的配置代码才能调试"><a href="#这样的配置代码才能调试" class="headerlink" title="这样的配置代码才能调试"></a>这样的配置代码才能调试</h5><p>运行webpack命令后，打开调试器查看源代码，会发现source/index.js都是压缩过的代码，难以进行调试（比如打断点）。<br>通过Source Map可以解决这个问题（原理大概就是逆向转译成源码）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  devtool: <span class="string">'source-map'</span> <span class="comment">// source map 设置</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>source-map: 把映射文件生成到单独的文件，最完整最慢</li>
+<li>cheap-module-source-map: 在一个单独的文件中产生一个不带列映射的Map</li>
+<li>eval-source-map: 使用eval打包源文件模块,在同一个文件中生成完整sourcemap</li>
+<li>cheap-module-eval-source-map: sourcemap和打包后的JS同行显示，没有映射列<br>现阶段 Webpack 支持的 Source Map 模式有很多种。每种模式下所生成的 Source Map 效果和生成速度都不一样<br>可以从<a href="https://webpack.js.org/configuration/devtool/#devtool" target="_blank" rel="noopener">官方文档</a>参考不同模式的效率。</li>
+</ul>
+<blockquote>
+<p>tip： Eval模式<br>Webpack 会将每个模块转换后的代码都放到 eval 函数中执行，并且通过 sourceURL 声明对应的文件路径，这样浏览器就能知道某一行代码到底是在源代码的哪个文件中。因为在 eval 模式下并不会生成 Source Map文件，所以它的构建速度最快，但是缺点同样明显：它只能定位源代码的文件路径，无法知道具体的行列信息。</p>
+</blockquote>
+<h5 id="这样的配置调试起来更方便"><a href="#这样的配置调试起来更方便" class="headerlink" title="这样的配置调试起来更方便"></a>这样的配置调试起来更方便</h5><p>解决完开发环境会产生的跨域和源码不可暴露调试的问题，还有一个常见的问题还没有解决。<br>在调试中，经常遇到因为修改了一处小细节（比如css样式），调整后，基于上面的设置，页面会自动刷新，那前面调试的步骤就会丢失，又要重复去进行调试步骤。</p>
+<p>出现这个问题的原因，是因为<strong>我们每次修改完代码，Webpack 都可以监视到变化，然后自动打包，再通知浏览器自动刷新，一旦页面整体刷新，那页面中的任何操作状态都将会丢失</strong>，所以才会出现我们上面所看到的情况。</p>
+<p>如果能够实现在页面不刷新的情况下，代码也可以及时的更新到浏览器的页面中，重新执行，避免页面状态丢失，那就最好了！<br><strong><code>模块热替换（HMR）</code></strong>就可以实现这个需求！</p>
+<p>使用这个特性最简单的方式就是，在运行 <code>webpack-dev-server</code> 命令时，通过<code>--hot</code>参数去开启这个特性<br>或者</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  devServer: &#123;</span><br><span class="line">    <span class="comment">// 开启 HMR 特性，如果资源不支持 HMR 会 fallback 到 live reloading</span></span><br><span class="line">    hot: <span class="literal">true</span></span><br><span class="line">    <span class="comment">// 只使用 HMR，不会 fallback 到 live reloading</span></span><br><span class="line">    <span class="comment">// hotOnly: true</span></span><br><span class="line">  &#125;,</span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    <span class="comment">// HMR 特性所需要的插件</span></span><br><span class="line">    <span class="keyword">new</span> webpack.HotModuleReplacementPlugin()</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>对于css文件的热替换，不会出现什么问题，对于js文件的热替换，还需要手动配合webpack</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.hot.accept(<span class="string">'./user'</span>, () =&gt; &#123;</span><br><span class="line">   <span class="comment">// 图片的热替换也是一样的写法</span></span><br><span class="line"> &#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="配置不同环境的打包命令"><a href="#配置不同环境的打包命令" class="headerlink" title="配置不同环境的打包命令"></a>配置不同环境的打包命令</h4><p>通过修改<code>package.json</code>，可以简化在不同环境下要执行的打包任务</p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"script"</span>: &#123;</span><br><span class="line">    <span class="string">"build"</span>: <span class="string">"webpack --mode production"</span>, <span class="comment">// 开启代码压缩，用于生产环境</span></span><br><span class="line">    <span class="string">"dev"</span>: <span class="string">"webpack-dev-sever --open --mode development"</span> <span class="comment">// 热加载，用于开发环境</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="支持各种框架和预编译语言"><a href="#支持各种框架和预编译语言" class="headerlink" title="支持各种框架和预编译语言"></a>支持各种框架和预编译语言</h4><ul>
+<li><p>处理css，sass，以及css3属性前缀</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// cmd</span></span><br><span class="line">npm install style-loader css-loader postcss-loader autoprefixer -D</span><br><span class="line"></span><br><span class="line"><span class="comment">// webpack.config.json</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    <span class="keyword">module</span>: &#123;</span><br><span class="line">        rules:[</span><br><span class="line">            <span class="comment">// 处理css</span></span><br><span class="line">            &#123;</span><br><span class="line">                test: <span class="regexp">/\.css$/</span>,</span><br><span class="line">                exclude: <span class="regexp">/node_modules/</span>,</span><br><span class="line">                include: path.resolve(__dirname,<span class="string">'src'</span>), <span class="comment">// 限制范围，提高打包速度</span></span><br><span class="line">                use: [</span><br><span class="line">                    <span class="comment">// 多个loader是有顺序的，从后往前写</span></span><br><span class="line">                    &#123;</span><br><span class="line">                        loader: <span class="string">"style-loader"</span>,</span><br><span class="line">                        options:&#123;</span><br><span class="line">                            singleton: <span class="literal">true</span> <span class="comment">// 处理为单个style标签</span></span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;,</span><br><span class="line">                    &#123;</span><br><span class="line">                        loader: <span class="string">"css-loader"</span>,</span><br><span class="line">                    &#125;,</span><br><span class="line">                    &#123;</span><br><span class="line">                        loader: <span class="string">"postcss-loader"</span>,</span><br><span class="line">                    &#125;</span><br><span class="line">                ]</span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="comment">// 处理scss文件：将sass编译成css，再将css转成CommonJS模块，再将js字符串转成style节点</span></span><br><span class="line">            &#123;</span><br><span class="line">                test: <span class="regexp">/\.scss$/</span>,</span><br><span class="line">                use:[<span class="string">'style-loader'</span>,<span class="string">'css-loader'</span>,<span class="string">'sass-loader'</span>]</span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 处理css前缀：新建一个postcss.config.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    plugins: [</span><br><span class="line">        <span class="built_in">require</span>(<span class="string">'autoprefixer'</span>)</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>支持ES6,react,vue</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// cmd</span></span><br><span class="line">npm install babel-loader <span class="meta">@babel</span>/core <span class="meta">@babel</span>/preset-env <span class="meta">@babel</span>/preset-react -D</span><br><span class="line"></span><br><span class="line"><span class="comment">// webpack.config.json</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    <span class="keyword">module</span>: &#123;</span><br><span class="line">        rules:[</span><br><span class="line">            <span class="comment">// ...</span></span><br><span class="line">            &#123;</span><br><span class="line">                test: <span class="regexp">/\.jsx?$/</span>,</span><br><span class="line">                exclude: <span class="regexp">/node_modules/</span>,</span><br><span class="line">                use: [</span><br><span class="line">                    &#123;</span><br><span class="line">                        loader: <span class="string">"babel-loader"</span></span><br><span class="line">                    &#125;</span><br><span class="line">                ]</span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// .babelrc</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="string">"presets"</span>: [<span class="string">"@babel/core"</span>, <span class="string">"@babel/preset-env"</span>, <span class="string">"@babel/preset-react"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="常见的加分配置"><a href="#常见的加分配置" class="headerlink" title="常见的加分配置"></a>常见的加分配置</h4><ul>
+<li>提取css文件为单独文件</li>
+<li>产出html</li>
+<li>处理引用第三方库，将第三方库全局变量暴露出来使用</li>
+<li>懒加载（按需加载）</li>
+<li>图片处理： 将小图片使用base64编码，大图片使用file-loader</li>
+<li>全局注入环境变量：编译的时候将定义的变量替换成对应的字符串</li>
+</ul>
+<h3 id="webpack进阶部分"><a href="#webpack进阶部分" class="headerlink" title="webpack进阶部分"></a>webpack进阶部分</h3><h4 id="Tree-Shaking"><a href="#Tree-Shaking" class="headerlink" title="Tree Shaking"></a>Tree Shaking</h4><p>摇到未引用和冗余的代码，使用 Webpack 生产模式打包的优化过程中，就使用自动开启这个功能。<br>Tree-shaking 的本身没有太多需要你理解和思考的地方，你只需要了解它的效果，以及相关的配置即可。</p>
+<h4 id="sideEffects"><a href="#sideEffects" class="headerlink" title="sideEffects"></a>sideEffects</h4><p>Webpack 4 中新增了一个 sideEffects 特性，它允许我们通过配置标识我们的代码是否有副作用，从而提供更大的压缩空间。</p>
+<blockquote>
+<p>TIPS：模块的副作用指的就是模块执行的时候除了导出成员，是否还做了其他的事情<br>Tree-shaking 只能移除没有用到的代码成员，而想要完整移除没有用到的模块，那就需要开启 sideEffects 特性了。<br>TIPS：注意这个特性在 production 模式下同样会自动开启。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  mode: <span class="string">'none'</span>,</span><br><span class="line">  entry: <span class="string">'./src/main.js'</span>,</span><br><span class="line">  output: &#123;</span><br><span class="line">    filename: <span class="string">'bundle.js'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  optimization: &#123;</span><br><span class="line">    sideEffects: <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>sideEffects 可能需要花点时间去理解一下，重点就是想明白哪些副作用代码是可以随着模块的移除而移除，哪些又是不可以移除的。总结下来其实也很简单：对全局有影响的副作用代码不能移除，而只是对模块有影响的副作用代码就可以移除。<br>所以，<strong>尽可能不要写影响全局的副作用代码</strong>。</p>
+<h4 id="Code-Splitting（代码分割）"><a href="#Code-Splitting（代码分割）" class="headerlink" title="Code Splitting（代码分割）"></a>Code Splitting（代码分割）</h4><p>为了解决打包结果过大导致的问题，webpack提供了一种分包功能————代码分割</p>
+<ul>
+<li><p>多入口打包<br>划分规则就是一个页面对应一个打包入口，对于不同页面间公用的部分，再提取到公共的结果中</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> HtmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>)</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: &#123;</span><br><span class="line">    index: <span class="string">'./src/index.js'</span>,</span><br><span class="line">    album: <span class="string">'./src/album.js'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  output: &#123;</span><br><span class="line">    filename: <span class="string">'[name].bundle.js'</span> <span class="comment">// [name] 是入口名称</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// ... 其他配置</span></span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">      title: <span class="string">'Multi Entry'</span>,</span><br><span class="line">      template: <span class="string">'./src/index.html'</span>,</span><br><span class="line">      filename: <span class="string">'index.html'</span>,</span><br><span class="line">      chunks: [<span class="string">'index'</span>] <span class="comment">// 指定使用 index.bundle.js</span></span><br><span class="line">    &#125;),</span><br><span class="line">    <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">      title: <span class="string">'Multi Entry'</span>,</span><br><span class="line">      template: <span class="string">'./src/album.html'</span>,</span><br><span class="line">      filename: <span class="string">'album.html'</span>,</span><br><span class="line">      chunks: [<span class="string">'album'</span>] <span class="comment">// 指定使用 album.bundle.js</span></span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>一般 entry 属性中只会配置一个打包入口，如果我们需要配置多个入口，可以把 entry 定义成一个对象。一旦我们的入口配置为多入口形式，那输出文件名也需要修改，因为两个入口就有两个打包结果，不能都叫 bundle.js。我们可以在这里使用 [name] 这种占位符来输出动态的文件名，[name] 最终会被替换为入口的名称。</p>
+</li>
+<li><p>抽取公共模块</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: &#123;&#125;,</span><br><span class="line">  output: &#123;&#125;,</span><br><span class="line">  optimization: &#123;</span><br><span class="line">    splitChunks: &#123;</span><br><span class="line">      <span class="comment">// 自动提取所有公共模块到单独 bundle</span></span><br><span class="line">      chunks: <span class="string">'all'</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">赞赏</button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
+    </div>
+</div>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/Appleking10">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

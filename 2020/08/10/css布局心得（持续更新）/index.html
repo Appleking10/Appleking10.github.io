@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="WEB前端,个人记录,学习感悟">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        css布局心得（持续更新） - 一个不成熟的前端博客
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 一个专业的API调用工程师 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar radius">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>金依妮</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#移动端布局"><span class="toc-text">移动端布局</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#关于像素的那些事"><span class="toc-text">关于像素的那些事</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常见布局"><span class="toc-text">常见布局</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-单列布局"><span class="toc-text">1.单列布局</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-两列布局"><span class="toc-text">2.两列布局</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-三列布局"><span class="toc-text">3.三列布局</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何避免样式冲突"><span class="toc-text">如何避免样式冲突</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-手动命名"><span class="toc-text">1. 手动命名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-工具命名"><span class="toc-text">2. 工具命名</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> 一个专业的API调用工程师 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        css布局心得（持续更新）
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-08-10</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#CSS" title="CSS">CSS</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#实战心得" title="实战心得">实战心得</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#持续更新" title="持续更新">持续更新</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h3 id="移动端布局"><a href="#移动端布局" class="headerlink" title="移动端布局"></a>移动端布局</h3><h4 id="关于像素的那些事"><a href="#关于像素的那些事" class="headerlink" title="关于像素的那些事"></a>关于像素的那些事</h4><ul>
+<li><p>css像素（CSS Pixel）： 虚拟像素，浏览器内的一切长度都是以css像素为单位，是相对单位（也就是说会变化的）</p>
+</li>
+<li><p>物理像素（dp）: 也就是我们所说的屏幕分辨率，在设备出厂的时候，屏幕含有多少个物理像素点已经是确定，这些像素点的大小也是固定的了。（<em>但像素点的大小不是固定的，比如同样的尺寸下可以有不同的分辨率，说明这个屏幕下的像素点数量不同，那每个像素点大小肯定是不一样的</em>）</p>
+</li>
+<li><p>设备像素比（DPR）= 物理像素/css像素，含义是几个物理像素对应一个css像素。UI给的几倍图就是要看当前设备的DPR多少来设定。</p>
+</li>
+<li><p><strong>为什么要有几倍图呢？</strong> 举例说明一下，假设设计师给我们一份100*100px的设计稿，此时设备DPR=1说明1个物理像素对应1个css像素，也就是css在浏览器画出来的1px == 设计稿上的1px == 设备显示的1px。当DPR=2说明4个物理像素对应1个css像素，也就是css在浏览器画出来的1px == 设备显示的2px == 设计稿的2px，所以，我们需要将css像素缩小一倍，即0.5px；当dpr=3时，是0.3333px</p>
+</li>
+<li><p><strong>浏览器按住ctrl和+时候放大，改变的是谁？页面为啥会放大？</strong> 在dpr=1，缩放比=1的时候，一个css像素对应一个物理像素。用一个10px<em>10px的div来举例（css里面设定的），浏览器页面放大的时候，可以看到这个div放大了，用审查元素去看，width和height还是10px，那是谁影响了大小呢。首先可以排除物理像素，上面已经说了，物理像素是出厂的时候就已经决定的大小，是不变了。所以只能是css像素大小改变，css是相对单位， *</em>这时候的一个css像素对应的物理像素更多了** ，这就是为什么我们看起来更大了的原因。</p>
+</li>
+</ul>
+<h3 id="常见布局"><a href="#常见布局" class="headerlink" title="常见布局"></a>常见布局</h3><p>我们通常提到的布局，有两个共同点：</p>
+<ul>
+<li>大多数用于 PC 端，因为 PC 端屏幕像素宽度够大，可布局的空间也大；</li>
+<li>布局是有限空间内的元素排列方式，因为页面设计横向不滚动，纵向无限延伸，所以大多数时候讨论的布局都是对水平方向进行分割。</li>
+</ul>
+<p>实际上我们在讨论布局的时候，会把网页上特定的区域进行分列操作。按照分列数目，可以大致分为 3 类，即单列布局、2 列布局、3 列布局。</p>
+<h4 id="1-单列布局"><a href="#1-单列布局" class="headerlink" title="1.单列布局"></a>1.单列布局</h4><p>单列布局是最常用的一种布局，它的实现效果就是将<code>一个元素</code>作为布局容器，通常设置一个较小的（最大）宽度来保证不同像素宽度屏幕下显示一致。<br>这种布局的优势在于基本上可以适配超过布局容器宽度的各种显示屏幕，比如网站布局容器宽度为 700px，也就是说超过 700px 宽度的显示屏幕上浏览网站看到的效果是一致的。<br>但它最大的缺点也是源于此，过度的冗余设计必然会带来<strong>浪费</strong>。例如，在上面的例子中，其实我的屏幕宽度是足够的，可以显示更多的内容，但是页面两侧却出现了大量空白区域，如果在 4k 甚至更宽的屏幕下，空白区域大小会超过页面内容区域大小！</p>
+<h4 id="2-两列布局"><a href="#2-两列布局" class="headerlink" title="2.两列布局"></a>2.两列布局</h4><p>2列布局使用频率也非常的高，实现效果就是将页面分割成左右宽度不等的<code>两列</code>，宽度较小的列设置为固定宽度，剩余宽度由另一列撑满。为了描述方便，我们暂且称宽度较小的列父元素为<code>次要布局容器</code>，宽度较大的列父元素为<code>主要布局容器</code>。</p>
+<p>示例网站：<br><img src="https://wx1.sbimg.cn/2020/06/10/vue.png" alt="两列布局"></p>
+<p>这种布局适用于内容上具有明显主次关系的网页，比如 API 文档页面中左侧显示内容导航，右侧显示文档描述；又比如后台管理系统中左侧显示菜单栏，右侧显示配置页面。相对于单列布局，在屏幕宽度适配方面处理得更好。当屏幕宽度不够时，主要内容布局容器优先显示，次要内容布局容器改为垂直方向显示或隐藏，但有时候也会和单列布局搭配使用，作为单列布局中的子布局使用。</p>
+<h4 id="3-三列布局"><a href="#3-三列布局" class="headerlink" title="3.三列布局"></a>3.三列布局</h4><p>3 列布局按照左中右的顺序进行排列，通常中间列最宽，左右两列次之。</p>
+<p>实例网站：<br><img src="https://wx1.sbimg.cn/2020/06/10/github.png" alt="三列布局"></p>
+<h3 id="如何避免样式冲突"><a href="#如何避免样式冲突" class="headerlink" title="如何避免样式冲突"></a>如何避免样式冲突</h3><h4 id="1-手动命名"><a href="#1-手动命名" class="headerlink" title="1. 手动命名"></a>1. 手动命名</h4><p>最简单有效的命名管理方式就是制定一些命名规则，比如<code>BEM</code><br><code>BEM</code>: BEM 是 Block、Element、Modifier 三个单词的缩写，Block 代表独立的功能组件，Element 代表功能组件的一个组成部分，Modifier 对应状态信息。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"button"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"button button-state-success"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"button button-state-danger"</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-工具命名"><a href="#2-工具命名" class="headerlink" title="2. 工具命名"></a>2. 工具命名</h4><p>通过插件将原命名转化成不重复的随机命名，从根本上避免命名冲突。比较著名的解决方案就是 CSS Modules。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.className</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: green;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>借助 css Modules 插件，可以将 css 以 JSON 对象的形式引用和使用。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> styles <span class="keyword">from</span> <span class="string">"./style.css"</span>;</span><br><span class="line"><span class="comment">// import &#123; className &#125; from "./style.css";</span></span><br><span class="line">element.innerHTML = <span class="string">'&lt;div class="'</span> + styles.className + <span class="string">'"&gt;'</span>;</span><br></pre></td></tr></table></figure>
+<p>编译之后的代码，样式类名被转化成了随机名称。但这种命名方式带来了一个问题，那就是如果想在引用组件的同时，覆盖它的样式会变得困难，因为编译后的样式名是随机。</p>
+
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">赞赏</button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
+    </div>
+</div>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/Appleking10">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

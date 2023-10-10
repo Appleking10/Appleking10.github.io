@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="WEB前端,个人记录,学习感悟">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        前端核心基础知识总结 - 一个不成熟的前端博客
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 一个专业的API调用工程师 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar radius">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>金依妮</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一-HTML标签知多少？"><span class="toc-text">一. HTML标签知多少？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-meta标签：自动刷新-跳转"><span class="toc-text">1. meta标签：自动刷新&#x2F;跳转</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-运用title标签实现消息提醒"><span class="toc-text">2. 运用title标签实现消息提醒</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-通过标签实现的性能优化"><span class="toc-text">3. 通过标签实现的性能优化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-搜索优化"><span class="toc-text">4. 搜索优化</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二-关于DOM元素"><span class="toc-text">二. 关于DOM元素</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-DOM"><span class="toc-text">1. DOM</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-DOM事件"><span class="toc-text">2. DOM事件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-浏览器渲染页面的过程-字节-→-字符-→-令牌-→-树-→-页面"><span class="toc-text">3.浏览器渲染页面的过程:字节 → 字符 → 令牌 → 树 → 页面</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三-关于JS的小事"><span class="toc-text">三. 关于JS的小事</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-数据类型的理解"><span class="toc-text">1. 数据类型的理解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-原型和原型链的理解"><span class="toc-text">2. 原型和原型链的理解</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四-关于浏览器我们要注意什么"><span class="toc-text">四. 关于浏览器我们要注意什么</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-浏览器加载网络资源的速度提升"><span class="toc-text">1. 浏览器加载网络资源的速度提升</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-手写promise、async-await"><span class="toc-text">2. 手写promise、async&#x2F;await</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> 一个专业的API调用工程师 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        前端核心基础知识总结
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2021-01-28</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#实战心得" title="实战心得">实战心得</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#持续更新" title="持续更新">持续更新</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#前端基础" title="前端基础">前端基础</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h3 id="一-HTML标签知多少？"><a href="#一-HTML标签知多少？" class="headerlink" title="一. HTML标签知多少？"></a>一. HTML标签知多少？</h3><h4 id="1-meta标签：自动刷新-跳转"><a href="#1-meta标签：自动刷新-跳转" class="headerlink" title="1. meta标签：自动刷新/跳转"></a>1. meta标签：自动刷新/跳转</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"Refresh"</span> <span class="attr">content</span>=<span class="string">"5; URL=page2.html"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 上面的代码会在 5s 之后自动跳转到同域下的 page2.html 页面。 --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"Refresh"</span> <span class="attr">content</span>=<span class="string">"60"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 间隔60s刷新一次页面 --&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-运用title标签实现消息提醒"><a href="#2-运用title标签实现消息提醒" class="headerlink" title="2. 运用title标签实现消息提醒"></a>2. 运用title标签实现消息提醒</h4><p>消息提醒功能实现则比较困难，HTML5 标准发布之前，浏览器没有开放图标闪烁、弹出系统消息之类的接口，只能借助一些 Hack 的手段，比如修改 title 标签来达到类似的效果（HTML5 下可使用<code>Web Notifications API</code>弹出系统消息）。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> msgNum = <span class="number">1</span> <span class="comment">// 消息条数</span></span><br><span class="line"><span class="keyword">let</span> cnt = <span class="number">0</span> <span class="comment">// 计数器</span></span><br><span class="line"><span class="keyword">const</span> inerval = setInterval(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  cnt = (cnt + <span class="number">1</span>) % <span class="number">2</span></span><br><span class="line">  <span class="keyword">if</span>(msgNum===<span class="number">0</span>) &#123;</span><br><span class="line">    <span class="comment">// 通过DOM修改title</span></span><br><span class="line">    <span class="built_in">document</span>.title += <span class="string">`聊天页面`</span></span><br><span class="line">    clearInterval(interval)</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">const</span> prefix = cnt % <span class="number">2</span> ? <span class="string">`新消息(<span class="subst">$&#123;msgNum&#125;</span>)`</span> : <span class="string">''</span></span><br><span class="line">  <span class="built_in">document</span>.title = <span class="string">`<span class="subst">$&#123;prefix&#125;</span>聊天页面`</span></span><br><span class="line">&#125;, <span class="number">1000</span>)</span><br></pre></td></tr></table></figure>
+<p>关于<code>Web Notifications API</code>的基本方法可以在<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/notification/Using_Web_Notifications" target="_blank" rel="noopener">Web Notifications API MDN</a>上浏览。</p>
+<blockquote>
+<p>PS：消息通知只有通过Web服务访问该页面时才会生效，如果直接双击打开本地文件，是没有任何效果的。也就是说你的文件需要使用服务器的形式打开，而不是直接使用浏览器打开本地文件。</p>
+</blockquote>
+<h4 id="3-通过标签实现的性能优化"><a href="#3-通过标签实现的性能优化" class="headerlink" title="3. 通过标签实现的性能优化"></a>3. 通过标签实现的性能优化</h4><p>性能问题无外乎两方面原因：渲染速度慢、请求时间长。性能优化虽然涉及很多复杂的原因和解决方案，但其实只要通过合理地使用标签，就可以在一定程度上提升渲染速度以及减少请求时间。</p>
+<p>a. <strong>script 标签：调整加载顺序提升渲染速度</strong></p>
+<p>由于浏览器的底层运行机制，渲染引擎在<code>解析HTML</code>时，若遇到<code>script标签</code>引用文件，则会暂停解析过程，同时通知网络线程加载文件，文件加载后会切换至<code>JavaScript引擎</code>来执行对应代码，代码执行完成之后切换至渲染引擎继续渲染页面。</p>
+<p>在这一过程中可以看到，页面渲染时间 = 请求文件 + 执行文件的时间，但页面的首次渲染可能并不依赖这些文件，这些请求和执行文件的动作反而延长了用户看到页面的时间，从而降低了用户体验（比如白屏）。<br>为了减少这些时间损耗，可以借助 script 标签的 3 个属性来实现。</p>
+<ul>
+<li>async 属性。立即请求文件，但不阻塞渲染引擎，而是文件加载完毕后阻塞渲染引擎并立即执行文件内容。</li>
+<li>defer 属性。立即请求文件，但不阻塞渲染引擎，等到解析完 HTML 之后再执行文件内容。</li>
+<li>HTML5 标准 type 属性，对应值为“module”。让浏览器按照 ECMA Script 6 标准将文件当作模块进行解析，默认阻塞效果同 defer，也可以配合 async 在请求完成后立即执行。</li>
+</ul>
+<blockquote>
+<p>PS: 除此之外还应当注意，当渲染引擎解析 HTML 遇到 script 标签引入文件时，会立即进行一次渲染。所以这也就是为什么构建工具会把编译好的引用 JavaScript 代码的 script 标签放入到 body 标签底部，因为当渲染引擎执行到 body 底部时会先将已解析的内容渲染出来，然后再去请求相应的 JavaScript 文件。如果是内联脚本（即不通过 src 属性引用外部脚本文件直接在 HTML 编写 JavaScript 代码的形式），渲染引擎则不会渲染。</p>
+</blockquote>
+<p>b. <strong>link 标签：通过预处理提升渲染速度</strong></p>
+<ul>
+<li>dns-prefetch。当 link 标签的 rel 属性值为“dns-prefetch”时，浏览器会对某个域名预先进行 DNS 解析并缓存。这样，当浏览器在请求同域名资源的时候，能省去从域名查询 IP 的过程，从而减少时间损耗。</li>
+<li>preconnect。让浏览器在一个 HTTP 请求正式发给服务器前预先执行一些操作，这包括 DNS 解析、TLS 协商、TCP 握手，通过消除往返延迟来为用户节省时间。</li>
+<li>prefetch/preload。两个值都是让浏览器预先下载并缓存某个资源，但不同的是，prefetch 可能会在浏览器忙时被忽略，而 preload 则是一定会被预先下载。</li>
+<li>prerender。浏览器不仅会加载资源，还会解析执行页面，进行预渲染</li>
+</ul>
+<p>以上特性也反映出了浏览器获取资源文件的流程：</p>
+<p>浏览器处理资源引用 -&gt; DNS解析 -&gt; 建立TCP连接 -&gt; 获取HTTP请求内容 -&gt; 渲染页面</p>
+<h4 id="4-搜索优化"><a href="#4-搜索优化" class="headerlink" title="4. 搜索优化"></a>4. 搜索优化</h4><ul>
+<li>meta标签：提取关键信息</li>
+</ul>
+<p>为了让搜索引擎更好的识别页面，最好是给网站添加合适的搜索关键词</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">content</span>=<span class="string">"搜索关键词，用逗号隔开"</span> <span class="attr">name</span>=<span class="string">"keywords"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在实际工作中，推荐使用一些关键字工具来挑选，比如 、<a href="http://tool.chinaz.com/" target="_blank" rel="noopener">站长工具</a>、Google Trends。</p>
+<ul>
+<li>link标签：减少重复<br>有时候为了用户访问方便或者出于历史原因，对于同一个页面会有多个网址，又或者存在某些重定向页面，比如：<br>  <a href="https://xx.com/a.html" target="_blank" rel="noopener">https://xx.com/a.html</a><br>  <a href="https://xx.com/detail?id=&quot;abcd&quot;" target="_blank" rel="noopener">https://xx.com/detail?id=&quot;abcd&quot;</a></li>
+</ul>
+<p>那么在这些页面中可以这样设置：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"https://xx.com/a.html"</span> <span class="attr">rel</span>=<span class="string">"canonical"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这样可以让搜索引擎避免花费时间抓取重复网页。不过需要注意的是，它还有个限制条件，那就是指向的网站不允许跨域。</p>
+<p>当然，要合并网址还有其他的方式，比如使用站点地图。</p>
+<h3 id="二-关于DOM元素"><a href="#二-关于DOM元素" class="headerlink" title="二. 关于DOM元素"></a>二. 关于DOM元素</h3><h4 id="1-DOM"><a href="#1-DOM" class="headerlink" title="1. DOM"></a>1. DOM</h4><p>大部分前端功能需要借助DOM来实现，比如监听点击事件，动态渲染列表，懒加载脚本或样式。根据DOM V3标准，会发现包含多个内容，归纳起来由3大部分的内容组成：</p>
+<ul>
+<li>DOM 节点</li>
+<li>DOM 事件</li>
+<li>选择区域</li>
+</ul>
+<p>a. <strong>DOM 节点</strong><br>对于 DOM 节点，需与另外两个概念标签和元素进行区分：</p>
+<p><code>标签</code>是 HTML 的基本单位，比如 p、div、input；<br><code>节点</code>是 DOM 树的基本单位，有多种类型，比如注释节点、文本节点；<br><code>元素</code>是节点中的一种，与 HTML 标签相对应，比如 p 标签会对应 p 元素。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">    "p" 是标签， </span></span><br><span class="line"><span class="comment">    生成 DOM 树的时候会产生两个节点，一个是元素节点 p，另一个是字符串为"苹果苹果"的文本节点。</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>苹果苹果<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>b. <strong>DOM 操作</strong></p>
+<p>DOM频繁的操作其实对浏览器的性能来说很不友好，有很大的性能损耗问题。这其中的原因，就要先了解一下<strong>浏览器的工作机制</strong>。</p>
+<ul>
+<li>线程切换<br>浏览器包含<code>渲染引擎</code>（也称浏览器内核）和 <code>JavaScript引擎</code>，它们都是单线程运行。单线程的优势是开发方便，避免多线程下的死锁、竞争等问题，劣势是失去了并发能力。</li>
+</ul>
+<p>浏览器为了避免两个引擎同时修改页面而造成渲染结果不一致的情况，增加了另外一个机制，这两个引擎具有<strong>互斥性</strong>，也就是说在某个时刻只有一个引擎在运行，另一个引擎会被阻塞。操作系统在进行线程切换的时候需要保存上一个线程执行时的状态信息并读取下一个线程的状态信息，俗称上下文切换。而这个操作相对而言是比较耗时的。</p>
+<p>每次 DOM 操作就会引发线程的上下文切换——从 JavaScript引擎切换到渲染引擎执行对应操作，然后再切换回 JavaScript 引擎继续执行，这就带来了<strong>性能损耗</strong>。单次切换消耗的时间是非常少的，但是如果频繁的大量切换，那么就会产生性能问题。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 测试次数：一百万次</span></span><br><span class="line"><span class="keyword">const</span> times = <span class="number">1000000</span></span><br><span class="line"><span class="comment">// 缓存body元素</span></span><br><span class="line"><span class="keyword">let</span> body = <span class="built_in">document</span>.body</span><br><span class="line"><span class="comment">// 循环赋值对象作为对照参考</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;times;i++) &#123;</span><br><span class="line">  <span class="keyword">let</span> tmp = body</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.timeEnd(<span class="string">'object'</span>)<span class="comment">// object: 1.77197265625ms</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 循环读取body元素引发线程切换</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;times;i++) &#123;</span><br><span class="line">  <span class="keyword">let</span> tmp = <span class="built_in">document</span>.body</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.timeEnd(<span class="string">'dom'</span>)<span class="comment">// dom: 18.302001953125ms</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>重排和重绘</li>
+</ul>
+<p>另一个更加耗时的因素是元素及样式变化引起的再次渲染，在渲染过程中最耗时的两个步骤为<strong>重排</strong>（Reflow）与<strong>重绘</strong>（Repaint）。</p>
+<p>浏览器在渲染页面时会将 <code>HTML</code> 和 <code>CSS</code> 分别解析成 <code>DOM 树</code>和 <code>CSSOM 树</code>，然后合并进行排布，再绘制成我们可见的页面。如果在操作 DOM 时涉及到元素、样式的修改，就会引起渲染引擎重新计算样式生成 CSSOM 树，同时还有可能触发对元素的<strong>重排</strong>和<strong>重绘</strong>。</p>
+<ul>
+<li><p>如何高效操作DOM</p>
+<ul>
+<li>在循环外操作元素</li>
+<li>批量操作元素<br>比如说要创建 1 万个 div 元素，在循环中直接创建再添加到父元素上耗时会非常多。如果采用字符串拼接的形式，先将 1 万个 div 元素的 html 字符串拼接成一个完整字符串，然后赋值给 body 元素的 innerHTML 属性就可以明显减少耗时。</li>
+<li>缓存元素集合<br>比如将通过选择器函数获取到的 DOM 元素赋值给变量，之后通过变量操作而不是再次使用选择器函数来获取。<br>假设我们现在要将上面代码所创建的 1 万个 div 元素的文本内容进行修改。每次重复使用获取选择器函数来获取元素。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="built_in">document</span>.querySelectorAll(<span class="string">'div'</span>).length; i++) &#123;</span><br><span class="line">  <span class="built_in">document</span>.querySelectorAll(<span class="string">`div`</span>)[i].innerText = i</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//21965ms</span></span><br></pre></td></tr></table></figure>
+如果能够将元素集合赋值给 JavaScript 变量，每次通过变量去修改元素，那么性能将会得到不小的提升。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> divs = <span class="built_in">document</span>.querySelectorAll(<span class="string">'div'</span>)</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; divs.length; i++) &#123;</span><br><span class="line">  divs[i].innerText = i</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//211ms</span></span><br></pre></td></tr></table></figure>
+c. <strong>总结</strong></li>
+</ul>
+</li>
+<li><p>尽量不要使用复杂的匹配规则和复杂的样式，从而减少渲染引擎计算样式规则生成 CSSOM 树的时间；</p>
+</li>
+<li><p>尽量减少重排和重绘影响的区域；</p>
+</li>
+<li><p>使用 CSS3 特性来实现动画效果。</p>
+</li>
+</ul>
+<h4 id="2-DOM事件"><a href="#2-DOM事件" class="headerlink" title="2. DOM事件"></a>2. DOM事件</h4><p>a. <strong>防抖</strong><br>对于一些连续触发的事件，有时候并不需要那么频繁去触发，需要添加一个”防抖”功能，为函数的执行设置一个合理的时间间隔，避免事件在时间间隔内频繁触发，同时又保证事件的正常使用功能。<br>要实现防抖，自然而然就是想到使用定时器来延迟执行。比如：输入搜索的功能</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> ipt = <span class="built_in">document</span>.querySelector(<span class="string">'input'</span>)</span><br><span class="line"><span class="keyword">let</span> timeout = <span class="literal">null</span>; <span class="comment">//存储计时器</span></span><br><span class="line">ipt.addEventListener(<span class="string">'input'</span>, e =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span>(timeout) &#123;</span><br><span class="line">    clearTimeout(timeout)</span><br><span class="line">    timeout = <span class="literal">null</span></span><br><span class="line">  &#125;</span><br><span class="line">  timeout = setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    search(e.target.value).then(<span class="function"><span class="params">resp</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// 搜索回调</span></span><br><span class="line">    &#125;, e =&gt; &#123;</span><br><span class="line">      <span class="comment">// ...</span></span><br><span class="line">    &#125;)  </span><br><span class="line">  &#125;, <span class="number">500</span>)  </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>问题确实是解决了，但这并不是最优答案，或者说我们需对这个防抖操作进行一些“优化”。</p>
+<p>试想一下，如果另一个搜索框也需要添加防抖，是不是也要把 timeout 相关的代码再编写一次？而其实这个操作是完全可以抽取成公共函数的。</p>
+<p>在抽取成公共函数的同时，还需要考虑更复杂的情况：</p>
+<ul>
+<li>参数和返回值如何传递？</li>
+<li>防抖化之后的函数是否可以立即执行？</li>
+<li>防抖化的函数是否可以手动取消？</li>
+</ul>
+<p>具体代码如下所示，首先将原函数作为参数传入 <code>debounce()</code> 函数中，同时指定延迟等待时间，返回一个新的函数，这个函数包含 <code>cancel</code> 属性，用来取消原函数执行。<code>flush</code> 属性用来立即调用原函数，同时将原函数的执行结果以 <code>Promise</code> 的形式返回。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 封装API</span></span><br><span class="line"><span class="keyword">const</span> debounce = <span class="function">(<span class="params">func, wait = <span class="number">0</span></span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> timeout = <span class="literal">null</span></span><br><span class="line">  <span class="keyword">let</span> args</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">debounced</span>(<span class="params">...arg</span>) </span>&#123;</span><br><span class="line">    args = arg</span><br><span class="line">    <span class="keyword">if</span>(timeout) &#123;</span><br><span class="line">      clearTimeout(timeout)</span><br><span class="line">      timeout = <span class="literal">null</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 以Promise的形式返回函数执行结果</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">res, rej</span>) =&gt;</span> &#123;</span><br><span class="line">      timeout = setTimeout(<span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">          <span class="keyword">const</span> result = <span class="keyword">await</span> func.apply(<span class="keyword">this</span>, args)</span><br><span class="line">          res(result)</span><br><span class="line">        &#125; <span class="keyword">catch</span>(e) &#123;</span><br><span class="line">          rej(e)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;, wait)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 允许取消</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">cancel</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    clearTimeout(timeout)</span><br><span class="line">    timeout = <span class="literal">null</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 允许立即执行</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">flush</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    cancel()</span><br><span class="line">    <span class="keyword">return</span> func.apply(<span class="keyword">this</span>, args)</span><br><span class="line">  &#125;</span><br><span class="line">  debounced.cancel = cancel</span><br><span class="line">  debounced.flush = flush</span><br><span class="line">  <span class="keyword">return</span> debounced</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>也可以参考lodsh的debounce()函数</p>
+</blockquote>
+<p>b. <strong>节流</strong><br>一般监听滚动事件的时候需要考虑节流，我们可以设置在指定一段时间内只调用一次函数，从而降低函数调用频率，这种方式我们称之为“节流”。</p>
+<p>实现节流函数的过程和防抖函数有些类似，只是对于节流函数而言，有两种执行方式，在调用函数时执行最先一次调用还是最近一次调用，所以需要设置时间戳加以判断。我们可以基于 debounce() 函数加以修改。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> throttle = <span class="function">(<span class="params">func, wait = <span class="number">0</span>, execFirstCall</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> timeout = <span class="literal">null</span></span><br><span class="line">  <span class="keyword">let</span> args</span><br><span class="line">  <span class="keyword">let</span> firstCallTimestamp</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">throttled</span>(<span class="params">...arg</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!firstCallTimestamp) firstCallTimestamp = <span class="keyword">new</span> <span class="built_in">Date</span>().getTime()</span><br><span class="line">    <span class="keyword">if</span> (!execFirstCall || !args) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'set args:'</span>, arg)</span><br><span class="line">      args = arg</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (timeout) &#123;</span><br><span class="line">      clearTimeout(timeout)</span><br><span class="line">      timeout = <span class="literal">null</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 以Promise的形式返回函数执行结果</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="keyword">async</span>(res, rej) =&gt; &#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">new</span> <span class="built_in">Date</span>().getTime() - firstCallTimestamp &gt;= wait) &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">          <span class="keyword">const</span> result = <span class="keyword">await</span> func.apply(<span class="keyword">this</span>, args)</span><br><span class="line">          res(result)</span><br><span class="line">        &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">          rej(e)</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">          cancel()</span><br><span class="line">        &#125;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        timeout = setTimeout(<span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">          <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">const</span> result = <span class="keyword">await</span> func.apply(<span class="keyword">this</span>, args)</span><br><span class="line">            res(result)</span><br><span class="line">          &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">            rej(e)</span><br><span class="line">          &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            cancel()</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;, firstCallTimestamp + wait - <span class="keyword">new</span> <span class="built_in">Date</span>().getTime())</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 允许取消</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">cancel</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    clearTimeout(timeout)</span><br><span class="line">    args = <span class="literal">null</span></span><br><span class="line">    timeout = <span class="literal">null</span></span><br><span class="line">    firstCallTimestamp = <span class="literal">null</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 允许立即执行</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">flush</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    cancel()</span><br><span class="line">    <span class="keyword">return</span> func.apply(<span class="keyword">this</span>, args)</span><br><span class="line">  &#125;</span><br><span class="line">  throttled.cancel = cancel</span><br><span class="line">  throttled.flush = flush</span><br><span class="line">  <span class="keyword">return</span> throttle</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>节流与防抖都是通过延迟执行，减少调用次数，来优化频繁调用函数时的性能。不同的是，对于一段时间内的频繁调用，防抖是延迟执行后一次调用，节流是延迟定时多次调用。</p>
+<p>c. <strong>代理</strong></p>
+<p>下面的 HTML 代码是一个简单的无序列表，现在希望点击每个项目的时候调用 getInfo() 函数，当点击“编辑”时，调用一个 edit() 函数，当点击“删除”时，调用一个 del() 函数。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"list"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item"</span> <span class="attr">id</span>=<span class="string">"item1"</span>&gt;</span>项目1<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"edit"</span>&gt;</span>编辑<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"delete"</span>&gt;</span>删除<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item"</span> <span class="attr">id</span>=<span class="string">"item2"</span>&gt;</span>项目2<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"edit"</span>&gt;</span>编辑<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"delete"</span> &gt;</span>删除<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item"</span> <span class="attr">id</span>=<span class="string">"item3"</span>&gt;</span>项目3<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"edit"</span>&gt;</span>编辑<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"delete"</span>&gt;</span>删除<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>要实现这个功能并不难，只需要对列表中每一项，分别监听 3 个元素的 click 事件即可。</p>
+<p>但如果数据量一旦增大，事件绑定占用的内存以及执行时间将会成线性增加，而其实这些事件监听函数逻辑一致，只是参数不同而已。此时我们可以以事件代理或事件委托来进行优化。</p>
+<ul>
+<li>DOM事件触发流程（三个阶段）<ul>
+<li><strong>捕获</strong>：事件对象 Window 传播到目标的父对象,如图<span style="color:red;">红色线</span></li>
+<li><strong>目标</strong>：事件对象到达事件对象的事件目标，如图<span style="color:blue;">蓝色过程</span></li>
+<li><strong>冒泡</strong>：事件对象从目标的父节点开始传播到 Window,如图<span style="color:green;">绿色线</span></li>
+</ul>
+</li>
+</ul>
+<p><img src="https://wx2.sbimg.cn/2020/06/09/mapao.png" alt="冒泡流程图"></p>
+<p><strong>我们上面提到的给元素的事件行为绑定方法都是在当前元素事件行为的冒泡阶段(或者目标阶段)执行的。</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span>&gt;</span>click<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="built_in">document</span>.querySelector(<span class="string">'button'</span>).addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">  <span class="built_in">console</span>.log(<span class="string">'bubble'</span>)</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="javascript"><span class="built_in">document</span>.querySelector(<span class="string">'button'</span>).addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">  <span class="built_in">console</span>.log(<span class="string">'capture'</span>)</span></span><br><span class="line"><span class="actionscript">&#125;, <span class="literal">true</span>)</span></span><br><span class="line"><span class="actionscript"><span class="comment">// 执行结果</span></span></span><br><span class="line"><span class="actionscript"><span class="comment">// buble</span></span></span><br><span class="line"><span class="actionscript"><span class="comment">// capture</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>例如，在上面面的代码中，虽然我们第二次进行事件监听时设置为捕获阶段，但点击事件时仍会按照监听顺序进行执行。（若是调换两个监听函数的顺序，则输出相反的结果）</p>
+<p>我们再回到事件代理，事件代理的实现原理就是利用上述 DOM 事件的触发流程来对一类事件进行统一处理。比如对于上面的列表，我们在 ul 元素上绑定事件统一处理，通过得到的事件对象来获取参数，调用对应的函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> ul = <span class="built_in">document</span>.querySelector(<span class="string">'.list'</span>)</span><br><span class="line">ul.addEventListener(<span class="string">'click'</span>, e =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> t = e.target || e.srcElement</span><br><span class="line">  <span class="keyword">if</span> (t.classList.contains(<span class="string">'item'</span>)) &#123;</span><br><span class="line">    getInfo(t.id)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    id = t.parentElement.id</span><br><span class="line">    <span class="keyword">if</span> (t.classList.contains(<span class="string">'edit'</span>)) &#123;</span><br><span class="line">      edit(id)</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (t.classList.contains(<span class="string">'delete'</span>)) &#123;</span><br><span class="line">      del(id)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>虽然这里我们选择了默认在冒泡阶段监听事件，但和捕获阶段监听并没有区别。<br>对于其他情况还需要具体情况具体细分析，比如有些列表项目需要在目标阶段进行一些预处理操作，那么可以选择冒泡阶段进行事件代理。</p>
+<blockquote>
+<p><strong>事件监听方式的区别</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 方式1</span></span><br><span class="line">&lt;input type=<span class="string">"text"</span> onclick=<span class="string">"click()"</span>/&gt;</span><br><span class="line"><span class="comment">// 方式2</span></span><br><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">'input'</span>).onClick = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;<span class="comment">// ...&#125;</span></span><br><span class="line"><span class="comment">// 方式3</span></span><br><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">'input'</span>).addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;<span class="comment">//...&#125;)</span></span><br></pre></td></tr></table></figure>
+<p>方式 1 和方式 2 同属于 DOM0 标准，通过这种方式进行事件监会<strong>覆盖</strong>之前的事件监听函数。<br>方式 3 属于 DOM2 标准，推荐使用这种方式。同一元素上的事件监听函数<strong>互不影响</strong>，而且可以独立取消，调用顺序和监听顺序一致。</p>
+</blockquote>
+<h4 id="3-浏览器渲染页面的过程-字节-→-字符-→-令牌-→-树-→-页面"><a href="#3-浏览器渲染页面的过程-字节-→-字符-→-令牌-→-树-→-页面" class="headerlink" title="3.浏览器渲染页面的过程:字节 → 字符 → 令牌 → 树 → 页面"></a>3.浏览器渲染页面的过程:字节 → 字符 → 令牌 → 树 → 页面</h4><p>假如我们在浏览器中输入了一个网址，得到了下面的 html 文件，渲染引擎是怎样通过解析代码生成页面的呢？</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    文本</span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>1.字符流解码<br>对于上面的代码，我们看到的是它的字符形式。而浏览器通过 HTTP 协议接收到的文档内容是<code>字节数据</code>，。当浏览器得到字节数据后，通过“编码嗅探算法”来确定字符编码，然后根据字符编码将字节流数据进行<code>解码</code>，也就是我们编写的代码。</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">69</span> <span class="number">6f</span> <span class="number">6</span>e <span class="number">23</span> <span class="number">2</span>b <span class="number">65</span>  |&lt;html&gt; &lt;head&gt;&lt;/head&gt;...</span><br><span class="line"><span class="number">0</span>a <span class="number">43</span> <span class="number">52</span> <span class="number">45</span> <span class="number">4</span>a <span class="number">66</span>  |</span><br><span class="line"><span class="number">6</span>c <span class="number">37</span> <span class="number">77</span> <span class="number">41</span> <span class="number">3</span>d <span class="number">0</span>a  |</span><br></pre></td></tr></table></figure>
+<p>这个把字节数据解码成字符数据的过程称之为“字节流解码”。</p>
+<p>2.输入流预处理<br>通过上一步解码得到的字符流数据在进入解析环节之前还需要进行一些预处理操作。比如将换行符转换成统一的格式，最终生成规范化的字符流数据，这个把字符数据进行统一格式化的过程称之为“输入流预处理”。</p>
+<p>3.令牌化<br>经过前两步的数据解码和预处理，下面就要进入重要的解析步骤了。</p>
+<p>解析包含两步，第一步是将<code>字符数据</code>转化成<code>令牌</code>（Token），第二步是解析 <code>HTML</code> 生成<code>DOM 树</code>。先来说说令牌化，其过程是使用了一种类似<code>状态机</code>的算法，即每次接收一个或多个输入流中的字符；然后根据当前状态和这些字符来更新下一个状态，也就是说在不同的状态下接收同样的字符数据可能会产生不同的结果，比如当接收到<code>body</code>字符串时，在标签打开状态会解析成标签，在标签关闭状态则会解析成文本节点。<br>最后生成的令牌结构类似如下:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">开始标签<span class="selector-pseudo">:html</span></span><br><span class="line">  开始标签<span class="selector-pseudo">:head</span></span><br><span class="line">  结束标签<span class="selector-pseudo">:head</span></span><br><span class="line">  开始标签<span class="selector-pseudo">:body</span></span><br><span class="line">    字符串:文本</span><br><span class="line">  结束标签<span class="selector-pseudo">:body</span></span><br><span class="line">结束标签<span class="selector-pseudo">:html</span></span><br></pre></td></tr></table></figure>
+<p>4.构建DOM树<br>浏览器在创建<code>解析器</code>的同时会创建一个 <code>Document 对象</code>。在树构建阶段，<code>Document</code> 会作为<strong>根节点</strong>被不断地修改和扩充。标记步骤产生的令牌会被送到<code>树构建器</code>进行处理。HTML 5 标准中定义了每类令牌对应的 DOM 元素，当树构建器接收到某个令牌时就会创建该令牌对应的 DOM 元素并将该元素插入到 DOM 树中。<br>为了纠正元素标签嵌套错位的问题和处理未关闭的元素标签，树构建器创建的新 DOM 元素还会被插入到一个开放元素栈中。<br>最终生成下面的 DOM 树结构：</p>
+<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">      Document</span><br><span class="line">      /       <span class="string">\</span></span><br><span class="line">DocumentType   HTMLHtmlElement</span><br><span class="line">                  /         <span class="string">\</span></span><br><span class="line">    HTMLHeadElement         HTMLBodyElement</span><br><span class="line">                                  |</span><br><span class="line">                                TextNode</span><br></pre></td></tr></table></figure>
+<p>5.构建渲染树<br>有了 DOM 树和 CSSOM 树之后，渲染引擎就可以开始生成页面了。<br><code>DOM 树</code>包含的结构内容与 <code>CSSOM 树</code>包含的样式规则都是独立的，为了更方便渲染，先需要将它们合并成一棵渲染树。<br>这个过程会从 DOM 树的根节点开始遍历，然后在 CSSOM 树上找到每个节点对应的样式。<br>遍历过程中会自动忽略那些不需要渲染的节点（比如脚本标记、元标记等）以及不可见的节点（比如设置了“display:none”样式）。同时也会将一些需要显示的伪类元素加到渲染树中。<br>对于上面的 HTML 和 CSS 代码，最终生成的渲染树就只有一个 body 节点，样式为 font-size:12px(浏览器默认css属性)。</p>
+<p>6.布局<br>生成了渲染树之后，就可以进入布局阶段了，布局就是计算元素的大小及位置。<br>计算元素布局是一个比较复杂的操作，因为需要考虑的因素有很多，包括字体大小、换行位置等，这些因素会影响段落的大小和形状，进而影响下一个段落的位置。<br>布局完成后会输出对应的“盒模型”，它会精确地捕获每个元素的确切位置和大小，将所有相对值都转换为屏幕上的<code>绝对像素</code>。(关于像素方面的知识可以参考<a href="http://Appleking10.github.io/2020/06/10/css布局心得（持续更新）" target="_blank" rel="noopener">css布局心得</a>)</p>
+<p>7.绘制<br>绘制就是将渲染树中的每个<code>节点</code>转换成屏幕上的<code>实际像素</code>的过程。得到布局树这份“施工图”之后，渲染引擎并不能立即绘制，因为还不知道绘制顺序，如果没有弄清楚绘制顺序，那么很可能会导致页面被错误地渲染。例如，对于使用 z-index 属性的元素（如遮罩层）如果未按照正确的顺序绘制，则将导致渲染结果和预期不符（失去遮罩作用）。<br>所以绘制过程中的第一步就是<strong>遍历布局树，生成绘制记录，然后渲染引擎会根据绘制记录去绘制相应的内容</strong>。</p>
+<blockquote>
+<p>对于无动画效果的情况，只需要考虑空间维度，生成不同的图层，然后再把这些图层进行合成，最终成为我们看到的页面。当然这个绘制过程并不是静态不变的，会随着页面滚动不断合成新的图形。</p>
+</blockquote>
+<h3 id="三-关于JS的小事"><a href="#三-关于JS的小事" class="headerlink" title="三. 关于JS的小事"></a>三. 关于JS的小事</h3><h4 id="1-数据类型的理解"><a href="#1-数据类型的理解" class="headerlink" title="1. 数据类型的理解"></a>1. 数据类型的理解</h4><p>JavaScript 的数据类型可以分为 7 种：空（Null）、未定义（Undefined）、数字（Number）、字符串（String）、布尔值（Boolean）、符号（Symbol）、对象（Object）。</p>
+<ul>
+<li>1.undefined<br>Undefined 是一个很特殊的数据类型，它只有一个值，也就是 undefined。<br>可以通过下面几种方式来得到 undefined：<blockquote>
+<ul>
+<li>引用已声明但未初始化的变量；</li>
+<li>引用未定义的对象属性；</li>
+<li>执行无返回值函数；</li>
+<li>执行 void 表达式；</li>
+<li>全局常量 window.undefined 或 undefined。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<p>推荐通过 void 表达式<code>void 0</code>来得到 undefined 值，因为这种方式既简便（window.undefined 或 undefined 常量的字符长度都大于 “void 0” 表达式）又不需要引用额外的变量和属性；同时它作为表达式还可以配合三目运算符使用，<strong>代表不执行任何操作</strong>。<br>如何判断一个变量的值是否为 undefined 呢？</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> x === <span class="string">'undefined'</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>2.null<br><code>Null</code> 数据类型和 <code>Undefined</code> 类似，只有唯一的一个值null，都可以表示空值，甚至我们通过 “==” 来比较它们是否相等的时候得到的结果都是 true，但 null 是 JavaScript 保留关键字，而 undefined 只是一个常量。也就是说可以声明名称为 undefined 的变量（虽然只能在老版本的 IE 浏览器中给它重新赋值），但将 null 作为变量使用时则会报错。</p>
+</li>
+<li><p>3.Boolean<br>Boolean数据类型只有两个值：true 和 false。但是常常会将各种表达式和变量转换成 Boolean 数据类型来当作判断条件。</p>
+</li>
+<li><p>4.number<br>数值类型，有 2 个特殊数值需要注意一下，即 NaN 和 Infinity。</p>
+<blockquote>
+<ul>
+<li>NaN（Not a Number）通常在计算失败的时候会得到该值。要判断一个变量是否为 NaN，则可以通过 Number.isNaN 函数进行判断。</li>
+<li>Infinity 是无穷大，加上负号 “-” 会变成无穷小，在某些场景下比较有用，比如通过数值来表示权重或者优先级，Infinity 可以表示最高优先级或最大权重。</li>
+</ul>
+</blockquote>
+</li>
+<li><p><em>精度转换*</em><br>在进行浮点数运算时。比如我们执行简单的运算 0.1 + 0.2，得到的结果是 0.30000000000000004，如果直接和 0.3 作相等判断时就会得到 false。<br>出现这种情况的原因在于计算的时候，JavaScript 引擎会先将十进制数转换为二进制，然后进行加法运算，再将所得结果转换为十进制。在进制转换过程中如果小数位是无限的，就会出现误差。同样的，将数字 5 开方后再平方得到的结果也和数字 5 不相等。</p>
+</li>
+<li><p><em>解决办法*</em>：</p>
+<blockquote>
+<ul>
+<li>先转换成整数进行计算，然后再转换回小数，这种方式适合在小数位不是很多的时候。比如一些程序的支付功能 API 以“分”为单位，从而避免使用小数进行计算。</li>
+<li>舍弃末尾的小数位。比如对上面的加法就可以先调用 toPrecision 截取 12 位，然后调用 parseFloat 函数转换回浮点数。</li>
+</ul>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">parseFloat</span>((<span class="number">0.1</span> + <span class="number">0.2</span>).toPrecision(<span class="number">12</span>)) <span class="comment">// 0.3</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>5.string</p>
+</li>
+</ul>
+<p>千位分隔符是指为了方便识别较大数字，每隔三位数会加入一个逗号，该逗号就是千位分隔符。如果要编写一个函数来为输入值的数字添加千分位分隔符，该怎么实现呢？<br>一种实现方式是通过 for 循环的索引值找到对应的字符；而另一种方式是通过数组反转，从而变成从左到右操作。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 将字符串数据转化成引用类型数据，即用数组来实现</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sep</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> [i, c] = n.toString().split(<span class="regexp">/(\.\d+)/</span>)<span class="comment">//将数值转换成字符数组</span></span><br><span class="line">  <span class="comment">// 通过数组反转，从而变成从左到右遍历数值每一位，每隔 3 位添加分隔符</span></span><br><span class="line">  <span class="keyword">return</span> i.split(<span class="string">''</span>).reverse().map(<span class="function">(<span class="params">c, idx</span>) =&gt;</span> (idx+<span class="number">1</span>) % <span class="number">3</span> === <span class="number">0</span> ? <span class="string">','</span> + c: c).reverse().join(<span class="string">''</span>).replace(<span class="regexp">/^,/</span>, <span class="string">''</span>) + c</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 通过引用类型，即用正则表达式对字符进行替换来实现</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sep2</span>(<span class="params">n</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">let</span> str = n.toString()</span><br><span class="line">  str.indexOf(<span class="string">'.'</span>) &lt; <span class="number">0</span> ? str+= <span class="string">'.'</span> : <span class="keyword">void</span> <span class="number">0</span></span><br><span class="line">  <span class="keyword">return</span> str.replace(<span class="regexp">/(\d)(?=(\d&#123;3&#125;)+\.)/g</span>, <span class="string">'$1,'</span>).replace(<span class="regexp">/\.$/</span>, <span class="string">''</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>6.symbol<br>symbol 是 ES6 中引入的新数据类型，它表示一个唯一的常量，通过 Symbol 函数来创建对应的数据类型，创建时可以添加<code>变量描述</code>，该变量描述在传入时会被强行转换成<code>字符串</code>进行存储。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="built_in">Symbol</span>(<span class="string">'1'</span>)</span><br><span class="line"><span class="keyword">var</span> b = <span class="built_in">Symbol</span>(<span class="number">1</span>)</span><br><span class="line">a.description === b.description <span class="comment">// true</span></span><br><span class="line"><span class="keyword">var</span> c = <span class="built_in">Symbol</span>(&#123;<span class="attr">id</span>: <span class="number">1</span>&#125;)</span><br><span class="line">c.description <span class="comment">// [object Object]</span></span><br><span class="line"><span class="keyword">var</span> _a = <span class="built_in">Symbol</span>(<span class="string">'1'</span>)</span><br><span class="line">_a == a <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+symbol 属性类型比较适合用于两类场景中：常量值和对象属性<blockquote>
+<ul>
+<li>避免常量值重复</li>
+</ul>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getValue</span>(<span class="params">key</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">switch</span>(key)&#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">'A'</span>:</span><br><span class="line">      <span class="comment">//...</span></span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">case</span> <span class="string">'B'</span>:</span><br><span class="line">      <span class="comment">//...</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">getValue(<span class="string">'B'</span>);</span><br></pre></td></tr></table></figure>
+这段代码对调用者而言非常不友好，因为代码中使用了<code>魔术字符串</code>（魔术字符串是指在代码之中多次出现、与代码形成强耦合的某一个具体的字符串或者数值），导致调用 getValue 函数时需要查看函数源码才能找到参数 key 的可选值。所以可以将参数 key 的值以常量的方式声明出来。<br>改进：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> KEY = &#123;</span><br><span class="line">  apple: <span class="string">'A'</span>,</span><br><span class="line">  banana: <span class="string">'B'</span>,</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getValue</span>(<span class="params">key</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">switch</span>(key)&#123;</span><br><span class="line">    <span class="keyword">case</span> KEY.apple:</span><br><span class="line">      ...</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">case</span> KEY.banana:</span><br><span class="line">      ...</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">getValue(KEY.baidu);</span><br></pre></td></tr></table></figure>
+但这样也并非完美，假设现在我们要在 KEY 常量中加入一个 key，根据对应的规则，很有可能会出现值重复的情况：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> KEY = &#123;</span><br><span class="line">  apple: <span class="string">'A'</span>,</span><br><span class="line">  banana: <span class="string">'B'</span>,</span><br><span class="line">  <span class="comment">//...</span></span><br><span class="line">  bear: <span class="string">'B'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//因此可以使用symbol，不关心值本身，只关心值得唯一性</span></span><br><span class="line"><span class="keyword">const</span> KEY = &#123;</span><br><span class="line">  apple: <span class="built_in">Symbol</span>(),</span><br><span class="line">  banana: <span class="built_in">Symbol</span>(),</span><br><span class="line">  <span class="comment">//...</span></span><br><span class="line">  bear: <span class="built_in">Symbol</span>()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li>避免对象属性覆盖<br>假设有这样一个函数 fn，需要对传入的对象参数添加一个临时属性 user，但可能该对象参数中已经有这个属性了，如果直接赋值就会覆盖之前的值。此时就可以使用 Symbol 来避免这个问题。</li>
+</ul>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">o</span>) </span>&#123; <span class="comment">// &#123;user: &#123;id: xx, name: yy&#125;&#125;</span></span><br><span class="line">  <span class="keyword">const</span> s = <span class="built_in">Symbol</span>()</span><br><span class="line">  o[s] = <span class="string">'zzz'</span></span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>7.Object<br>相对于基础类型，引用类型 Object 则复杂很多。简单地说，Object 类型数据就是键值对的集合，键是一个字符串（或者 Symbol） ，值可以是任意类型的值； 复杂地说，Object 又包括很多子类型，比如 Date、Array、Set、RegExp。</li>
+</ul>
+<p>由于引用类型在赋值时只传递指针，这种拷贝方式称为<strong>浅拷贝</strong>。<br>而创建一个新的与之相同的引用类型数据的过程称之为<strong>深拷贝</strong>。<br>现在我们来实现一个拷贝函数，支持上面 7 种类型的数据拷贝。</p>
+<p>对于 6 种基础类型，我们只需简单的赋值即可，而 Object 类型变量需要特殊操作。因为通过等号“=”赋值只是浅拷贝，要实现真正的拷贝操作则需要通过遍历键来赋值对应的值，这个过程中如果遇到 Object 类型还需要再次进行遍历。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 为了准确判断每种数据类型，我们可以先通过 typeof 来查看每种数据类型的描述</span></span><br><span class="line">[<span class="literal">undefined</span>, <span class="literal">null</span>, <span class="literal">true</span>, <span class="string">''</span>, <span class="number">0</span>, <span class="built_in">Symbol</span>(), &#123;&#125;].map(<span class="function"><span class="params">it</span> =&gt;</span> <span class="keyword">typeof</span> it)<span class="comment">// ["undefined", "object", "boolean", "string", "number", "symbol", "object"]</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">clone</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> result = &#123;&#125;</span><br><span class="line"><span class="comment">// 通过 getOwnPropertyNames 和 getOwnPropertySymbols 函数将键名组合成数组</span></span><br><span class="line">  <span class="keyword">const</span> keys = [...Object.getOwnPropertyNames(data), ...Object.getOwnPropertySymbols(data)]</span><br><span class="line">  <span class="keyword">if</span>(!keys.length) <span class="keyword">return</span> data <span class="comment">//判断是否为null</span></span><br><span class="line">  keys.forEach(<span class="function"><span class="params">key</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> item = data[key]</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> item === <span class="string">'object'</span> &amp;&amp; item) &#123;</span><br><span class="line">      result[key] = clone(item)<span class="comment">//递归</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      result[key] = item</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="keyword">return</span> result</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//为了避免数据嵌套陷入递归死循环，需要把已添加的对象记录下来</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">clone</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> map = <span class="keyword">new</span> <span class="built_in">WeakMap</span>()</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">deep</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> result = &#123;&#125;</span><br><span class="line">    <span class="keyword">const</span> keys = [...Object.getOwnPropertyNames(data), ...Object.getOwnPropertySymbols(data)]</span><br><span class="line">    <span class="keyword">if</span>(!keys.length) <span class="keyword">return</span> data</span><br><span class="line">    <span class="keyword">const</span> exist = map.get(data)</span><br><span class="line">    <span class="keyword">if</span> (exist) <span class="keyword">return</span> exist</span><br><span class="line">    map.set(data, result)</span><br><span class="line">    keys.forEach(<span class="function"><span class="params">key</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">let</span> item = data[key]</span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">typeof</span> item === <span class="string">'object'</span> &amp;&amp; item) &#123;</span><br><span class="line">        result[key] = deep(item)</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        result[key] = item</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> deep(obj)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="2-原型和原型链的理解"><a href="#2-原型和原型链的理解" class="headerlink" title="2. 原型和原型链的理解"></a>2. 原型和原型链的理解</h4><ul>
+<li>什么是原型和原型链？<br>简单地理解，<strong>原型</strong>就是对象的<strong>属性</strong>，包括被称为<code>隐式原型的proto属性</code>和被称为<code>显式原型的prototype属性</code>。</li>
+<li><em><code>隐式原型</code>通常在创建实例的时候就会自动指向构造函数的<code>显式原型</code>*</em>。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = &#123;&#125;</span><br><span class="line">a.__proto__ === <span class="built_in">Object</span>.prototype <span class="comment">// true</span></span><br><span class="line"><span class="keyword">var</span> b= <span class="keyword">new</span> <span class="built_in">Object</span>()</span><br><span class="line">b.__proto__ === a.__proto__ <span class="comment">// true</span></span><br><span class="line"><span class="comment">// 当创建对象 a 时，a 的隐式原型会指向构造函数 Object() 的显式原型。</span></span><br></pre></td></tr></table></figure>
+显式原型是内置函数（比如 Date() 函数）的默认属性，在自定义函数时（箭头函数除外）也会默认生成，生成的显式原型对象只有一个属性 constructor ，该属性指向函数自身。通常配合 new 关键字一起使用，当通过 new 关键字创建函数实例时，会将实例的隐式原型指向构造函数的显式原型。说人话就是<strong>显式原型对象在使用 new 关键字的时候会被自动创建</strong></li>
+<li>new 操作符实现了什么？<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params">init</span>) </span>&#123;&#125;</span><br><span class="line"><span class="keyword">var</span> f = <span class="keyword">new</span> F(args)</span><br></pre></td></tr></table></figure>
+其中主要包含了 3 个步骤：</li>
+<li>1.创建一个临时的空对象，为了表述方便，我们命名为 fn，让对象 fn 的<code>隐式原型(_proto_)</code>指向函数 F 的<code>显式原型(prototype)</code>；</li>
+<li>2.执行函数 F()，将 <code>this</code> 指向对象 fn，并传入参数 args，得到执行结果 result；</li>
+<li>3.判断上一步的执行结果 result，如果 result 为非空对象，则返回 result，否则返回 fn。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 即执行了下面代码</span></span><br><span class="line"><span class="keyword">var</span> fn = <span class="built_in">Object</span>.create(F.prototype)</span><br><span class="line"><span class="keyword">var</span> obj = F.apply(fn, args)</span><br><span class="line"><span class="keyword">var</span> f = obj &amp;&amp; <span class="keyword">typeof</span> obj === <span class="string">'object'</span> ? obj : fn;</span><br></pre></td></tr></table></figure></li>
+<li>怎么通过原型链实现多层继承？<br>假设构造函数 B() 需要继承构造函数 A()，就可以通过将函数 B() 的显式原型指向一个函数 A() 的实例，然后再对 B 的显式原型进行扩展。那么通过函数 B() 创建的实例，既能访问用函数 B() 的属性 b，也能访问函数 A() 的属性 a，从而实现了多层继承。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">A</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">A.prototype.a = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">'a'</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">B</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">B.prototype = <span class="keyword">new</span> A(); <span class="comment">//B继承了A</span></span><br><span class="line">B.prototype.b = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">'b'</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> c = <span class="keyword">new</span> B()</span><br><span class="line">c.b() <span class="comment">// 'b'</span></span><br><span class="line">c.a() <span class="comment">// 'a'</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="四-关于浏览器我们要注意什么"><a href="#四-关于浏览器我们要注意什么" class="headerlink" title="四. 关于浏览器我们要注意什么"></a>四. 关于浏览器我们要注意什么</h3><h4 id="1-浏览器加载网络资源的速度提升"><a href="#1-浏览器加载网络资源的速度提升" class="headerlink" title="1. 浏览器加载网络资源的速度提升"></a>1. 浏览器加载网络资源的速度提升</h4><p>可以通过减少响应内容大小，比如使用 gzip 算法压缩响应体内容和 HTTP/2 的压缩头部功能；另一种更通用也更为重要的技术就是使用<strong>缓存</strong>。</p>
+<ul>
+<li>HTTP缓存<br>使用缓存最大的问题往往不在于将资源缓存在什么位置或者如何读写资源，而在于如何保证缓存与实际资源一致的同时，提高缓存的命中率。也就是说尽可能地让浏览器从缓存中获取资源，但同时又要保证被使用的缓存与服务端最新的资源保持一致。</li>
+</ul>
+<p>为了达到这个目的，需要制定合适的缓存过期策略（简称“缓存策略”），HTTP 支持的缓存策略有两种：强制缓存和协商缓存。<br><code>强制缓存</code>:强制缓存是在浏览器加载资源的时候，先直接从缓存中查找请求结果，如果不存在该缓存结果，则直接向服务端发起请求。<br><code>协商缓存</code>:协商缓存的更新策略是不再指定缓存的有效时间了，而是浏览器直接发送请求到服务端进行确认缓存是否更新，如果请求响应返回的 HTTP 状态为 304，则表示缓存仍然有效。控制缓存的难题就是从浏览器端转移到了服务端。</p>
+<h4 id="2-手写promise、async-await"><a href="#2-手写promise、async-await" class="headerlink" title="2. 手写promise、async/await"></a>2. 手写promise、async/await</h4><p><strong>Promise 状态</strong></p>
+<p>  Promise 的 3 个状态分别为 pending、fulfilled 和 rejected。</p>
+<ul>
+<li>pending：“等待”状态，可以转移到 fulfilled 或者 rejected 状态</li>
+<li>fulfilled：“执行”（或“履行”）状态，是 Promise 的最终态，表示执行成功，该状态下不可再改变。</li>
+<li>rejected：“拒绝”状态，是 Promise 的最终态，表示执行失败，该状态不可再改变。</li>
+</ul>
+<p><strong>Promise 解决过程</strong></p>
+<p>  Promise 解决过程是一个抽象的操作，即接收一个 promise 和一个值 x，目的就是对 Promise 形式的执行结果进行统一处理。需要考虑以下 4 种情况。</p>
+<ul>
+<li><p>情况 1： x 等于 promise<br>抛出一个 TypeError 错误，拒绝 promise。</p>
+</li>
+<li><p>情况 2：x 为 Promise 的实例<br>如果 x 处于等待状态，那么 promise 继续等待至 x 执行或拒绝，否则根据 x 的状态执行/拒绝 promise。</p>
+</li>
+<li><p>情况 3：x 为对象或函数<br>该情况的核心是取出 x.then 并调用，在调用的时候将 this 指向 x。将 then 回调函数中得到结果 y 传入新的 Promise 解决过程中，形成一个递归调用。其中，如果执行报错，则以对应的错误为原因拒绝 promise。<br>这一步是处理拥有 then() 函数的对象或函数，这类对象或函数我们称之为“thenable”。注意，它只是拥有 then() 函数，并不是 Promise 实例。</p>
+</li>
+<li><p>情况 4：如果 x 不为对象或函数<br>以 x 作为值，执行 promise。</p>
+</li>
+</ul>
+<p><strong>Promise 实现</strong></p>
+
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">赞赏</button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
+    </div>
+</div>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/Appleking10">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
