@@ -8,7 +8,7 @@ subtitle: 一个专业的API调用工程师
 description: WEB前端,个人记录,学习感悟
 keywords: ''
 author: 金依妮
-language: zh
+language: [en,zh-cn]
 timezone: ''
 sidebar-avatar: img/avatar.jpg
 avatar_style:
@@ -18,7 +18,7 @@ SEOTitle: 一个不成熟的前端博客
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: https://Appleking10.github.io
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -110,7 +110,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: aircloud
+theme: fluid
 #stylus:
 #  compress: true
 #theme_color:
