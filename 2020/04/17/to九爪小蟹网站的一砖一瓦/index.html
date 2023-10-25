@@ -1,148 +1,283 @@
+
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en,zh-cn,default" data-default-color-scheme=auto>
+
+
+
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="WEB前端,个人记录,学习感悟">
-    <meta name="keyword"  content="">
-    <link rel="shortcut icon" href="/img/favicon.ico">
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="金依妮">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="背景这个网站的建立是一时兴起，刚好也临近阿庞的生日，可以献出绵薄之力，就当是给阿庞做一个庆生网站。 这篇文章标题是关于to九爪小蟹网站的一砖一瓦，因为我要讲的是设计这个网站的全过程，如何一砖一瓦堆砌起来的，也算是一个纪念吧！  前提准备1.Base一个网站的前提当然是域名解析和服务器部署啦！这个过程比较枯燥，我写了一篇教程：小白建站全过程 ,有兴趣的可以自行移步浏览。 2.需求确立 网站形式：作为">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于to九爪小蟹网站的一砖一瓦">
+<meta property="og:url" content="https://appleking10.github.io/2020/04/17/to%E4%B9%9D%E7%88%AA%E5%B0%8F%E8%9F%B9%E7%BD%91%E7%AB%99%E7%9A%84%E4%B8%80%E7%A0%96%E4%B8%80%E7%93%A6/index.html">
+<meta property="og:site_name" content="一个不成熟的前端博客">
+<meta property="og:description" content="背景这个网站的建立是一时兴起，刚好也临近阿庞的生日，可以献出绵薄之力，就当是给阿庞做一个庆生网站。 这篇文章标题是关于to九爪小蟹网站的一砖一瓦，因为我要讲的是设计这个网站的全过程，如何一砖一瓦堆砌起来的，也算是一个纪念吧！  前提准备1.Base一个网站的前提当然是域名解析和服务器部署啦！这个过程比较枯燥，我写了一篇教程：小白建站全过程 ,有兴趣的可以自行移步浏览。 2.需求确立 网站形式：作为">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://wx2.sbimg.cn/2020/04/18/index1.png">
+<meta property="og:image" content="https://wx2.sbimg.cn/2020/04/18/index2.png">
+<meta property="og:image" content="https://wx2.sbimg.cn/2020/04/18/index3.png">
+<meta property="og:image" content="https://wx2.sbimg.cn/2020/04/18/index4.png">
+<meta property="og:image" content="https://wx2.sbimg.cn/2020/04/18/index5.png">
+<meta property="og:image" content="https://wx2.sbimg.cn/2020/04/18/index6.png">
+<meta property="og:image" content="https://wx2.sbimg.cn/2020/04/18/index7.png">
+<meta property="og:image" content="https://wx2.sbimg.cn/2020/04/18/index9.png">
+<meta property="og:image" content="https://wx2.sbimg.cn/2020/04/18/index10.png">
+<meta property="og:image" content="https://wx2.sbimg.cn/2020/04/18/three1.jpg">
+<meta property="og:image" content="https://wx2.sbimg.cn/2020/04/18/three2.jpg">
+<meta property="og:image" content="https://wx2.sbimg.cn/2020/04/18/three3.jpg">
+<meta property="og:image" content="https://wx2.sbimg.cn/2020/04/18/three4.jpg">
+<meta property="og:image" content="https://wx2.sbimg.cn/2020/04/18/test1.png">
+<meta property="og:image" content="https://wx2.sbimg.cn/2020/04/18/egg.png">
+<meta property="article:published_time" content="2020-04-16T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-10-10T15:40:37.569Z">
+<meta property="article:author" content="金依妮">
+<meta property="article:tag" content="技能篇">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://wx2.sbimg.cn/2020/04/18/index1.png">
+  
+  
+  
+  <title>关于to九爪小蟹网站的一砖一瓦 - 一个不成熟的前端博客</title>
 
-    <title>
-        
-        关于to九爪小蟹网站的一砖一瓦 - 一个不成熟的前端博客
-        
-    </title>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
-    <!-- Custom CSS -->
-    
-<link rel="stylesheet" href="/css/aircloud.css">
 
-    
-<link rel="stylesheet" href="/css/gitment.css">
 
-    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
-    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
-    <!-- ga & ba script hoook -->
-    <script></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"appleking10.github.io","root":"/","version":"1.9.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
 <meta name="generator" content="Hexo 4.2.0"></head>
 
+
 <body>
+  
 
-<div class="site-nav-toggle" id="site-nav-toggle">
-    <button>
-        <span class="btn-bar"></span>
-        <span class="btn-bar"></span>
-        <span class="btn-bar"></span>
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>一个不成熟的前端博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
     </button>
-</div>
 
-<div class="index-about">
-    <i> 一个专业的API调用工程师 </i>
-</div>
-
-<div class="index-container">
-    
-    <div class="index-left">
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
         
-<div class="nav" id="nav">
-    <div class="avatar-name">
-        <div class="avatar radius">
-            <img src="/img/avatar.jpg" />
-        </div>
-        <div class="name">
-            <i>金依妮</i>
-        </div>
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
     </div>
-    <div class="contents" id="nav-content">
-        <ul>
-            <li >
-                <a href="/">
-                    <i class="iconfont icon-shouye1"></i>
-                    <span>主页</span>
-                </a>
-            </li>
-            <li >
-                <a href="/tags">
-                    <i class="iconfont icon-biaoqian1"></i>
-                    <span>标签</span>
-                </a>
-            </li>
-            <li >
-                <a href="/archives">
-                    <i class="iconfont icon-guidang2"></i>
-                    <span>存档</span>
-                </a>
-            </li>
-            <li >
-                <a href="/about/">
-                    <i class="iconfont icon-guanyu2"></i>
-                    <span>关于</span>
-                </a>
-            </li>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="关于to九爪小蟹网站的一砖一瓦"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2020-04-17 00:00" pubdate>
+          April 17, 2020 am
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.7k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          31 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">关于to九爪小蟹网站的一砖一瓦</h1>
             
-            <li>
-                <a id="search">
-                    <i class="iconfont icon-sousuo1"></i>
-                    <span>搜索</span>
-                </a>
-            </li>
             
-        </ul>
-    </div>
-    
-        <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#背景"><span class="toc-text">背景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#前提准备"><span class="toc-text">前提准备</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Base"><span class="toc-text">1.Base</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-需求确立"><span class="toc-text">2.需求确立</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-需求分析"><span class="toc-text">3.需求分析</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#coding"><span class="toc-text">coding</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-主页"><span class="toc-text">1.主页</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-照片墙"><span class="toc-text">2.照片墙</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-小游戏"><span class="toc-text">3.小游戏</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-H5多结局测试"><span class="toc-text">4.H5多结局测试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-菜单"><span class="toc-text">5.菜单</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-彩蛋"><span class="toc-text">6.彩蛋</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#展示"><span class="toc-text">展示</span></a></li></ol>
-</div>
-    
-</div>
-
-
-<div class="search-field" id="search-field">
-    <div class="search-container">
-        <div class="search-input">
-            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
-            <input id="search-input"/>
-            <span id="begin-search">搜索</span>
-        </div>
-        <div class="search-result-container" id="search-result-container">
-
-        </div>
-    </div>
-</div>
-
-        <div class="index-about-mobile">
-            <i> 一个专业的API调用工程师 </i>
-        </div>
-    </div>
-    
-    <div class="index-middle">
-        <!-- Main Content -->
-        
-
-
-<div class="post-container">
-    <div class="post-title">
-        关于to九爪小蟹网站的一砖一瓦
-    </div>
-
-    <div class="post-meta">
-        <span class="attr">发布于：<span>2020-04-17</span></span>
-        
-        <span class="attr">标签：/
-        
-        <a class="tag" href="/tags/#技能篇" title="技能篇">技能篇</a>
-        <span>/</span>
-        
-        
-        </span>
-        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
-</span>
-</span>
-    </div>
-    <div class="post-content ">
-        <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>这个网站的建立是一时兴起，刚好也临近阿庞的生日，可以献出绵薄之力，就当是给阿庞做一个庆生网站。</p>
+              <div class="markdown-body">
+                
+                <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>这个网站的建立是一时兴起，刚好也临近阿庞的生日，可以献出绵薄之力，就当是给阿庞做一个庆生网站。</p>
 <p>这篇文章标题是<strong>关于to九爪小蟹网站的一砖一瓦</strong>，因为我要讲的是设计这个网站的全过程，如何一砖一瓦堆砌起来的，也算是一个纪念吧！</p>
 <hr>
 <h3 id="前提准备"><a href="#前提准备" class="headerlink" title="前提准备"></a>前提准备</h3><h4 id="1-Base"><a href="#1-Base" class="headerlink" title="1.Base"></a>1.Base</h4><p>一个网站的前提当然是域名解析和服务器部署啦！这个过程比较枯燥，我写了一篇教程：<a href="../../15/小白建站全过程（服务器部署-域名解析-静态文件部署）/index.html">小白建站全过程</a> ,有兴趣的可以自行移步浏览。</p>
@@ -167,18 +302,18 @@
 <h4 id="1-主页"><a href="#1-主页" class="headerlink" title="1.主页"></a>1.主页</h4><ul>
 <li><p>页面设计：</p>
 <ul>
-<li>首先是找礼物盒素材，但发现如果用图片的话没法做到礼物蹦开的动画效果，那我就自己画一个吧。主要思路是①用两个长方形来做礼物盒下部和礼物盖子；②再给礼物盒和盖子加个阴影，增加立体感；③加上礼物盒丝带，看起来有点像了，但感觉还差个蝴蝶结；④可以画两个椭圆来拼接成蝴蝶结（因为css并不能直接画圆，可以通过拉伸圆来生成椭圆）；⑤看起来很像了！⑥动画部分的思路是让盖子和礼物盒下部相反方向摇晃（<code>translateX</code>,具体大小由帧数去调整）后，盖子往上方移走，下部往下方移走，然后隐藏。<br><img src="https://wx2.sbimg.cn/2020/04/18/index1.png" alt="礼物图" style="width:200px"><img src="https://wx2.sbimg.cn/2020/04/18/index2.png" alt="礼物图" style="width:200px"><img src="https://wx2.sbimg.cn/2020/04/18/index3.png" alt="礼物图" style="width:200px"><img src="https://wx2.sbimg.cn/2020/04/18/index4.png" alt="礼物图" style="width:200px"><img src="https://wx2.sbimg.cn/2020/04/18/index5.png" alt="礼物图" style="width:200px"></li>
-<li>礼物盒蹦开后，要设计元素飘出的动画，不然看起来很单调。为了页面性能，找了别人写好的svg图标来用，然后接下来就是比较枯燥的弹出动画，需要对每一行的icon进行动画设计，需要一行行调<code>translate</code>和<code>scale</code>，不过用了scss还是挺快的。<img src="https://wx2.sbimg.cn/2020/04/18/index6.png" alt="礼物图" style="width:200px;margin:0 auto;display:block;"></li>
+<li>首先是找礼物盒素材，但发现如果用图片的话没法做到礼物蹦开的动画效果，那我就自己画一个吧。主要思路是①用两个长方形来做礼物盒下部和礼物盖子；②再给礼物盒和盖子加个阴影，增加立体感；③加上礼物盒丝带，看起来有点像了，但感觉还差个蝴蝶结；④可以画两个椭圆来拼接成蝴蝶结（因为css并不能直接画圆，可以通过拉伸圆来生成椭圆）；⑤看起来很像了！⑥动画部分的思路是让盖子和礼物盒下部相反方向摇晃（<code>translateX</code>,具体大小由帧数去调整）后，盖子往上方移走，下部往下方移走，然后隐藏。<br><img src="https://wx2.sbimg.cn/2020/04/18/index1.png" srcset="/img/loading.gif" lazyload alt="礼物图" style="width:200px"><img src="https://wx2.sbimg.cn/2020/04/18/index2.png" srcset="/img/loading.gif" lazyload alt="礼物图" style="width:200px"><img src="https://wx2.sbimg.cn/2020/04/18/index3.png" srcset="/img/loading.gif" lazyload alt="礼物图" style="width:200px"><img src="https://wx2.sbimg.cn/2020/04/18/index4.png" srcset="/img/loading.gif" lazyload alt="礼物图" style="width:200px"><img src="https://wx2.sbimg.cn/2020/04/18/index5.png" srcset="/img/loading.gif" lazyload alt="礼物图" style="width:200px"></li>
+<li>礼物盒蹦开后，要设计元素飘出的动画，不然看起来很单调。为了页面性能，找了别人写好的svg图标来用，然后接下来就是比较枯燥的弹出动画，需要对每一行的icon进行动画设计，需要一行行调<code>translate</code>和<code>scale</code>，不过用了scss还是挺快的。<img src="https://wx2.sbimg.cn/2020/04/18/index6.png" srcset="/img/loading.gif" lazyload alt="礼物图" style="width:200px;margin:0 auto;display:block;"></li>
 <li>礼物盒打开动画完成后，接下来是下雪动画，这部分用<code>canvas</code>来实现，随机生成大小不同，透明度不一样的白色圆球，然后从上往下飘，这部分动画的算法比较复杂，借鉴了别人的写的算法来完善：<a href="https://github.com/daveWid/canvas-snow" target="_blank" rel="noopener">Canvas Snow</a></li>
 <li>功能函数完成后，就要来写步骤实现了，算好每个动画完成的全部时间，并在完成相应动画后回调下一步函数，并做好步骤判断，方便后面控制流程</li>
-<li>细节完善：主体内容和功能实现后,因为感觉画面有点空，我做了一个关于阿庞的词云（<em>关键词：799</em>），加上之后果然饱满了不少。<br><img src="https://wx2.sbimg.cn/2020/04/18/index7.png" alt="礼物图" style="width:100px;margin:0 10px;"><img src="https://wx2.sbimg.cn/2020/04/18/index9.png" alt="礼物图" style="width:100px;"></li>
+<li>细节完善：主体内容和功能实现后,因为感觉画面有点空，我做了一个关于阿庞的词云（<em>关键词：799</em>），加上之后果然饱满了不少。<br><img src="https://wx2.sbimg.cn/2020/04/18/index7.png" srcset="/img/loading.gif" lazyload alt="礼物图" style="width:100px;margin:0 10px;"><img src="https://wx2.sbimg.cn/2020/04/18/index9.png" srcset="/img/loading.gif" lazyload alt="礼物图" style="width:100px;"></li>
 </ul>
 </li>
 <li><p>后续完善：</p>
 <ul>
 <li>后面感觉只有动画有点单调，我加上了背景音乐的播放</li>
 <li>关于词云来做主页感觉有点敷衍，于是就去拜托一个朋友帮我画了阿庞的漫画人物，换了之后果然整个风格可爱了很多</li>
-<li>添加了菜单跳转入口，感觉没有很好的做到引导访问，画蛇添足的加了提示说明，也没有想到更好的引导方式。（果然还是需要产品啊！）<img src="https://wx2.sbimg.cn/2020/04/18/index10.png" alt="礼物图" style="width:200px;margin:0 auto;display:block;">
+<li>添加了菜单跳转入口，感觉没有很好的做到引导访问，画蛇添足的加了提示说明，也没有想到更好的引导方式。（果然还是需要产品啊！）<img src="https://wx2.sbimg.cn/2020/04/18/index10.png" srcset="/img/loading.gif" lazyload alt="礼物图" style="width:200px;margin:0 auto;display:block;">
 
 </li>
 </ul>
@@ -188,9 +323,9 @@
 <li><p>页面设计：</p>
 <ul>
 <li>照片墙一开始的构思是一面墙，上面铺满照片，但我觉得太平淡了，不符合一个严肃的网站。所以，我用了<code>three.js</code>。其实就是在网页上放了一个三维坐标轴，然后把一个个粒子放在它该放的位置，加上动画过渡，再架上一个摄像头（也就是你看到的视角），一个炫酷的照片墙就完成了。</li>
-<li>只有单独一种坐标排序当然不符合这个严肃的网站的气质，所以写了球和正方形的坐标算法，在加上799和PY的图形。这个过程就是拼图的过程，因为自定义图形没有规律，所以就只能一个个方格去放，比较繁琐。<br><img src="https://wx2.sbimg.cn/2020/04/18/three1.jpg" alt="礼物图" style="width:200px;margin:0 10px;"><img src="https://wx2.sbimg.cn/2020/04/18/three2.jpg" alt="礼物图" style="width:200px;"></li>
-<li>外壳打造完毕后，就是内容填充了。照片素材的整理是由后援会伙伴们进行的，我没跟她们说清楚，导致图片的尺寸和体积有点大，加载速度就会很慢（毕竟是借来的服务器，带宽是最低配），于是我做了图片加载优化，先批量压缩（<a href="https://tinypng.com/" target="_blank" rel="noopener">tinyPNG</a>），然后图片是以背景图片(<code>background-image</code>)来呈现的，这样不用等全部图片加载完毕页面才会继续渲染。（其实应该用雪碧图的方式来做的，但我又<del>懒了</del>，还要一个个去调背景位置）<img src="https://wx2.sbimg.cn/2020/04/18/three3.jpg" alt="礼物图" style="width:200px;margin:0 auto;display:block;"></li>
-<li>接下来最重点的内容了！就是粉丝祝福内容的呈现。我的想法就是点击一个格子，就有一个粉丝的祝福出来。这个也不难写，就是给每个格子加上点击事件，然后粉丝祝福容器出来，替换容器内容，弹出动画就是写几个关键帧。<img src="https://wx2.sbimg.cn/2020/04/18/three4.jpg" alt="礼物图" style="width:200px;margin:0 auto;display:block;">
+<li>只有单独一种坐标排序当然不符合这个严肃的网站的气质，所以写了球和正方形的坐标算法，在加上799和PY的图形。这个过程就是拼图的过程，因为自定义图形没有规律，所以就只能一个个方格去放，比较繁琐。<br><img src="https://wx2.sbimg.cn/2020/04/18/three1.jpg" srcset="/img/loading.gif" lazyload alt="礼物图" style="width:200px;margin:0 10px;"><img src="https://wx2.sbimg.cn/2020/04/18/three2.jpg" srcset="/img/loading.gif" lazyload alt="礼物图" style="width:200px;"></li>
+<li>外壳打造完毕后，就是内容填充了。照片素材的整理是由后援会伙伴们进行的，我没跟她们说清楚，导致图片的尺寸和体积有点大，加载速度就会很慢（毕竟是借来的服务器，带宽是最低配），于是我做了图片加载优化，先批量压缩（<a href="https://tinypng.com/" target="_blank" rel="noopener">tinyPNG</a>），然后图片是以背景图片(<code>background-image</code>)来呈现的，这样不用等全部图片加载完毕页面才会继续渲染。（其实应该用雪碧图的方式来做的，但我又<del>懒了</del>，还要一个个去调背景位置）<img src="https://wx2.sbimg.cn/2020/04/18/three3.jpg" srcset="/img/loading.gif" lazyload alt="礼物图" style="width:200px;margin:0 auto;display:block;"></li>
+<li>接下来最重点的内容了！就是粉丝祝福内容的呈现。我的想法就是点击一个格子，就有一个粉丝的祝福出来。这个也不难写，就是给每个格子加上点击事件，然后粉丝祝福容器出来，替换容器内容，弹出动画就是写几个关键帧。<img src="https://wx2.sbimg.cn/2020/04/18/three4.jpg" srcset="/img/loading.gif" lazyload alt="礼物图" style="width:200px;margin:0 auto;display:block;">
 </li>
 </ul>
 </li>
@@ -216,7 +351,7 @@
 <li><p>页面设计</p>
 <ul>
 <li>在头秃之前，写了基本框架和跳转动画，每个新的页面都是动态向<code>html</code>推入新的元素，点击不同的按钮塞入的信息不同而已</li>
-<li>接下来是最头疼的故事线设计，还好有后援会伙伴一起肝，两人肝到头都秃了，终于设计好所有结局，于是有下面的流程图<img src="https://wx2.sbimg.cn/2020/04/18/test1.png" alt="礼物图" style="width:100%;margin:0 auto;display:block;"></li>
+<li>接下来是最头疼的故事线设计，还好有后援会伙伴一起肝，两人肝到头都秃了，终于设计好所有结局，于是有下面的流程图<img src="https://wx2.sbimg.cn/2020/04/18/test1.png" srcset="/img/loading.gif" lazyload alt="礼物图" style="width:100%;margin:0 auto;display:block;"></li>
 <li>做完测试后要告诉用户选过的选项，因此这个地方花了多一点时间来实现。一个全局数组来保存每一次点击的选项，然后最后遇到结局便<code>pop</code>所有子项</li>
 </ul>
 </li>
@@ -228,7 +363,7 @@
 </ul>
 <h4 id="5-菜单"><a href="#5-菜单" class="headerlink" title="5.菜单"></a>5.菜单</h4><p>一开始我是想做炫酷科技风的，最后发现我前面设计的UI其实是可爱风啊（阿庞肯定是粉红少女系呀），所以就把荧光蓝改成荧光粉。主菜单和子菜单的切换其实只是<code>class</code>的切换而已，然后链接对应的板块页面入口</p>
 <h4 id="6-彩蛋"><a href="#6-彩蛋" class="headerlink" title="6.彩蛋"></a>6.彩蛋</h4><p>这个彩蛋是在游戏板块延伸出来的想法，我想做的是像命令行输出的效果，所以用了定时器<code>setTimeout</code>来增加文字和延迟文字出现，于是打字的效果出现了。</p>
-<img src="https://wx2.sbimg.cn/2020/04/18/egg.png" alt="礼物图" style="width:200px;margin:0 auto;display:block;">
+<img src="https://wx2.sbimg.cn/2020/04/18/egg.png" srcset="/img/loading.gif" lazyload alt="礼物图" style="width:200px;margin:0 auto;display:block;">
 
 <h3 id="展示"><a href="#展示" class="headerlink" title="展示"></a>展示</h3><p><strong>下面就是网站演示了，可以直接点击<a href="http://www.pangying.我爱你" target="_blank" rel="noopener">这里</a>访问</strong></p>
 <br/>
@@ -236,83 +371,351 @@
 <hr>
 <p><em>对了，网站网址是<a href="http://www.pangying.我爱你" target="_blank" rel="noopener">http://www.pangying.我爱你</a></em></p>
 
-        
-            <div class="donate-container">
-    <div class="donate-button">
-        <button id="donate-button">赞赏</button>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%8A%80%E8%83%BD%E7%AF%87/" class="print-no-link">#技能篇</a>
+      
     </div>
-    <div class="donate-img-container hide" id="donate-img-container">
-        <img id="donate-img" src="" data-src="/img/donate.jpg">
-        <p> 感谢鼓励 </p>
-    </div>
+  
 </div>
-        
-        <br />
-        <div id="comment-container">
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>关于to九爪小蟹网站的一砖一瓦</div>
+      <div>https://appleking10.github.io/2020/04/17/to九爪小蟹网站的一砖一瓦/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>金依妮</div>
         </div>
-        <div id="disqus_thread"></div>
-
-        <div id="lv-container">
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>April 17, 2020</div>
         </div>
-
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
     </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/04/20/%E5%85%B3%E4%BA%8E%E6%AD%A3%E5%88%99%E8%BF%99%E4%BB%B6%E5%B0%8F%E4%BA%8B/" title="关于正则这件小事">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">关于正则这件小事</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/04/15/%E5%B0%8F%E7%99%BD%E5%BB%BA%E7%AB%99%E5%85%A8%E8%BF%87%E7%A8%8B%EF%BC%88%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2-%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90-%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6%E9%83%A8%E7%BD%B2%EF%BC%89/" title="小白建站全过程（服务器部署+域名解析+静态文件部署）">
+                        <span class="hidden-mobile">小白建站全过程（服务器部署+域名解析+静态文件部署）</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
 </div>
 
+
+
+  </aside>
+
+
     </div>
+  </div>
 </div>
 
 
-<footer class="footer">
-    <ul class="list-inline text-center">
-        
-        
 
-        
 
-        
 
-        
-        <li>
-            <a target="_blank"  href="https://github.com/Appleking10">
-                            <span class="fa-stack fa-lg">
-                                <i class="iconfont icon-github"></i>
-                            </span>
-            </a>
-        </li>
-        
+  
 
-        
 
-    </ul>
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
     
-    <p>
-        <span id="busuanzi_container_site_pv">
-            <span id="busuanzi_value_site_pv"></span>PV
-        </span>
-        <span id="busuanzi_container_site_uv">
-            <span id="busuanzi_value_site_uv"></span>UV
-        </span>
-        Created By <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
-</footer>
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
 
 
 
 
-</body>
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
 
+
+
+
+  
 <script>
-    // We expose some of the variables needed by the front end
-    window.hexo_search_path = "search.json"
-    window.hexo_root = "/"
-    window.isPost = true
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
 </script>
-<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
-
-<script src="/js/index.js"></script>
-
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
 
 
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
 </html>
