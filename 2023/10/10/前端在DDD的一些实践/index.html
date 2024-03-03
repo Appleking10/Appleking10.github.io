@@ -16,19 +16,20 @@
   <meta name="author" content="金依妮">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Introduction Background：In the complex business system of the supply chain, the front-end development work in the Retail team primarily involved creating single-page applications with simple interacti">
+    <meta name="description" content="Background 在供应链这种复杂的业务系统背景下，当时所在的Retail团队，前端开发的工作内容大部分都是开发交互简单但业务逻辑复杂的单页面。随着时间和功能需求的累积，面临的困境有： 逻辑分散，梳理难度大，业务场景越来越复杂，质量问题越来越多，连测试也难以覆盖所有场景 代码修改牵一发动全身，不敢随意修改和改造 从Element-UI组件库切换到SSC-UI组件库时，业务组件无法迁移，只能重写">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Code Abstraction and Practical in DDD">
-<meta property="og:url" content="https://appleking10.github.io/2023/10/10/Code%20Abstraction%20and%20Practical%20in%20DDD/index.html">
+<meta property="og:title" content="前端在DDD的一些实践">
+<meta property="og:url" content="https://appleking10.github.io/2023/10/10/%E5%89%8D%E7%AB%AF%E5%9C%A8DDD%E7%9A%84%E4%B8%80%E4%BA%9B%E5%AE%9E%E8%B7%B5/index.html">
 <meta property="og:site_name" content="一个不成熟的前端博客">
-<meta property="og:description" content="Introduction Background：In the complex business system of the supply chain, the front-end development work in the Retail team primarily involved creating single-page applications with simple interacti">
+<meta property="og:description" content="Background 在供应链这种复杂的业务系统背景下，当时所在的Retail团队，前端开发的工作内容大部分都是开发交互简单但业务逻辑复杂的单页面。随着时间和功能需求的累积，面临的困境有： 逻辑分散，梳理难度大，业务场景越来越复杂，质量问题越来越多，连测试也难以覆盖所有场景 代码修改牵一发动全身，不敢随意修改和改造 从Element-UI组件库切换到SSC-UI组件库时，业务组件无法迁移，只能重写">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://appleking10.github.io/img/ddd/%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E5%88%86%E5%B1%82.png">
+<meta property="og:image" content="https://appleking10.github.io/img/ddd/bll%E4%B8%BB%E8%A6%81%E4%BB%A3%E7%A0%81%E9%AA%A8%E6%9E%B6.png">
 <meta property="og:image" content="https://appleking10.github.io/img/ddd/bll%E4%B8%BB%E8%A6%81%E4%BB%A3%E7%A0%81%E9%AA%A8%E6%9E%B6.png">
 <meta property="og:image" content="https://appleking10.github.io/img/ddd/%E5%85%B7%E4%BD%93%E4%B8%9A%E5%8A%A1%E5%9C%BA%E6%99%AF%E5%A4%84%E7%90%86.png">
 <meta property="og:image" content="https://appleking10.github.io/img/ddd/%E5%9C%A8%E8%A7%86%E5%9B%BE%E5%B1%82%E8%B0%83%E7%94%A8bll.png">
 <meta property="article:published_time" content="2023-10-10T15:43:07.000Z">
-<meta property="article:modified_time" content="2024-03-03T09:09:17.316Z">
+<meta property="article:modified_time" content="2024-03-03T09:08:53.778Z">
 <meta property="article:author" content="金依妮">
 <meta property="article:tag" content="DDD">
 <meta name="twitter:card" content="summary_large_image">
@@ -36,7 +37,7 @@
   
   
   
-  <title>Code Abstraction and Practical in DDD - 一个不成熟的前端博客</title>
+  <title>前端在DDD的一些实践 - 一个不成熟的前端博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -190,7 +191,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Code Abstraction and Practical in DDD"></span>
+            <span id="subtitle" data-typed-text="前端在DDD的一些实践"></span>
           
         </div>
 
@@ -213,7 +214,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.9k words
+          1.5k words
         
       </span>
     
@@ -224,7 +225,7 @@
         
         
         
-          33 mins
+          13 mins
         
       </span>
     
@@ -261,84 +262,58 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Code Abstraction and Practical in DDD</h1>
+            <h1 id="seo-header">前端在DDD的一些实践</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><ul>
-<li>Background：In the complex business system of the supply chain, the front-end development work in the Retail team primarily involved creating single-page applications with <strong>simple interactions but complex business logic.</strong> Over time, as functionality accumulated, the team faced the following challenges:<ul>
-<li>Dispersed logic, making it difficult to streamline</li>
-<li>Increasing complexity of business scenarios leading to <strong>more quality issues</strong>, even challenging test coverage.</li>
-<li><strong>Fear of making code changes</strong> due to the risk of unintended consequences.</li>
-<li><strong>Difficulty migrating business components</strong> from Element-UI to SSC-UI when switching component libraries, often requiring a complete rewrite</li>
+                <h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><ul>
+<li>在供应链这种复杂的业务系统背景下，当时所在的Retail团队，前端开发的工作内容大部分都是开发<strong>交互简单但业务逻辑复杂的单页面</strong>。随着时间和功能需求的累积，面临的困境有：<ul>
+<li>逻辑分散，梳理难度大，业务场景越来越复杂，<strong>质量问题越来越多</strong>，连测试也难以覆盖所有场景</li>
+<li>代码修改牵一发动全身，<strong>不敢随意修改和改造</strong></li>
+<li>从Element-UI组件库切换到SSC-UI组件库时，<strong>业务组件无法迁移</strong>，只能重写</li>
 </ul>
 </li>
+<li>自身工作上的思考：<ul>
+<li><strong>只要解决好数据驱动界面的问题,我就算把代码写好了吗？（</strong>~<a href="https://confluence.shopee.io/pages/viewpage.action?pageId=914821098" target="_blank" rel="noopener">关于DDD的前期调研和设想</a></li>
+<li>如何在如此复杂的系统中，比较合理的掌握每一个技术细节背后的业务逻辑，<strong>确保业务实现的准确</strong>呢？<h2 id="调研分析-什么样的代码设计-架构更适合当下的业务系统"><a href="#调研分析-什么样的代码设计-架构更适合当下的业务系统" class="headerlink" title="调研分析 - 什么样的代码设计/架构更适合当下的业务系统"></a>调研分析 - 什么样的代码设计/架构更适合当下的业务系统</h2>⠀<strong>前后端主流架构设计</strong></li>
 </ul>
+</li>
+<li>后端架构（java：j2ee、spring boot、spring cloud、SOA、微服务、<strong>DDD</strong>、DCI）</li>
+<li>前端架构（vue、react、vuex/redux、router、flux、微前端、BFF）<br>DDD(Domain-Driven Design)是从实际业务出发，站在解决领域问题的角度去思考和设计系统的方法论<br>从后端基于DDD的实践中，优势有：<strong>可以帮助团队合理的形成良好的业务沟通规范和业务逻辑沉淀流程</strong></li>
+<li><em>那么，前端需要DDD吗，前端可以DDD吗？*</em></li>
+</ul>
+<h2 id="我们需要在前端分层吗？"><a href="#我们需要在前端分层吗？" class="headerlink" title="我们需要在前端分层吗？"></a>我们需要在前端分层吗？</h2><p>⠀前端主流框架便捷开发带来的坏处：<br>MVVC应用框架，更多的是解决前端视图层面上的问题，解决基于DOM元素如何在数据驱动模式下去进行<strong>自动更新</strong><br><strong>那就会造成一个问题：开发者很难感知业务数据变动，是在什么时候触发的</strong><br><strong>在阅读代码的时候，就会发现是在视图层面和业务逻辑层频繁跳跃，需要不停的切换你思考的场景，给前端开发理解业务逻辑带来更大的成本</strong></p>
+<p>如何在前端分层吗？</p>
 <ul>
-<li>Personal Thinking：<ul>
-<li>Is solving the problem of data-driven interfaces enough, or should I consider preliminary ~<a href="https://confluence.shopee.io/pages/viewpage.action?pageId=914821098" target="_blank" rel="noopener">research and planning related to Domain-Driven Design (DDD)</a></li>
-<li>In such a complex system, how can I effectively understand the business logic behind each technical detail to ensure <strong>accurate business implementation</strong>?<h2 id="Research-and-Analysis"><a href="#Research-and-Analysis" class="headerlink" title="Research and Analysis"></a>Research and Analysis</h2></li>
+<li>作为一名业务系统的前端开发,需要去关注这几个方面的事情:</li>
+<li>业务模型(页面展示以及流程流转的条件控制等)</li>
+<li>数据服务</li>
+<li>UI交互组件体系<br>前端要关注的范畴，应该比后端还大一些</li>
+<li><em>前端如果要实施DDD，不可能照搬后端的实践。*</em>前端无法脱离交互去谈业务模型</li>
 </ul>
-</li>
-<li>What Kind of Code Design/Architecture Is More Suitable for the Current Business System</li>
-<li><strong>Mainstream Architecture Design for Frontend and Backend</strong><ul>
-<li>Backend Architecture (java: j2ee, spring boot, spring cloud, SOA, microservices, DDD, DCI)</li>
-<li>Frontend Architecture (vue, react, vuex/redux, router, flux, micro frontends, BFF)⠀<br>DDD (Domain-Driven Design) is an approach that starts from real business needs, focusing on solving domain problems when thinking and designing systems.<br>From the practice of backend development based on DDD, the advantages include: i<strong>t can help teams establish effective business communication standards and solidify the process of business logic.</strong></li>
-</ul>
-</li>
-</ul>
-<p><strong>So, does frontend need DDD? Can frontend implement DDD?</strong></p>
-<h2 id="Do-we-need-drive-layering-in-Front-End"><a href="#Do-we-need-drive-layering-in-Front-End" class="headerlink" title="Do we need drive layering in Front-End?"></a>Do we need drive layering in Front-End?</h2><p>The drawbacks of mainstream frontend frameworks’ convenient development:<br>MVVC application frameworks primarily address frontend view-level issues, solving how to automatically update based on DOM elements in a data-driven model.</p>
-<p>This creates a problem: developers find it challenging to perceive when business data changes and what triggers those changes. When reading the code, you’ll notice frequent jumps between the view layer and business logic layer, requiring constant context switching, <strong>which adds more complexity to understanding the business logic for frontend development.</strong></p>
-<h2 id="How-to-Implement"><a href="#How-to-Implement" class="headerlink" title="How to Implement?"></a>How to Implement?</h2><p>As a frontend developer in a business system, there are several aspects to focus on:</p>
+<h2 id="Frontend-Layered-Design"><a href="#Frontend-Layered-Design" class="headerlink" title="Frontend Layered Design"></a>Frontend Layered Design</h2><h3 id="分层设计"><a href="#分层设计" class="headerlink" title="分层设计"></a>分层设计</h3><p><img src="/img/ddd/%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E5%88%86%E5%B1%82.png" srcset="/img/loading.gif" lazyload alt="项目结构分层"></p>
 <ul>
-<li>Business Models (including conditions for page display and workflow control)</li>
-<li>Data Services</li>
-<li>UI Interaction Component System<br>The scope of concern for frontend should be broader than that of the backend.</li>
-<li><em>When it comes to implementing Domain-Driven Design (DDD) in the frontend, it cannot simply mimic backend practices. Frontend cannot separate itself from interactions to discuss business models.*</em></li>
+<li>数据访问层 DAL(Data Access Layer): 数据存储的接口，包括本地、代码、后台等数据来源</li>
+<li>业务逻辑层 BLL(Business Logic Layer): 实现业务模型和交互，按场景输出</li>
+<li>控制层 Controller: 用于连接bll和pages，配置访问路由 </li>
+<li>视图层 Pages: 各场景视图入口，统管内部所有组件</li>
+<li>基础通用层 Common: 主要是业务无关性依赖抽象工具或组件</li>
 </ul>
-<h2 id="Frontend-Layered-Design"><a href="#Frontend-Layered-Design" class="headerlink" title="Frontend Layered Design"></a>Frontend Layered Design</h2><p>![The Design of Business Logic Layer](/img/ddd/The Design of Business Logic Layer.png)</p>
-<h3 id="Directory-Structure-for-Code"><a href="#Directory-Structure-for-Code" class="headerlink" title="Directory Structure for Code"></a>Directory Structure for Code</h3><ul>
-<li><p><strong>view layout</strong></p>
-</li>
-<li><p><em>📁 components*</em></p>
-</li>
-<li><p><em>📁 pages*</em></p>
-</li>
-<li><p><strong>business logic layout</strong></p>
-</li>
-<li><p><em>📃 index: Entry File*</em></p>
-</li>
-<li><p><em>📁 constants*</em></p>
-</li>
-<li><p><em>📁 actions：Business Use Cases*</em></p>
-</li>
-<li><p><em>📁 schemas：Business Use Feilds*</em></p>
-</li>
-<li><p><em>📁 utils*</em></p>
-</li>
-<li><p>Data Access Layer (DAL): Interface for data storage, including various data sources such as local, code, and backend.</p>
-</li>
-<li><p>Business Logic Layer (BLL): Implements business models and interactions, delivering outputs based on specific scenarios.</p>
-</li>
-<li><p>Controller: Connects BLL and pages, configures access routes.</p>
-</li>
-<li><p>Pages: View Page, overseeing all internal components.</p>
-</li>
-<li><p>Common: Primarily includes utils and components without business logic</p>
-<h3 id="The-Design-of-Business-Logic-Layer"><a href="#The-Design-of-Business-Logic-Layer" class="headerlink" title="The Design of Business Logic Layer"></a>The Design of Business Logic Layer</h3><p><img src="/img/ddd/%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E5%88%86%E5%B1%82.png" srcset="/img/loading.gif" lazyload alt="项目结构分层"></p>
-</li>
-<li><p><em>Structure of bll：*</em><br>Store： Business Data<br>Schema： Business Field<br>eventTypes：Action Type<br>actions： Business Action Logic</p>
-</li>
-<li><p><em>Method of bll：*</em><br>$options: Basic Attrs passed from View<br>$on: Register an event<br>$emit: Trigger an event<br>updateSchema：Update Field<br>updateStore： Update Store data</p>
-</li>
-</ul>
-<p><img src="/img/ddd/bll%E4%B8%BB%E8%A6%81%E4%BB%A3%E7%A0%81%E9%AA%A8%E6%9E%B6.png" srcset="/img/loading.gif" lazyload alt="bll主要代码骨架"><br><img src="/img/ddd/%E5%85%B7%E4%BD%93%E4%B8%9A%E5%8A%A1%E5%9C%BA%E6%99%AF%E5%A4%84%E7%90%86.png" srcset="/img/loading.gif" lazyload alt="具体业务场景处理"><br><img src="/img/ddd/%E5%9C%A8%E8%A7%86%E5%9B%BE%E5%B1%82%E8%B0%83%E7%94%A8bll.png" srcset="/img/loading.gif" lazyload alt="在视图层调用bll"></p>
-<h2 id="Elaborating-on-Considerations-Implementation-Effort"><a href="#Elaborating-on-Considerations-Implementation-Effort" class="headerlink" title="Elaborating on Considerations - Implementation Effort"></a>Elaborating on Considerations - Implementation Effort</h2><ul>
-<li><strong>The initial and learning costs are relatively high, and under the premise of frequent changes in the business architecture, the time cost of taking over does not proportionally align with the constraints imposed for benefits.</strong></li>
-<li>The design of BLL (Business Logic Layer) primarily serves the development of complex business system types, while lightweight single-page solutions actually increase development costs.</li>
-<li>DDD (Domain-Driven Design) is a methodology with the aim of achieving domain cohesion, and its core lies in how to better serve specific business scenarios.</li>
+<h3 id="业务逻辑层设计"><a href="#业务逻辑层设计" class="headerlink" title="业务逻辑层设计"></a>业务逻辑层设计</h3><p><img src="/img/ddd/bll%E4%B8%BB%E8%A6%81%E4%BB%A3%E7%A0%81%E9%AA%A8%E6%9E%B6.png" srcset="/img/loading.gif" lazyload alt="bll主要代码骨架"><br><strong>Structure of bll：</strong><br>Store： Business Data<br>Schema： Business Field<br>eventTypes：Action Type<br>actions： Business Action Logic</p>
+<p><strong>Method of bll：</strong><br>$options: Basic Attrs passed from View<br>$on: Register an event<br>$emit: Trigger an event<br>updateSchema：Update Field<br>updateStore： Update Store data</p>
+<p>代码结构：<br><img src="/img/ddd/bll%E4%B8%BB%E8%A6%81%E4%BB%A3%E7%A0%81%E9%AA%A8%E6%9E%B6.png" srcset="/img/loading.gif" lazyload alt="bll主要代码骨架"></p>
+<h3 id="实际业务场景使用"><a href="#实际业务场景使用" class="headerlink" title="实际业务场景使用"></a>实际业务场景使用</h3><p><img src="/img/ddd/%E5%85%B7%E4%BD%93%E4%B8%9A%E5%8A%A1%E5%9C%BA%E6%99%AF%E5%A4%84%E7%90%86.png" srcset="/img/loading.gif" lazyload alt="具体业务场景处理"></p>
+<h3 id="业务逻辑层如何和视图层交互"><a href="#业务逻辑层如何和视图层交互" class="headerlink" title="业务逻辑层如何和视图层交互"></a>业务逻辑层如何和视图层交互</h3><ol>
+<li>视图层通过new BllContext() 来指定业务模块 </li>
+<li>如果有需要的话，在视图层注册视图层的事件 </li>
+<li>视图上的交互引发的业务数据变更应该调用BLL的用例</li>
+</ol>
+<p><img src="/img/ddd/%E5%9C%A8%E8%A7%86%E5%9B%BE%E5%B1%82%E8%B0%83%E7%94%A8bll.png" srcset="/img/loading.gif" lazyload alt="在视图层调用bll"></p>
+<h3 id="延伸思考-落地的成本"><a href="#延伸思考-落地的成本" class="headerlink" title="延伸思考 - 落地的成本"></a>延伸思考 - 落地的成本</h3><ul>
+<li><strong>上手成本和学习成本比较高</strong>，在业务架构频繁变动的前提下，接手的时间成本与约束下带来的收益不成正比</li>
+<li>BLL的设计更多是服务于复杂业务系统类型的开发，<strong>轻量级的单页面反而加重了开发的成本</strong></li>
+<li>DDD是一种方法论，目的是将业务领域内聚，<strong>实现的核心在于如何更好服务于具体业务场景</strong></li>
 </ul>
 
                 
@@ -364,8 +339,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Code Abstraction and Practical in DDD</div>
-      <div>https://appleking10.github.io/2023/10/10/Code Abstraction and Practical in DDD/</div>
+      <div>前端在DDD的一些实践</div>
+      <div>https://appleking10.github.io/2023/10/10/前端在DDD的一些实践/</div>
     </div>
     <div class="license-meta">
       
@@ -409,9 +384,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/10/10/%E5%85%B3%E4%BA%8EDDD%E7%9A%84%E5%89%8D%E6%9C%9F%E8%B0%83%E7%A0%94%E5%92%8C%E8%AE%BE%E6%83%B3/" title="关于DDD的前期调研和设想">
+                      <a href="/2023/10/10/Code%20Abstraction%20and%20Practical%20in%20DDD/" title="Code Abstraction and Practical in DDD">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">关于DDD的前期调研和设想</span>
+                        <span class="hidden-mobile">Code Abstraction and Practical in DDD</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -419,8 +394,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/10/10/%E5%89%8D%E7%AB%AF%E5%9C%A8DDD%E7%9A%84%E4%B8%80%E4%BA%9B%E5%AE%9E%E8%B7%B5/" title="前端在DDD的一些实践">
-                        <span class="hidden-mobile">前端在DDD的一些实践</span>
+                      <a href="/2021/03/26/Vue%E6%8F%92%E4%BB%B6-%E8%B6%85%E9%95%BF%E5%8D%95%E5%92%8C%E5%88%86%E7%BA%A7%E5%88%97%E8%A1%A8%E6%B8%B2%E6%9F%93%E4%BC%98%E5%8C%96/" title="Vue插件--超长单和分级列表渲染优化">
+                        <span class="hidden-mobile">Vue插件--超长单和分级列表渲染优化</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
