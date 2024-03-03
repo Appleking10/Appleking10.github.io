@@ -8,7 +8,7 @@
 <head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
+  <link rel="icon" href="/img/favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -16,22 +16,27 @@
   <meta name="author" content="金依妮">
   <meta name="keywords" content="">
   
-    <meta name="description" content="WEB前端,个人记录,学习感悟">
+    <meta name="description" content="Code Abstraction and Practical in DDD#个人&#x2F;博客相关 Introduction Background：In the complex business system of the supply chain, the front-end development work in the Retail team primarily involved creating">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在前端实践DDD的沉淀">
-<meta property="og:url" content="https://appleking10.github.io/2023/10/10/%E5%9C%A8%E5%89%8D%E7%AB%AF%E5%AE%9E%E8%B7%B5DDD%E7%9A%84%E6%B2%89%E6%B7%80/index.html">
+<meta property="og:title" content="Code Abstraction and Practical in DDD">
+<meta property="og:url" content="https://appleking10.github.io/2023/10/10/Code%20Abstraction%20and%20Practical%20in%20DDD/index.html">
 <meta property="og:site_name" content="一个不成熟的前端博客">
-<meta property="og:description" content="WEB前端,个人记录,学习感悟">
+<meta property="og:description" content="Code Abstraction and Practical in DDD#个人&#x2F;博客相关 Introduction Background：In the complex business system of the supply chain, the front-end development work in the Retail team primarily involved creating">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://appleking10.github.io/img/ddd/bll%E4%B8%BB%E8%A6%81%E4%BB%A3%E7%A0%81%E9%AA%A8%E6%9E%B6.png">
+<meta property="og:image" content="https://appleking10.github.io/img/ddd/bll%E4%B8%BB%E8%A6%81%E4%BB%A3%E7%A0%81%E9%AA%A8%E6%9E%B6.png">
+<meta property="og:image" content="https://appleking10.github.io/img/ddd/%E5%85%B7%E4%BD%93%E4%B8%9A%E5%8A%A1%E5%9C%BA%E6%99%AF%E5%A4%84%E7%90%86.png">
+<meta property="og:image" content="https://appleking10.github.io/img/ddd/%E5%9C%A8%E8%A7%86%E5%9B%BE%E5%B1%82%E8%B0%83%E7%94%A8bll.png">
 <meta property="article:published_time" content="2023-10-10T15:43:07.000Z">
-<meta property="article:modified_time" content="2023-10-10T15:43:35.338Z">
+<meta property="article:modified_time" content="2024-03-03T08:45:37.921Z">
 <meta property="article:author" content="金依妮">
 <meta property="article:tag" content="DDD">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://appleking10.github.io/img/ddd/bll%E4%B8%BB%E8%A6%81%E4%BB%A3%E7%A0%81%E9%AA%A8%E6%9E%B6.png">
   
   
   
-  <title>在前端实践DDD的沉淀 - 一个不成熟的前端博客</title>
+  <title>Code Abstraction and Practical in DDD - 一个不成熟的前端博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -185,7 +190,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="在前端实践DDD的沉淀"></span>
+            <span id="subtitle" data-typed-text="Code Abstraction and Practical in DDD"></span>
           
         </div>
 
@@ -208,7 +213,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          0 words
+          3.9k words
         
       </span>
     
@@ -219,7 +224,7 @@
         
         
         
-          1 mins
+          33 mins
         
       </span>
     
@@ -256,12 +261,87 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">在前端实践DDD的沉淀</h1>
+            <h1 id="seo-header">Code Abstraction and Practical in DDD</h1>
             
             
               <div class="markdown-body">
                 
-                
+                <h1 id="Code-Abstraction-and-Practical-in-DDD"><a href="#Code-Abstraction-and-Practical-in-DDD" class="headerlink" title="Code Abstraction and Practical in DDD"></a><strong>Code Abstraction and Practical in DDD</strong></h1><p>#个人/博客相关</p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><ul>
+<li>Background：In the complex business system of the supply chain, the front-end development work in the Retail team primarily involved creating single-page applications with <strong>simple interactions but complex business logic.</strong> Over time, as functionality accumulated, the team faced the following challenges:<ul>
+<li>Dispersed logic, making it difficult to streamline</li>
+<li>Increasing complexity of business scenarios leading to <strong>more quality issues</strong>, even challenging test coverage.</li>
+<li><strong>Fear of making code changes</strong> due to the risk of unintended consequences.</li>
+<li><strong>Difficulty migrating business components</strong> from Element-UI to SSC-UI when switching component libraries, often requiring a complete rewrite</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Personal Thinking：<ul>
+<li>Is solving the problem of data-driven interfaces enough, or should I consider preliminary ~<a href="https://confluence.shopee.io/pages/viewpage.action?pageId=914821098" target="_blank" rel="noopener">research and planning related to Domain-Driven Design (DDD)</a></li>
+<li>In such a complex system, how can I effectively understand the business logic behind each technical detail to ensure <strong>accurate business implementation</strong>?<h2 id="Research-and-Analysis"><a href="#Research-and-Analysis" class="headerlink" title="Research and Analysis"></a>Research and Analysis</h2></li>
+</ul>
+</li>
+<li>What Kind of Code Design/Architecture Is More Suitable for the Current Business System</li>
+<li><strong>Mainstream Architecture Design for Frontend and Backend</strong><ul>
+<li>Backend Architecture (java: j2ee, spring boot, spring cloud, SOA, microservices, DDD, DCI)</li>
+<li>Frontend Architecture (vue, react, vuex/redux, router, flux, micro frontends, BFF)⠀<br>DDD (Domain-Driven Design) is an approach that starts from real business needs, focusing on solving domain problems when thinking and designing systems.<br>From the practice of backend development based on DDD, the advantages include: i<strong>t can help teams establish effective business communication standards and solidify the process of business logic.</strong></li>
+</ul>
+</li>
+</ul>
+<p><strong>So, does frontend need DDD? Can frontend implement DDD?</strong></p>
+<h2 id="Do-we-need-drive-layering-in-Front-End"><a href="#Do-we-need-drive-layering-in-Front-End" class="headerlink" title="Do we need drive layering in Front-End?"></a>Do we need drive layering in Front-End?</h2><p>The drawbacks of mainstream frontend frameworks’ convenient development:<br>MVVC application frameworks primarily address frontend view-level issues, solving how to automatically update based on DOM elements in a data-driven model.</p>
+<p>This creates a problem: developers find it challenging to perceive when business data changes and what triggers those changes. When reading the code, you’ll notice frequent jumps between the view layer and business logic layer, requiring constant context switching, <strong>which adds more complexity to understanding the business logic for frontend development.</strong></p>
+<h2 id="How-to-Implement"><a href="#How-to-Implement" class="headerlink" title="How to Implement?"></a>How to Implement?</h2><p>As a frontend developer in a business system, there are several aspects to focus on:</p>
+<ul>
+<li>Business Models (including conditions for page display and workflow control)</li>
+<li>Data Services</li>
+<li>UI Interaction Component System<br>The scope of concern for frontend should be broader than that of the backend.</li>
+<li><em>When it comes to implementing Domain-Driven Design (DDD) in the frontend, it cannot simply mimic backend practices. Frontend cannot separate itself from interactions to discuss business models.*</em></li>
+</ul>
+<h2 id="Frontend-Layered-Design"><a href="#Frontend-Layered-Design" class="headerlink" title="Frontend Layered Design"></a>Frontend Layered Design</h2><p>![The Design of Business Logic Layer](/img/ddd/The Design of Business Logic Layer.png)</p>
+<h3 id="Directory-Structure-for-Code"><a href="#Directory-Structure-for-Code" class="headerlink" title="Directory Structure for Code"></a>Directory Structure for Code</h3><ul>
+<li><p><strong>view layout</strong></p>
+</li>
+<li><p><em>📁 components*</em></p>
+</li>
+<li><p><em>📁 pages*</em></p>
+</li>
+<li><p><strong>business logic layout</strong></p>
+</li>
+<li><p><em>📃 index: Entry File*</em></p>
+</li>
+<li><p><em>📁 constants*</em></p>
+</li>
+<li><p><em>📁 actions：Business Use Cases*</em></p>
+</li>
+<li><p><em>📁 schemas：Business Use Feilds*</em></p>
+</li>
+<li><p><em>📁 utils*</em></p>
+</li>
+<li><p>Data Access Layer (DAL): Interface for data storage, including various data sources such as local, code, and backend.</p>
+</li>
+<li><p>Business Logic Layer (BLL): Implements business models and interactions, delivering outputs based on specific scenarios.</p>
+</li>
+<li><p>Controller: Connects BLL and pages, configures access routes.</p>
+</li>
+<li><p>Pages: View Page, overseeing all internal components.</p>
+</li>
+<li><p>Common: Primarily includes utils and components without business logic</p>
+<h3 id="The-Design-of-Business-Logic-Layer"><a href="#The-Design-of-Business-Logic-Layer" class="headerlink" title="The Design of Business Logic Layer"></a>The Design of Business Logic Layer</h3><p><img src="/img/ddd/bll%E4%B8%BB%E8%A6%81%E4%BB%A3%E7%A0%81%E9%AA%A8%E6%9E%B6.png" srcset="/img/loading.gif" lazyload alt="bll主要代码骨架"></p>
+</li>
+<li><p><em>Structure of bll：*</em><br>Store： Business Data<br>Schema： Business Field<br>eventTypes：Action Type<br>actions： Business Action Logic</p>
+</li>
+<li><p><em>Method of bll：*</em><br>$options: Basic Attrs passed from View<br>$on: Register an event<br>$emit: Trigger an event<br>updateSchema：Update Field<br>updateStore： Update Store data</p>
+</li>
+</ul>
+<p><img src="/img/ddd/bll%E4%B8%BB%E8%A6%81%E4%BB%A3%E7%A0%81%E9%AA%A8%E6%9E%B6.png" srcset="/img/loading.gif" lazyload alt="bll主要代码骨架"><br><img src="/img/ddd/%E5%85%B7%E4%BD%93%E4%B8%9A%E5%8A%A1%E5%9C%BA%E6%99%AF%E5%A4%84%E7%90%86.png" srcset="/img/loading.gif" lazyload alt="具体业务场景处理"><br><img src="/img/ddd/%E5%9C%A8%E8%A7%86%E5%9B%BE%E5%B1%82%E8%B0%83%E7%94%A8bll.png" srcset="/img/loading.gif" lazyload alt="在视图层调用bll"></p>
+<h2 id="Elaborating-on-Considerations-Implementation-Effort"><a href="#Elaborating-on-Considerations-Implementation-Effort" class="headerlink" title="Elaborating on Considerations - Implementation Effort"></a>Elaborating on Considerations - Implementation Effort</h2><ul>
+<li><strong>The initial and learning costs are relatively high, and under the premise of frequent changes in the business architecture, the time cost of taking over does not proportionally align with the constraints imposed for benefits.</strong></li>
+<li>The design of BLL (Business Logic Layer) primarily serves the development of complex business system types, while lightweight single-page solutions actually increase development costs.</li>
+<li>DDD (Domain-Driven Design) is a methodology with the aim of achieving domain cohesion, and its core lies in how to better serve specific business scenarios.</li>
+</ul>
+
                 
               </div>
             
@@ -285,8 +365,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>在前端实践DDD的沉淀</div>
-      <div>https://appleking10.github.io/2023/10/10/在前端实践DDD的沉淀/</div>
+      <div>Code Abstraction and Practical in DDD</div>
+      <div>https://appleking10.github.io/2023/10/10/Code Abstraction and Practical in DDD/</div>
     </div>
     <div class="license-meta">
       
@@ -329,6 +409,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2023/10/10/%E5%85%B3%E4%BA%8EDDD%E7%9A%84%E5%89%8D%E6%9C%9F%E8%B0%83%E7%A0%94%E5%92%8C%E8%AE%BE%E6%83%B3/" title="关于DDD的前期调研和设想">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">关于DDD的前期调研和设想</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">

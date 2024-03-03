@@ -16,45 +16,27 @@
   <meta name="author" content="金依妮">
   <meta name="keywords" content="">
   
-    <meta name="description" content="作为一个前端开发仔，当然不能只专注于网页开发的过程，也要学会如何搭建一个网站。因为朋友在双十一抢到了40元一年的服务器并把帐号密码给了我，那择日不如撞日，就开始学习如何从0到完全搭建一个网站。 此教程分为以下部分：  前提准备（服务器和域名的购买） 服务器部署（nginx） 域名解析 域名备案  这篇教程的受众：对于服务器和域名部署解析完全不懂的前端小白 看完能收获：一个完整静态网站（只有前端）的">
+    <meta name="description" content="模块分层架构：说明：  数据访问层 DAL(Data Access Layer): api&#x2F;vuex&#x2F;localStorage 等，数据存储的接口，包括但不限于本地和后台存储   - 业务逻辑层 BLL(Business Logic Layer): detail&#x2F;create&#x2F;list 等，描述业务模型的场景和交互   - 控制层 Controller: router&#x2F;layout&#x2F;nav&#x2F;pag">
 <meta property="og:type" content="article">
-<meta property="og:title" content="小白建站全过程（服务器部署+域名解析+静态文件部署）">
-<meta property="og:url" content="https://appleking10.github.io/2020/04/15/%E5%B0%8F%E7%99%BD%E5%BB%BA%E7%AB%99%E5%85%A8%E8%BF%87%E7%A8%8B%EF%BC%88%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2-%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90-%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6%E9%83%A8%E7%BD%B2%EF%BC%89/index.html">
+<meta property="og:title" content="前端架构设计">
+<meta property="og:url" content="https://appleking10.github.io/2023/10/15/%E5%89%8D%E7%AB%AF%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/index.html">
 <meta property="og:site_name" content="一个不成熟的前端博客">
-<meta property="og:description" content="作为一个前端开发仔，当然不能只专注于网页开发的过程，也要学会如何搭建一个网站。因为朋友在双十一抢到了40元一年的服务器并把帐号密码给了我，那择日不如撞日，就开始学习如何从0到完全搭建一个网站。 此教程分为以下部分：  前提准备（服务器和域名的购买） 服务器部署（nginx） 域名解析 域名备案  这篇教程的受众：对于服务器和域名部署解析完全不懂的前端小白 看完能收获：一个完整静态网站（只有前端）的">
+<meta property="og:description" content="模块分层架构：说明：  数据访问层 DAL(Data Access Layer): api&#x2F;vuex&#x2F;localStorage 等，数据存储的接口，包括但不限于本地和后台存储   - 业务逻辑层 BLL(Business Logic Layer): detail&#x2F;create&#x2F;list 等，描述业务模型的场景和交互   - 控制层 Controller: router&#x2F;layout&#x2F;nav&#x2F;pag">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://wx1.sbimg.cn/2020/04/16/12fa9bac6a1a382d3.png">
-<meta property="og:image" content="https://wx1.sbimg.cn/2020/04/15/2.png">
-<meta property="og:image" content="https://wx2.sbimg.cn/2020/04/15/3.png">
-<meta property="og:image" content="https://wx2.sbimg.cn/2020/04/15/4.png">
-<meta property="og:image" content="https://wx2.sbimg.cn/2020/04/15/5.png">
-<meta property="og:image" content="https://wx2.sbimg.cn/2020/04/15/6.png">
-<meta property="og:image" content="https://wx2.sbimg.cn/2020/04/15/7.png">
-<meta property="og:image" content="https://wx2.sbimg.cn/2020/04/15/8.png">
-<meta property="og:image" content="https://wx2.sbimg.cn/2020/04/15/9.png">
-<meta property="og:image" content="https://wx1.sbimg.cn/2020/04/15/10.png">
-<meta property="og:image" content="https://wx1.sbimg.cn/2020/04/15/11.png">
-<meta property="og:image" content="https://wx1.sbimg.cn/2020/04/15/12.png">
-<meta property="og:image" content="https://wx1.sbimg.cn/2020/04/15/13.png">
-<meta property="og:image" content="https://wx1.sbimg.cn/2020/04/15/14.png">
-<meta property="og:image" content="https://wx1.sbimg.cn/2020/04/15/15.png">
-<meta property="og:image" content="https://wx1.sbimg.cn/2020/04/15/16.png">
-<meta property="og:image" content="https://wx1.sbimg.cn/2020/04/15/17.png">
-<meta property="og:image" content="https://wx2.sbimg.cn/2020/04/16/2f9b76cbc65d6d707.png">
-<meta property="og:image" content="https://wx2.sbimg.cn/2020/04/16/3.png">
-<meta property="og:image" content="https://wx2.sbimg.cn/2020/04/16/4.png">
-<meta property="og:image" content="https://wx1.sbimg.cn/2020/04/16/51566e15f3d270519.png">
-<meta property="og:image" content="https://wx2.sbimg.cn/2020/04/16/7.png">
-<meta property="article:published_time" content="2020-04-14T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-10-10T15:40:37.570Z">
+<meta property="og:image" content="https://appleking10.github.io/img/ddd/%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E5%88%86%E5%B1%82.png">
+<meta property="og:image" content="https://appleking10.github.io/img/ddd/%E7%9B%AE%E5%BD%95%E6%96%87%E4%BB%B6%E7%BB%84%E7%BB%87%E7%BB%93%E6%9E%84.png">
+<meta property="og:image" content="https://appleking10.github.io/img/ddd/%E8%B7%A8%E6%A8%A1%E5%9D%97%E5%9C%BA%E6%99%AF.png">
+<meta property="og:image" content="https://appleking10.github.io/img/ddd/%E6%A0%B8%E5%BF%83%E6%80%9D%E6%83%B3.png">
+<meta property="article:published_time" content="2023-10-15T15:43:07.000Z">
+<meta property="article:modified_time" content="2024-03-03T07:46:20.468Z">
 <meta property="article:author" content="金依妮">
-<meta property="article:tag" content="技能篇">
+<meta property="article:tag" content="DDD">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://wx1.sbimg.cn/2020/04/16/12fa9bac6a1a382d3.png">
+<meta name="twitter:image" content="https://appleking10.github.io/img/ddd/%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E5%88%86%E5%B1%82.png">
   
   
   
-  <title>小白建站全过程（服务器部署+域名解析+静态文件部署） - 一个不成熟的前端博客</title>
+  <title>前端架构设计 - 一个不成熟的前端博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -208,7 +190,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="小白建站全过程（服务器部署+域名解析+静态文件部署）"></span>
+            <span id="subtitle" data-typed-text="前端架构设计"></span>
           
         </div>
 
@@ -219,8 +201,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2020-04-15 00:00" pubdate>
-          April 15, 2020 am
+        <time datetime="2023-10-15 23:43" pubdate>
+          October 15, 2023 pm
         </time>
       </span>
     
@@ -231,7 +213,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.9k words
+          1.6k words
         
       </span>
     
@@ -242,7 +224,7 @@
         
         
         
-          17 mins
+          13 mins
         
       </span>
     
@@ -279,99 +261,52 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">小白建站全过程（服务器部署+域名解析+静态文件部署）</h1>
+            <h1 id="seo-header">前端架构设计</h1>
             
             
               <div class="markdown-body">
                 
-                <p>作为一个前端开发仔，当然不能只专注于网页开发的过程，也要学会如何搭建一个网站。因为朋友在双十一抢到了40元一年的服务器并把帐号密码给了我，那择日不如撞日，就开始学习如何从0到完全搭建一个网站。</p>
-<p>此教程分为以下部分：</p>
+                <h2 id="模块分层架构："><a href="#模块分层架构：" class="headerlink" title="模块分层架构："></a>模块分层架构：</h2><p><img src="/img/ddd/%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%E5%88%86%E5%B1%82.png" srcset="/img/loading.gif" lazyload alt="项目结构分层"><br>说明：</p>
+<ul>
+<li><p>数据访问层 DAL(Data Access Layer): api/vuex/localStorage 等，数据存储的接口，包括但不限于本地和后台存储   - 业务逻辑层 BLL(Business Logic Layer): detail/create/list 等，描述业务模型的场景和交互   - 控制层 Controller: router/layout/nav/pages 等，用于连接bll和page，配置访问路由</p>
+</li>
+<li><p>视图层 Page: detail/create/list 等，各场景入口文件，统管内部所有组件   - 基础通用层 Common: utils/components 等，全局依赖<br>设计核心原则：</p>
+</li>
+</ul>
 <ol>
-<li>前提准备（服务器和域名的购买）</li>
-<li>服务器部署（nginx）</li>
-<li>域名解析</li>
-<li>域名备案</li>
+<li>业务逻辑和视图逻辑分离：bll聚焦在业务逻辑的数据获取、计算、合并等，而page、component则聚焦在页面的呈现结构实现上</li>
+<li>单向依赖：不同层之间保持单向依赖关系，尽量避免跨层，反向依赖等情况出现，保证分层的边界明确，避免腐坏</li>
+<li>相同层可以提取跨模块的共性进行优化：如page可以沉淀页面场景模板，controller提取通用layout和router模板，bll提取schema转换工具以适配通用的page和component等</li>
 </ol>
-<p><strong>这篇教程的受众：对于服务器和域名部署解析完全不懂的前端小白</strong></p>
-<p><strong>看完能收获：一个完整静态网站（只有前端）的建站过程</strong></p>
-<hr>
-<h3 id="1-前提准备"><a href="#1-前提准备" class="headerlink" title="1. 前提准备"></a>1. 前提准备</h3><p>域名和服务器我选择的都是阿里云。因为朋友买的就是阿里云的服务器，我在腾讯云还有一个未过期的已备好案的域名，但是在重新备案和域名解析的时候很麻烦和繁琐。所以建议域名和服务器不要分开在两家买，如果已经是腾讯云域名和阿里云服务器的话，博主悄咪咪的说一句，<del>taobao搜腾讯云授权码</del>可以快速通过域名备案。</p>
-<h4 id="1-1-服务器的选购"><a href="#1-1-服务器的选购" class="headerlink" title="1.1 服务器的选购"></a>1.1 服务器的选购</h4><p><img src="https://wx1.sbimg.cn/2020/04/16/12fa9bac6a1a382d3.png" srcset="/img/loading.gif" lazyload alt="图片"></p>
-<p>对于一般小白用户（博主自己也是），选购服务器可以随便选，具体看预算。我也看了很多选购攻略和问了dalao后，得出以下结论：</p>
-<ul>
-<li>购买时注意是否有优惠，一般定期都会有1折购或者双十一这种活动</li>
-<li><strong>实例</strong>：不要选突发性能实例，分为t5和t6，CPU实例为10%和20%起步</li>
-<li>能选ESC虚拟服务器尽量选ESC</li>
-<li><strong>系统</strong>：服务器系统建议Linux系统，因为系统占用磁盘空间很小</li>
-<li><strong>带宽</strong>：1M带宽对于打开一般网页（500kb）也就几秒钟事情</li>
-<li><strong>内存</strong>：个人小站也要1G内存起步吧，500MB有点惨啊</li>
-<li><strong>地域</strong>：看访问客户群集中在哪里，就选择临近的机房；不过境外（比如香港）的机房可以不用备案，境内的要做ICP备案</li>
-<li><strong>需求</strong>：①对于普通的应用服务器，建议选择通用型，CPU内存比为1:4，充分满足各种应用对计算资源的需求；②对于计算能力需要较高的业务，建业选择计算型，CPU内存比为1:2，充分满足对计算速率要求较高的业务</li>
-</ul>
-<h4 id="1-2-域名选购"><a href="#1-2-域名选购" class="headerlink" title="1.2 域名选购"></a>1.2 域名选购</h4><p><img src="https://wx1.sbimg.cn/2020/04/15/2.png" srcset="/img/loading.gif" lazyload alt="图片"></p>
-<p>具体域名看个人需求和预算。</p>
-<p><em>tips：如果要选择中文域名（比如xxx.公司），很多app还不能识别中文域名的访问，比如微信和微博，需要将域名十六进制转码，才能被自动识别成链接，不然只能复制到浏览器访问，且在微信网页/微博网页选择复制链接，网址也是已经被转码过了。</em></p>
-<h3 id="2-服务器部署"><a href="#2-服务器部署" class="headerlink" title="2. 服务器部署"></a>2. 服务器部署</h3><ol>
-<li><p>服务器购买成功后，会得到云服务器的实例名称、公网IP、系统登陆帐号。如果忘记了密码可以去<strong>重置密码</strong>。<br></p>
-<img src="https://wx2.sbimg.cn/2020/04/15/3.png" srcset="/img/loading.gif" lazyload style="width:300px;">
-</li>
-<li><p>然后<strong>启动实例</strong>，成功启动后可以看到状态时运行中</p>
-</li>
+<p>⠀目录文件组织结构：<br><img src="/img/ddd/%E7%9B%AE%E5%BD%95%E6%96%87%E4%BB%B6%E7%BB%84%E7%BB%87%E7%BB%93%E6%9E%84.png" srcset="/img/loading.gif" lazyload alt="目录文件组织结构"><br>说明：</p>
+<ol>
+<li>每个领域模型都按DCI组织方式设计</li>
+<li>bll最终按场景输出数据（initData）和交互行为（actions），模块场景不限于create/detail/list等常规场景，还可能包括跨模块引用的筛选弹窗、数据展示表格等</li>
 </ol>
-<p><img src="https://wx2.sbimg.cn/2020/04/15/4.png" srcset="/img/loading.gif" lazyload alt="图片"></p>
-<ol start="3">
-<li><strong>配置安全组</strong></li>
+<p>DCI详细说明：</p>
+<ul>
+<li>Data: 分为schema(fields、status等)以及data（通过api或内存中获取的form、table数据等）2类，最终会通过<code>initData</code>获取传递到page，在页面路由变更时会自动刷新，也可以在page通过emit事件主动刷</li>
+<li>Context: Detail、Create、List等按场景组合Data和Interactive，作为领域模型对外使用的接口; 场景也可能会输出跨模块依赖 - Interactive: create、edit、getList、search、approval、getList等交互行为，归纳到<code>actions</code>，page通过emit进行交互，尽量保证单向数据流</li>
+</ul>
+<p>DCI强调2点：一是介于充血模型和贫血模型之间，简化模型同时又保留充血模型的便利（通过context来解耦，context可以注入不同的数据和行为组合）；二是补全MVC架构中缺少的交互描述<br>DCI能够帮助DDD更有效的落地，在前端方面，可以让开发更易理解模型，让模型的表现形式更加具体（每个模型都包含data、interactive、context）</p>
+<h3 id="跨模块场景示例："><a href="#跨模块场景示例：" class="headerlink" title="跨模块场景示例："></a>跨模块场景示例：</h3><p><img src="/img/ddd/%E8%B7%A8%E6%A8%A1%E5%9D%97%E5%9C%BA%E6%99%AF.png" srcset="/img/loading.gif" lazyload alt="跨模块场景"><br>说明：</p>
+<ul>
+<li>select sku dialog组件可能会被应用在pr模块，但sku展示的字段结构、search的api来源于SKU领域</li>
+<li>PR的context可以引入SKU的context，PR和SKU通过各自的context来解耦</li>
+</ul>
+<p>⠀架构核心思想<br>架构设计可能会一直迭代，但是核心思想不变：</p>
+<ol>
+<li>将业务逻辑从组件中剥离出来，让组件的职责聚焦在结构的呈现和交互的多样性实现上，使组件变的灵活</li>
+<li>从业务逻辑中提炼核心原型，使核心业务逻辑更稳定，寿命更长<br><img src="/img/ddd/%E6%A0%B8%E5%BF%83%E6%80%9D%E6%83%B3.png" srcset="/img/loading.gif" lazyload alt="核心思想"></li>
 </ol>
-<p><img src="https://wx2.sbimg.cn/2020/04/15/5.png" srcset="/img/loading.gif" lazyload alt="图片"></p>
-<p>配置（开放）常见访问端口：1024/65535（系统对外开放端口，用于远程连接），20/21（ftp服务），80/80（网站访问端口），443/443（https默认端口）<br><img src="https://wx2.sbimg.cn/2020/04/15/6.png" srcset="/img/loading.gif" lazyload style="width:300px;"><img src="https://wx2.sbimg.cn/2020/04/15/7.png" srcset="/img/loading.gif" lazyload style="width:300px;"><br><img src="https://wx2.sbimg.cn/2020/04/15/8.png" srcset="/img/loading.gif" lazyload style="width:300px;"><img src="https://wx2.sbimg.cn/2020/04/15/9.png" srcset="/img/loading.gif" lazyload style="width:300px;"></p>
-<ol start="4">
-<li><strong>远程连接</strong>服务器，关于这步骤有很多方法，我前期用的时阿里云自带的远程连接，后期部署网站文件用了<a href="https://filezilla-project.org/" target="_blank" rel="noopener">FileZilla FTP Client</a>，傻瓜式操作。</li>
+<p>补充说明：<br>当前架构借鉴了DDD的核心思想，但距离DDD最佳实践还有较大差距<br>DDD最佳实践归纳：</p>
+<ol>
+<li>构建通用语言：定领域模型之前应该先定义业务概念，并在后续过程中持续优化，能用共同语言描述的属于同一个领域</li>
+<li>用通用语言划分领域的边界，构建领域模型</li>
+<li>使用modules、entity、service、value object等构造模型</li>
+<li>持续精炼领域模型，从通用语言和模型结构中提取核心原型，并通过上下文界定等方法保护核心原型不受边缘腐蚀</li>
+<li>最终在多次迭代中实现一个兼具稳定性和扩展性的高质量系统</li>
 </ol>
-<ul>
-<li><strong>a) 阿里云远程连接</strong></li>
-</ul>
-<p><img src="https://wx1.sbimg.cn/2020/04/15/10.png" srcset="/img/loading.gif" lazyload alt="图片"></p>
-<ul>
-<li><strong>b) 安装nginx</strong></li>
-</ul>
-<p>我看的是这篇：<a href="https://yq.aliyun.com/articles/700682" target="_blank" rel="noopener">在阿里云服务器上如何搭建nginx服务器？</a></p>
-<p>但第一步是要切换到根目录，然后再根据上面教程进行安装</p>
-<p><img src="https://wx1.sbimg.cn/2020/04/15/11.png" srcset="/img/loading.gif" lazyload alt="图片"></p>
-<p>成功启动nginx后，可以用 <strong><em>ps -ef | grep nginx***</em></strong> ***来查看nginx状态</p>
-<p><img src="https://wx1.sbimg.cn/2020/04/15/12.png" srcset="/img/loading.gif" lazyload alt="图片"></p>
-<ul>
-<li><p><strong>c) nginx静态文件路径指向</strong></p>
-<ul>
-<li><p>nginx成功启动后，我们需要修改nginx配置文件，来让服务器访问指向我们自己的网页。所以需要将本地文件上传到服务器上，我用了<a href="https://filezilla-project.org/" target="_blank" rel="noopener">FileZilla</a>来进行上传文件<br><img src="https://wx1.sbimg.cn/2020/04/15/13.png" srcset="/img/loading.gif" lazyload alt="图片"></p>
-</li>
-<li><p>填上服务器主机地址，用户名，密码，端口22，然后连接<br><br><img src="https://wx1.sbimg.cn/2020/04/15/14.png" srcset="/img/loading.gif" lazyload style="width:300px;"></p>
-</li>
-<li><p>就能得到我们服务器上的文件目录，然后点击/右键，新建目录data,我的本地文件放在了/data/www/pangying，入口文件时index.html<br><br><img src="https://wx1.sbimg.cn/2020/04/15/15.png" srcset="/img/loading.gif" lazyload style="width:200px;"></p>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="3-域名解析"><a href="#3-域名解析" class="headerlink" title="3. 域名解析"></a>3. 域名解析</h3><ul>
-<li>服务器端的指向解决后，需要将访问入口映射到我们购买的域名。</li>
-</ul>
-<p><img src="https://wx1.sbimg.cn/2020/04/15/16.png" srcset="/img/loading.gif" lazyload alt="图片"></p>
-<ul>
-<li>添加解析记录</li>
-</ul>
-<p><img src="https://wx1.sbimg.cn/2020/04/15/17.png" srcset="/img/loading.gif" lazyload alt="图片"></p>
-<p>然后访问我们的域名就能成功访问到页面了！但没过多久，你就会发现，页面访问会出现这个画面，提示你域名需要备案了<br><img src="https://wx2.sbimg.cn/2020/04/16/2f9b76cbc65d6d707.png" srcset="/img/loading.gif" lazyload alt="图片"></p>
-<h3 id="4-域名备案"><a href="#4-域名备案" class="headerlink" title="4. 域名备案"></a>4. 域名备案</h3><p>备案可以说是最没有技术含量但是最繁琐的过程。这个过程我可真是一把辛酸泪，一两年前我也有域名备案过，腾讯云的，申请备案，然后按规定填写信息，用寄来的蓝色布拍照，手写审核书，提交，很顺利就通过了。</p>
-<ul>
-<li>首先要先申请服务号</li>
-</ul>
-<p><img src="https://wx2.sbimg.cn/2020/04/16/3.png" srcset="/img/loading.gif" lazyload alt="图片"></p>
-<p><img src="https://wx2.sbimg.cn/2020/04/16/4.png" srcset="/img/loading.gif" lazyload alt="图片"></p>
-<p>然后将备案服务号保存，域名备案需要用到</p>
-<p><img src="https://wx1.sbimg.cn/2020/04/16/51566e15f3d270519.png" srcset="/img/loading.gif" lazyload alt="图片"></p>
-<p>接下来就是在手机上下载阿里云app，因为需要用到手机摄像头来人像识别，所以不如就直接在app上操作就行。<br>然后根据提示，一步步操作就行，一般1-3个工作日就会有阿里的工作人员来打电话跟你核验，通过之后会发邮件通知审核通过。</p>
-<p><img src="https://wx2.sbimg.cn/2020/04/16/7.png" srcset="/img/loading.gif" lazyload alt="图片"></p>
-<p><em>注意：我的审核前两次都没通过，第一次是因为网站名称带了人名+拍照的时候眼镜闭上了+名下还有一个域名没指向实体(也就是无法访问了)；第二次是因为网站描述内容没写好，这些要求在申请的时候要注意看清楚，一次审核不通过会延迟1-3个工作日的进度</em></p>
-<p>收到邮件通知通过后，网站就可以正常访问啦！<br>至于网站的内容这边就不多赘述了，毕竟这是个正经的教程。</p>
 
                 
               </div>
@@ -384,7 +319,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E6%8A%80%E8%83%BD%E7%AF%87/" class="print-no-link">#技能篇</a>
+        <a href="/tags/DDD/" class="print-no-link">#DDD</a>
       
     </div>
   
@@ -396,8 +331,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>小白建站全过程（服务器部署+域名解析+静态文件部署）</div>
-      <div>https://appleking10.github.io/2020/04/15/小白建站全过程（服务器部署-域名解析-静态文件部署）/</div>
+      <div>前端架构设计</div>
+      <div>https://appleking10.github.io/2023/10/15/前端架构设计/</div>
     </div>
     <div class="license-meta">
       
@@ -409,7 +344,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>April 15, 2020</div>
+          <div>October 15, 2023</div>
         </div>
       
       
@@ -441,15 +376,15 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/04/17/to%E4%B9%9D%E7%88%AA%E5%B0%8F%E8%9F%B9%E7%BD%91%E7%AB%99%E7%9A%84%E4%B8%80%E7%A0%96%E4%B8%80%E7%93%A6/" title="关于to九爪小蟹网站的一砖一瓦">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">关于to九爪小蟹网站的一砖一瓦</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2023/10/10/%E5%85%B3%E4%BA%8EDDD%E7%9A%84%E5%89%8D%E6%9C%9F%E8%B0%83%E7%A0%94%E5%92%8C%E8%AE%BE%E6%83%B3/" title="关于DDD的前期调研和设想">
+                        <span class="hidden-mobile">关于DDD的前期调研和设想</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>

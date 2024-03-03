@@ -16,45 +16,22 @@
   <meta name="author" content="金依妮">
   <meta name="keywords" content="">
   
-    <meta name="description" content="作为一个前端开发仔，当然不能只专注于网页开发的过程，也要学会如何搭建一个网站。因为朋友在双十一抢到了40元一年的服务器并把帐号密码给了我，那择日不如撞日，就开始学习如何从0到完全搭建一个网站。 此教程分为以下部分：  前提准备（服务器和域名的购买） 服务器部署（nginx） 域名解析 域名备案  这篇教程的受众：对于服务器和域名部署解析完全不懂的前端小白 看完能收获：一个完整静态网站（只有前端）的">
+    <meta name="description" content="对于架构设计，我们先要理解软件的本质，有扎实的基础，才能真正落地，同时借鉴服务端、操作系统等经验，事半功倍。如果我看得更远一点的话，是因为我站在巨人的肩膀上。 ———— 牛顿  一. 当前WEB前端所要去应对的场景是什么?可以总结为三大类:  业务系统 通用应用 工具类的应用  ⠀这三类可以统称为站点,或者是应用,最早的叫法是软件,我们可以从不同的角度去叫它,但表达的都是一个意思.  业务系统,">
 <meta property="og:type" content="article">
-<meta property="og:title" content="小白建站全过程（服务器部署+域名解析+静态文件部署）">
-<meta property="og:url" content="https://appleking10.github.io/2020/04/15/%E5%B0%8F%E7%99%BD%E5%BB%BA%E7%AB%99%E5%85%A8%E8%BF%87%E7%A8%8B%EF%BC%88%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2-%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90-%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6%E9%83%A8%E7%BD%B2%EF%BC%89/index.html">
+<meta property="og:title" content="关于DDD的前期调研和设想">
+<meta property="og:url" content="https://appleking10.github.io/2023/10/10/%E5%85%B3%E4%BA%8EDDD%E7%9A%84%E5%89%8D%E6%9C%9F%E8%B0%83%E7%A0%94%E5%92%8C%E8%AE%BE%E6%83%B3/index.html">
 <meta property="og:site_name" content="一个不成熟的前端博客">
-<meta property="og:description" content="作为一个前端开发仔，当然不能只专注于网页开发的过程，也要学会如何搭建一个网站。因为朋友在双十一抢到了40元一年的服务器并把帐号密码给了我，那择日不如撞日，就开始学习如何从0到完全搭建一个网站。 此教程分为以下部分：  前提准备（服务器和域名的购买） 服务器部署（nginx） 域名解析 域名备案  这篇教程的受众：对于服务器和域名部署解析完全不懂的前端小白 看完能收获：一个完整静态网站（只有前端）的">
+<meta property="og:description" content="对于架构设计，我们先要理解软件的本质，有扎实的基础，才能真正落地，同时借鉴服务端、操作系统等经验，事半功倍。如果我看得更远一点的话，是因为我站在巨人的肩膀上。 ———— 牛顿  一. 当前WEB前端所要去应对的场景是什么?可以总结为三大类:  业务系统 通用应用 工具类的应用  ⠀这三类可以统称为站点,或者是应用,最早的叫法是软件,我们可以从不同的角度去叫它,但表达的都是一个意思.  业务系统,">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://wx1.sbimg.cn/2020/04/16/12fa9bac6a1a382d3.png">
-<meta property="og:image" content="https://wx1.sbimg.cn/2020/04/15/2.png">
-<meta property="og:image" content="https://wx2.sbimg.cn/2020/04/15/3.png">
-<meta property="og:image" content="https://wx2.sbimg.cn/2020/04/15/4.png">
-<meta property="og:image" content="https://wx2.sbimg.cn/2020/04/15/5.png">
-<meta property="og:image" content="https://wx2.sbimg.cn/2020/04/15/6.png">
-<meta property="og:image" content="https://wx2.sbimg.cn/2020/04/15/7.png">
-<meta property="og:image" content="https://wx2.sbimg.cn/2020/04/15/8.png">
-<meta property="og:image" content="https://wx2.sbimg.cn/2020/04/15/9.png">
-<meta property="og:image" content="https://wx1.sbimg.cn/2020/04/15/10.png">
-<meta property="og:image" content="https://wx1.sbimg.cn/2020/04/15/11.png">
-<meta property="og:image" content="https://wx1.sbimg.cn/2020/04/15/12.png">
-<meta property="og:image" content="https://wx1.sbimg.cn/2020/04/15/13.png">
-<meta property="og:image" content="https://wx1.sbimg.cn/2020/04/15/14.png">
-<meta property="og:image" content="https://wx1.sbimg.cn/2020/04/15/15.png">
-<meta property="og:image" content="https://wx1.sbimg.cn/2020/04/15/16.png">
-<meta property="og:image" content="https://wx1.sbimg.cn/2020/04/15/17.png">
-<meta property="og:image" content="https://wx2.sbimg.cn/2020/04/16/2f9b76cbc65d6d707.png">
-<meta property="og:image" content="https://wx2.sbimg.cn/2020/04/16/3.png">
-<meta property="og:image" content="https://wx2.sbimg.cn/2020/04/16/4.png">
-<meta property="og:image" content="https://wx1.sbimg.cn/2020/04/16/51566e15f3d270519.png">
-<meta property="og:image" content="https://wx2.sbimg.cn/2020/04/16/7.png">
-<meta property="article:published_time" content="2020-04-14T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-10-10T15:40:37.570Z">
+<meta property="article:published_time" content="2023-10-10T15:43:07.000Z">
+<meta property="article:modified_time" content="2024-03-03T07:20:40.392Z">
 <meta property="article:author" content="金依妮">
-<meta property="article:tag" content="技能篇">
+<meta property="article:tag" content="DDD">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://wx1.sbimg.cn/2020/04/16/12fa9bac6a1a382d3.png">
   
   
   
-  <title>小白建站全过程（服务器部署+域名解析+静态文件部署） - 一个不成熟的前端博客</title>
+  <title>关于DDD的前期调研和设想 - 一个不成熟的前端博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -208,7 +185,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="小白建站全过程（服务器部署+域名解析+静态文件部署）"></span>
+            <span id="subtitle" data-typed-text="关于DDD的前期调研和设想"></span>
           
         </div>
 
@@ -219,8 +196,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2020-04-15 00:00" pubdate>
-          April 15, 2020 am
+        <time datetime="2023-10-10 23:43" pubdate>
+          October 10, 2023 pm
         </time>
       </span>
     
@@ -231,7 +208,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.9k words
+          2.5k words
         
       </span>
     
@@ -242,7 +219,7 @@
         
         
         
-          17 mins
+          21 mins
         
       </span>
     
@@ -279,99 +256,42 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">小白建站全过程（服务器部署+域名解析+静态文件部署）</h1>
+            <h1 id="seo-header">关于DDD的前期调研和设想</h1>
             
             
               <div class="markdown-body">
                 
-                <p>作为一个前端开发仔，当然不能只专注于网页开发的过程，也要学会如何搭建一个网站。因为朋友在双十一抢到了40元一年的服务器并把帐号密码给了我，那择日不如撞日，就开始学习如何从0到完全搭建一个网站。</p>
-<p>此教程分为以下部分：</p>
+                <blockquote>
+<p>对于架构设计，我们先要理解软件的本质，有扎实的基础，才能真正落地，同时借鉴服务端、操作系统等经验，事半功倍。<br>如果我看得更远一点的话，是因为我站在巨人的肩膀上。 ———— 牛顿</p>
+</blockquote>
+<h2 id="一-当前WEB前端所要去应对的场景是什么"><a href="#一-当前WEB前端所要去应对的场景是什么" class="headerlink" title="一. 当前WEB前端所要去应对的场景是什么?"></a>一. 当前WEB前端所要去应对的场景是什么?</h2><p>可以总结为三大类:</p>
 <ol>
-<li>前提准备（服务器和域名的购买）</li>
-<li>服务器部署（nginx）</li>
-<li>域名解析</li>
-<li>域名备案</li>
+<li>业务系统</li>
+<li>通用应用</li>
+<li>工具类的应用</li>
 </ol>
-<p><strong>这篇教程的受众：对于服务器和域名部署解析完全不懂的前端小白</strong></p>
-<p><strong>看完能收获：一个完整静态网站（只有前端）的建站过程</strong></p>
-<hr>
-<h3 id="1-前提准备"><a href="#1-前提准备" class="headerlink" title="1. 前提准备"></a>1. 前提准备</h3><p>域名和服务器我选择的都是阿里云。因为朋友买的就是阿里云的服务器，我在腾讯云还有一个未过期的已备好案的域名，但是在重新备案和域名解析的时候很麻烦和繁琐。所以建议域名和服务器不要分开在两家买，如果已经是腾讯云域名和阿里云服务器的话，博主悄咪咪的说一句，<del>taobao搜腾讯云授权码</del>可以快速通过域名备案。</p>
-<h4 id="1-1-服务器的选购"><a href="#1-1-服务器的选购" class="headerlink" title="1.1 服务器的选购"></a>1.1 服务器的选购</h4><p><img src="https://wx1.sbimg.cn/2020/04/16/12fa9bac6a1a382d3.png" srcset="/img/loading.gif" lazyload alt="图片"></p>
-<p>对于一般小白用户（博主自己也是），选购服务器可以随便选，具体看预算。我也看了很多选购攻略和问了dalao后，得出以下结论：</p>
-<ul>
-<li>购买时注意是否有优惠，一般定期都会有1折购或者双十一这种活动</li>
-<li><strong>实例</strong>：不要选突发性能实例，分为t5和t6，CPU实例为10%和20%起步</li>
-<li>能选ESC虚拟服务器尽量选ESC</li>
-<li><strong>系统</strong>：服务器系统建议Linux系统，因为系统占用磁盘空间很小</li>
-<li><strong>带宽</strong>：1M带宽对于打开一般网页（500kb）也就几秒钟事情</li>
-<li><strong>内存</strong>：个人小站也要1G内存起步吧，500MB有点惨啊</li>
-<li><strong>地域</strong>：看访问客户群集中在哪里，就选择临近的机房；不过境外（比如香港）的机房可以不用备案，境内的要做ICP备案</li>
-<li><strong>需求</strong>：①对于普通的应用服务器，建议选择通用型，CPU内存比为1:4，充分满足各种应用对计算资源的需求；②对于计算能力需要较高的业务，建业选择计算型，CPU内存比为1:2，充分满足对计算速率要求较高的业务</li>
-</ul>
-<h4 id="1-2-域名选购"><a href="#1-2-域名选购" class="headerlink" title="1.2 域名选购"></a>1.2 域名选购</h4><p><img src="https://wx1.sbimg.cn/2020/04/15/2.png" srcset="/img/loading.gif" lazyload alt="图片"></p>
-<p>具体域名看个人需求和预算。</p>
-<p><em>tips：如果要选择中文域名（比如xxx.公司），很多app还不能识别中文域名的访问，比如微信和微博，需要将域名十六进制转码，才能被自动识别成链接，不然只能复制到浏览器访问，且在微信网页/微博网页选择复制链接，网址也是已经被转码过了。</em></p>
-<h3 id="2-服务器部署"><a href="#2-服务器部署" class="headerlink" title="2. 服务器部署"></a>2. 服务器部署</h3><ol>
-<li><p>服务器购买成功后，会得到云服务器的实例名称、公网IP、系统登陆帐号。如果忘记了密码可以去<strong>重置密码</strong>。<br></p>
-<img src="https://wx2.sbimg.cn/2020/04/15/3.png" srcset="/img/loading.gif" lazyload style="width:300px;">
-</li>
-<li><p>然后<strong>启动实例</strong>，成功启动后可以看到状态时运行中</p>
-</li>
+<p>⠀这三类可以统称为站点,或者是应用,最早的叫法是软件,我们可以从不同的角度去叫它,但表达的都是一个意思.</p>
+<ol>
+<li>业务系统,比如说银行的客户管理系统,物流管理系统之类的,现在整个近十年趋势,都是从以前的CS架构转变成BS架构,所以大部分这种系统,都是以Web形式呈现的. 和通用应用不同的地方在于,业务系统更多的会用Web技术去做;</li>
+<li>而通用应用一般不仅是web形式,安卓,ios各种设备都需要有</li>
+<li>工具类的应用是指可以提供生产力的环境,比如你可以在上面做设计,快速获得各类报表;当下比较火的工具类应用类似Figma,百度地图</li>
 </ol>
-<p><img src="https://wx2.sbimg.cn/2020/04/15/4.png" srcset="/img/loading.gif" lazyload alt="图片"></p>
-<ol start="3">
-<li><strong>配置安全组</strong></li>
-</ol>
-<p><img src="https://wx2.sbimg.cn/2020/04/15/5.png" srcset="/img/loading.gif" lazyload alt="图片"></p>
-<p>配置（开放）常见访问端口：1024/65535（系统对外开放端口，用于远程连接），20/21（ftp服务），80/80（网站访问端口），443/443（https默认端口）<br><img src="https://wx2.sbimg.cn/2020/04/15/6.png" srcset="/img/loading.gif" lazyload style="width:300px;"><img src="https://wx2.sbimg.cn/2020/04/15/7.png" srcset="/img/loading.gif" lazyload style="width:300px;"><br><img src="https://wx2.sbimg.cn/2020/04/15/8.png" srcset="/img/loading.gif" lazyload style="width:300px;"><img src="https://wx2.sbimg.cn/2020/04/15/9.png" srcset="/img/loading.gif" lazyload style="width:300px;"></p>
-<ol start="4">
-<li><strong>远程连接</strong>服务器，关于这步骤有很多方法，我前期用的时阿里云自带的远程连接，后期部署网站文件用了<a href="https://filezilla-project.org/" target="_blank" rel="noopener">FileZilla FTP Client</a>，傻瓜式操作。</li>
-</ol>
+<p>⠀通过以上场景总结, <strong>前端DDD更多地适合用于业务系统这类场景.</strong></p>
+<h2 id="二-关于目前主流前端框架的缺陷"><a href="#二-关于目前主流前端框架的缺陷" class="headerlink" title="二. 关于目前主流前端框架的缺陷"></a>二. 关于目前主流前端框架的缺陷</h2><p>不知道你们有没有思考过这种问题: 特别是国内,用vue的同学非常的多.如果用vue的应用来开发业务系统,你会发现,当你写到第二年的时候,你就写不动了.因为很多用vue去做开发的应用,带有一种短频快; 或者是说,对开发者来讲,你进入这个项目待的时间不会特别长;当随着业务扩增和时间发展,会感觉代码非常混乱,在开发的时候,会在不同的文件,或者在各种组件上进行修改,那就会造成一个问题,就是开发者很难感知到我这个业务数据的变动,究竟是在什么时候触发的,除非很熟悉整个业务页面逻辑和代码结构,否则很难去维护.<br>如果你是在做业务系统的程序员,你可能就要思考: <strong>难道我只需要解决好数据驱动界面的问题,我就可以把业务写好了吗?</strong><br><strong>主流框架便捷开发带来的坏处</strong><br>很多时候,我们会将视图层的逻辑和业务层的逻辑杂糅在一起(比如说按钮的显隐逻辑写template里),你在阅读代码的时候,就会发现是在视图层面和业务逻辑层频繁跳跃,你需要去不停的切换你思考的场景.这往往就会给前端开发对于整个业务的理解带来更大的成本;或者说在重构或者升级框架时,还依旧带着这种思路去做,那很大概率会重蹈覆辙.<br><strong>其实vue和react的框架应用,它们更多的是站在我要去解决的是前端视图层面上的东西,解决基于dom元素如何在数据驱动模式下去进行自动更新.但是在react或者vue的生态里,它们没有提供一个完美的方案去解决业务要怎么结合框架去写好代码的问题</strong>. 所以它们只是视图层面的框架,跟真正的软件架构体系还有一定的距离.<br><strong>前端在业务领域内还没有形成一定的规范</strong><br>如果你知道C#,你应该听过C#很好去做前后端同构,你可以理解为一份代码可以同时放在前后端运行.因为在开发的时候,一些特定的东西是按照特定的模式去相互共享的,包括一些业务上面的计算,比如前后端数值要保持一致、流程的判断.其实用的都是同一份代码,这样可以保证你在前端做的业务数据逻辑计算可以和后端保持一致.<br>在传统或者说CS时期的软件架构体系下,工程师们要考虑业务对象的建模,业务流程控制,到了WEB应用的年代,前端的技术发展最早是不如后端技术的,比如说后端像JAVA,会有像spring这种大统一的主流框架,但前端是没有这种比较强统一的范式.所以虽然人们形容前端是百花齐放,但很多技术都是去探索解决眼前的问题,还没有更广阔的形成把握业务的范式.<br>那如何解决这些问题呢?这时候可以用DDD架构的思路来解决.</p>
+<h2 id="三-什么是DDD架构"><a href="#三-什么是DDD架构" class="headerlink" title="三. 什么是DDD架构"></a>三. 什么是DDD架构</h2><p>DDD(Domain-Driven Design),domain这里是指领域的意思,是Eric Evans在2004年通过《Domain-Driven Design: Tackling Complexity in the Heart of Software》总结提出的一整套概念和方法论.以我个人薄弱的见解,DDD是从实际业务出发，站在解决领域问题的角度去思考和设计系统的方法论.它包含了两个方面的内容：</p>
 <ul>
-<li><strong>a) 阿里云远程连接</strong></li>
+<li><strong>沟通方法论</strong></li>
+<li><strong>研发方法论</strong></li>
 </ul>
-<p><img src="https://wx1.sbimg.cn/2020/04/15/10.png" srcset="/img/loading.gif" lazyload alt="图片"></p>
+<p>沟通方法论是讲DDD是站在研发人员的角度去告诉开发者怎么去和业务方和需求方进行沟通.比如像Retail团队,在当业务方(FPM)向我们提出一个需求时,其实背后是有一个需求方(BPM)去告诉FPM他们的诉求,FPM会和需求方去接触和了解这个诉求本质是因为什么东西变化而引起的,然后再根据自己的经验总结成能够呈现在我们系统上具体的一个功能.<br>如果当开发者需要和需求方去沟通的时候,还是依旧站在技术的角度上(比如字段,事件)去进行,那这时候这种交流就会是很冲突的;或者说需求方不停和你说一些专业的业务词汇,如果没有很详细的解释这些词在当下的业务下的含义,作为开发者也是很难去领悟到需求方的动机.所以Eric在书里提供了一个方法论,我们可以基于一个<strong>统一语言</strong>去做沟通<strong>.</strong> 这个统一语言可以让技术人员和领域专家坐在一起构建出对应业务的<strong>领域模型</strong>，必须摒弃他们各自在自己工作范围内的狭义概念，大家找到一种相互都可以理解的概念表达方式，来最终确认各自提出的问题和回答对方都能准确理解.<br><strong>我们可以使用***</strong>UML(用图形的方式来描绘各种研发场景的对应的对象和关系)<strong>***来作为统一语言进行构建领域模型.</strong></p>
+<h2 id="四-前端要关注的范畴，应该比后端还大一些"><a href="#四-前端要关注的范畴，应该比后端还大一些" class="headerlink" title="四. 前端要关注的范畴，应该比后端还大一些"></a>四. 前端要关注的范畴，应该比后端还大一些</h2><p>作为一名业务系统的前端开发,需要去关注这几个方面的事情:</p>
 <ul>
-<li><strong>b) 安装nginx</strong></li>
+<li>业务模型(页面展示以及流程流转的条件控制等)</li>
+<li>数据服务</li>
+<li>UI交互组件体系</li>
 </ul>
-<p>我看的是这篇：<a href="https://yq.aliyun.com/articles/700682" target="_blank" rel="noopener">在阿里云服务器上如何搭建nginx服务器？</a></p>
-<p>但第一步是要切换到根目录，然后再根据上面教程进行安装</p>
-<p><img src="https://wx1.sbimg.cn/2020/04/15/11.png" srcset="/img/loading.gif" lazyload alt="图片"></p>
-<p>成功启动nginx后，可以用 <strong><em>ps -ef | grep nginx***</em></strong> ***来查看nginx状态</p>
-<p><img src="https://wx1.sbimg.cn/2020/04/15/12.png" srcset="/img/loading.gif" lazyload alt="图片"></p>
-<ul>
-<li><p><strong>c) nginx静态文件路径指向</strong></p>
-<ul>
-<li><p>nginx成功启动后，我们需要修改nginx配置文件，来让服务器访问指向我们自己的网页。所以需要将本地文件上传到服务器上，我用了<a href="https://filezilla-project.org/" target="_blank" rel="noopener">FileZilla</a>来进行上传文件<br><img src="https://wx1.sbimg.cn/2020/04/15/13.png" srcset="/img/loading.gif" lazyload alt="图片"></p>
-</li>
-<li><p>填上服务器主机地址，用户名，密码，端口22，然后连接<br><br><img src="https://wx1.sbimg.cn/2020/04/15/14.png" srcset="/img/loading.gif" lazyload style="width:300px;"></p>
-</li>
-<li><p>就能得到我们服务器上的文件目录，然后点击/右键，新建目录data,我的本地文件放在了/data/www/pangying，入口文件时index.html<br><br><img src="https://wx1.sbimg.cn/2020/04/15/15.png" srcset="/img/loading.gif" lazyload style="width:200px;"></p>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="3-域名解析"><a href="#3-域名解析" class="headerlink" title="3. 域名解析"></a>3. 域名解析</h3><ul>
-<li>服务器端的指向解决后，需要将访问入口映射到我们购买的域名。</li>
-</ul>
-<p><img src="https://wx1.sbimg.cn/2020/04/15/16.png" srcset="/img/loading.gif" lazyload alt="图片"></p>
-<ul>
-<li>添加解析记录</li>
-</ul>
-<p><img src="https://wx1.sbimg.cn/2020/04/15/17.png" srcset="/img/loading.gif" lazyload alt="图片"></p>
-<p>然后访问我们的域名就能成功访问到页面了！但没过多久，你就会发现，页面访问会出现这个画面，提示你域名需要备案了<br><img src="https://wx2.sbimg.cn/2020/04/16/2f9b76cbc65d6d707.png" srcset="/img/loading.gif" lazyload alt="图片"></p>
-<h3 id="4-域名备案"><a href="#4-域名备案" class="headerlink" title="4. 域名备案"></a>4. 域名备案</h3><p>备案可以说是最没有技术含量但是最繁琐的过程。这个过程我可真是一把辛酸泪，一两年前我也有域名备案过，腾讯云的，申请备案，然后按规定填写信息，用寄来的蓝色布拍照，手写审核书，提交，很顺利就通过了。</p>
-<ul>
-<li>首先要先申请服务号</li>
-</ul>
-<p><img src="https://wx2.sbimg.cn/2020/04/16/3.png" srcset="/img/loading.gif" lazyload alt="图片"></p>
-<p><img src="https://wx2.sbimg.cn/2020/04/16/4.png" srcset="/img/loading.gif" lazyload alt="图片"></p>
-<p>然后将备案服务号保存，域名备案需要用到</p>
-<p><img src="https://wx1.sbimg.cn/2020/04/16/51566e15f3d270519.png" srcset="/img/loading.gif" lazyload alt="图片"></p>
-<p>接下来就是在手机上下载阿里云app，因为需要用到手机摄像头来人像识别，所以不如就直接在app上操作就行。<br>然后根据提示，一步步操作就行，一般1-3个工作日就会有阿里的工作人员来打电话跟你核验，通过之后会发邮件通知审核通过。</p>
-<p><img src="https://wx2.sbimg.cn/2020/04/16/7.png" srcset="/img/loading.gif" lazyload alt="图片"></p>
-<p><em>注意：我的审核前两次都没通过，第一次是因为网站名称带了人名+拍照的时候眼镜闭上了+名下还有一个域名没指向实体(也就是无法访问了)；第二次是因为网站描述内容没写好，这些要求在申请的时候要注意看清楚，一次审核不通过会延迟1-3个工作日的进度</em></p>
-<p>收到邮件通知通过后，网站就可以正常访问啦！<br>至于网站的内容这边就不多赘述了，毕竟这是个正经的教程。</p>
+<p>⠀前端开发注定不可能只关注业务模型，在前端，特别是web领域，除业务之外关注由后端吐出的数据和界面交互是一件必须的事。甚至有这样一种情况，产品文档中指出，“用户点击该按钮时，需要弹出二次确认窗口，点击确认后该签署流转为已完成”。在这个描述中，用户点击按钮弹出确认对话框，是否属于业务逻辑呢？从传统后端的角度，当然不属于，但是，如果去掉这个交互逻辑，能否完整表达这一业务过程呢？<strong>这是一个值得思考的问题，前端如果要实施DDD，不可能照搬后端的实践。</strong>前端无法脱离交互去谈业务模型,所以说,前端要关注的范畴,应该比后端还大一些。</p>
+<p>参考资料：<br><a href="https://www.tangshuang.net/8212.html" target="_blank" rel="noopener">React语境下前端DDD的思考_唐霜的博客</a><br><a href="https://www.zhihu.com/column/c_1266667320073818112" target="_blank" rel="noopener">前端数据治理之道</a></p>
 
                 
               </div>
@@ -384,7 +304,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E6%8A%80%E8%83%BD%E7%AF%87/" class="print-no-link">#技能篇</a>
+        <a href="/tags/DDD/" class="print-no-link">#DDD</a>
       
     </div>
   
@@ -396,8 +316,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>小白建站全过程（服务器部署+域名解析+静态文件部署）</div>
-      <div>https://appleking10.github.io/2020/04/15/小白建站全过程（服务器部署-域名解析-静态文件部署）/</div>
+      <div>关于DDD的前期调研和设想</div>
+      <div>https://appleking10.github.io/2023/10/10/关于DDD的前期调研和设想/</div>
     </div>
     <div class="license-meta">
       
@@ -409,7 +329,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>April 15, 2020</div>
+          <div>October 10, 2023</div>
         </div>
       
       
@@ -441,15 +361,21 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/04/17/to%E4%B9%9D%E7%88%AA%E5%B0%8F%E8%9F%B9%E7%BD%91%E7%AB%99%E7%9A%84%E4%B8%80%E7%A0%96%E4%B8%80%E7%93%A6/" title="关于to九爪小蟹网站的一砖一瓦">
+                      <a href="/2023/10/15/%E5%89%8D%E7%AB%AF%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/" title="前端架构设计">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">关于to九爪小蟹网站的一砖一瓦</span>
+                        <span class="hidden-mobile">前端架构设计</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2023/10/10/Code%20Abstraction%20and%20Practical%20in%20DDD/" title="Code Abstraction and Practical in DDD">
+                        <span class="hidden-mobile">Code Abstraction and Practical in DDD</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
