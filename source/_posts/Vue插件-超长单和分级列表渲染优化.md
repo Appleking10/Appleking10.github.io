@@ -8,13 +8,12 @@ tags: [Vue实战,技能篇]
 
 组件仓库链接： [组件仓库](https://github.com/Appleking10/virtual-list)
 + 组件效果图：
-
-<img src="/Appleking10.github.io/img/3.png" alt="呈现效果" width="100%">
+![组件效果图](/img/3.png)
 
 + 组件应用:
 
-<img src="/Appleking10.github.io/img/4.png" alt="呈现效果" width="40%">
-<img src="/Appleking10.github.io/img/5.png" alt="呈现效果" width="40%">
+<img src="/img/4.png" alt="呈现效果" width="40%">
+<img src="/img/5.png" alt="呈现效果" width="40%">
 
 
 
@@ -36,7 +35,7 @@ js引擎是单核引擎，也就是说，js引擎只能开一条线程来处理�
 
 那遇到异步任务怎么实现异步呢，关于这个可以参考下面流程图:
 
-<img src="/Appleking10.github.io/img/1.png" alt="流程图" width="100%">
+<img src="/img/1.png" alt="流程图" width="100%">
 
 ①首先可以将一个js脚本看成一个宏任务，然后从上至下依次执行代码，遇到异步任务。②将异步任务分类，如果是微任务（如`Promsie`）就将微任务的回调函数放入微任务队列，如果是宏任务，就等宏任务成功或者时间到了（此时js引擎会将这个任务挂起，继续执行当前的同步代码），将成功回调放入宏任务队列。③当前同步代码全部执行完毕后，js引擎会去触发`EventLoop轮询处理线程`，先去看当前微任务队列是有有任务，若有任务，从队头任务开始执行，④等当前微任务队列清空后，**浏览器会进行一次GUI渲染**，⑤然后会去取一个宏任务放到执行栈，开始执行同步代码，遇到异步任务重复②
 
@@ -169,7 +168,7 @@ handleScroll() {
 4.  **预留占位渲染**
 如果用户滑的很快，还是会出现瞬间白屏的现象，因此需要在虚拟列表**前后**加上一品列表（数量也可以自定义）。可以通过将前后指针分别前后移动，增加虚拟列表渲染范围，同时需要将虚拟列表的视口取在中间段。
 
-<img src="/Appleking10.github.io/img/2.png" alt="预留渲染图" width="100%">
+<img src="/img/2.png" alt="预留渲染图" width="100%">
 
 ```javascript
 //在虚拟列表前后占一品位,返回位置
